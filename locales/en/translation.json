@@ -1,0 +1,415 @@
+{
+    "nav": {
+        "core_expertise": "Core Expertise",
+        "our_approach": "Our Approach",
+        "portfolio": "Portfolio",
+        "insights": "Insights",
+        "initiate_signal_check": "Initiate Signal Check"
+    },
+    "hero": {
+        "badge": "AI-Powered Manufacturing",
+        "title": "Forging Intelligence Into Production.",
+        "subtitle": "Embedded expertise that applies the right Torque to your Supply Chain and casts a new digital future in our Foundry. Not from afar, but from within.",
+        "cta_primary": "Initiate Signal Check",
+        "cta_portfolio": "Our Portfolio",
+        "see_risk_model": "See the Risk-Reversal Model",
+        "our_expertise": "Our Expertise",
+        "embedded_domains": "Embedded Domains",
+        "engagement_model": "Engagement Model",
+        "telemetry": "Live Factory Telemetry",
+        "signal_active": "SIGNAL: ACTIVE"
+    },
+    "portfolio": {
+        "back_to_home": "← Back to Home",
+        "view_mode": "View Mode:",
+        "authorized": "AUTHORIZED",
+        "public": "PUBLIC",
+        "lock_dossier": "LOCK DOSSIER",
+        "unlock_data": "UNLOCK DATA",
+        "access_denied": "ACCESS DENIED: INSUFFICIENT PERMISSIONS.",
+        "digital_dossier": "Digital Dossier",
+        "title": "Decoding the Impact.",
+        "subtitle": "No theory. No slides. Just realized P&L impact across Manufacturing, Supply Chain, and Digital.",
+        "foundry_core": "The Foundry Core",
+        "executive_curriculum": "Executive Curriculum",
+        "technical_stack": "Technical Stack",
+        "modules": {
+            "0": "From Control Tower Slides to Real-Time Operations",
+            "1": "Using Modern Data Standards to Clean Up Logistics",
+            "2": "Transforming Hidden Factories: The Lean Path",
+            "3": "From Tender Savings to Structural Cost Leadership"
+        },
+        "partners": {
+            "supply_chain": "HEAD OF SUPPLY CHAIN",
+            "manufacturing": "HEAD OF PRODUCTION",
+            "digital": "HEAD OF DIGITAL"
+        }
+    },
+    "apply": {
+        "title": "System Configuration",
+        "subtitle": "Configure your engagement paramaters",
+        "signal_rejected": {
+            "title": "Signal Rejected",
+            "message": "Telemetry indicates your operational volume is below the threshold for our Risk-Reversal model. However, you can still access our proven methodologies via the Self-Service Protocol.",
+            "self_service": "Access Self-Service Kit",
+            "cancel": "Cancel Protocol"
+        },
+        "steps": {
+            "load": {
+                "title": "Module 01 // Operational Load",
+                "sub": "SELECT CAPACITY",
+                "options": {
+                    "sme": "Startup / SME Scale",
+                    "mid": "Mid-Market Velocity",
+                    "ent": "Enterprise Complexity"
+                }
+            },
+            "interference": {
+                "title": "Module 02 // Signal Interference",
+                "sub": "IDENTIFY NOISE SOURCE",
+                "options": {
+                    "inventory": "Inventory Bleed",
+                    "costs": "The Black Box",
+                    "erp": "ERP Paralysis",
+                    "throughput": "Throughput Stagnation"
+                }
+            },
+            "architecture": {
+                "title": "Module 03 // Terrain",
+                "sub": "Describe your current IT Landscape.",
+                "options": {
+                    "pristine": "Pristine",
+                    "frankenstein": "Frankenstein",
+                    "analog": "Analog"
+                }
+            },
+            "context": {
+                "title": "Module 04 // Transmission",
+                "sub": "ADDITIONAL CONTEXT",
+                "placeholder": "> Enter additional operational constraints or objectives...",
+                "submit": "Transmit Data",
+                "terminal_label": "TERMINAL_INPUT_V.01"
+            },
+            "complete": {
+                "title": "Configuration Complete",
+                "subtitle": "System telemetry nominal. Ready to initialize.",
+                "button": "Initialize Handshake",
+                "status_ready": "READY",
+                "configuring": "CONFIGURING..."
+            }
+        },
+        "hud": {
+            "system_status": "System Status",
+            "signal_strength": "Signal Strength"
+        }
+    },
+    "brownfield": {
+        "pre_title": "See Through the Complexity",
+        "title": "Operational Reality.",
+        "description": "We map the real constraints—systems, contracts, people—and build a staged evolution path.",
+        "slider": {
+            "left": "PHYSICAL ASSET (Legacy)",
+            "right": "DIGITAL TWIN (Future)",
+            "drag": "DRAG TO SCAN"
+        },
+        "hud": {
+            "throughput": "THROUGHPUT",
+            "oee": "OEE",
+            "optimized_flow": "OPTIMIZED FLOW",
+            "maintenance": "MAINTENANCE REQUIRED"
+        }
+    },
+    "embedded": {
+        "pre_title": "Embedded Philosophy",
+        "title": "Nested, Not Just Near.",
+        "description": "We don't just advise. We embed. We sit inside your stand-ups, shift handovers, and control towers—helping your teams change from within.",
+        "war_story": "War Story",
+        "cases": [
+            {
+                "title": "Migrating Legacy ERP without stopping the line.",
+                "description": "Re-platformed core planning and execution from a 20-year-old ERP while maintaining service levels and OEE across three plants.",
+                "metrics": [
+                    "0 unscheduled line stops during cutover",
+                    "+9% schedule adherence in 6 months"
+                ]
+            },
+            {
+                "title": "Unlocking $145M in Inventory.",
+                "description": "Segmented SKUs, redefined buffers, and synchronized procurement with true demand signals instead of spreadsheet heuristics.",
+                "metrics": [
+                    "-$145M net working capital",
+                    "+3.5 pts service improvement"
+                ]
+            }
+        ]
+    },
+    "team": {
+        "pre_title": "Human Capital",
+        "title": "Embedded Operators.",
+        "description": "We are not slide-deck consultants. We are veterans who have worn the safety shoes and managed the P&L.",
+        "operators": [
+            {
+                "role": "HEAD OF PRODUCTION",
+                "sub": "MANUFACTURING EXPERT",
+                "bio": "Six Sigma Master Black Belt. Decades of floor experience optimizing throughput and OEE.",
+                "badge": "OP-EX LEVEL 5"
+            },
+            {
+                "role": "HEAD OF SUPPLY CHAIN",
+                "sub": "SUPPLY CHAIN EXPERT",
+                "bio": "Procurement & Logistics Strategist. Connecting raw materials to final delivery with zero friction.",
+                "badge": "FLOW RATE: MAX"
+            },
+            {
+                "role": "HEAD OF DIGITAL",
+                "sub": "DIGITAL EXPERT",
+                "bio": "AI & Digital Backbone Architect. Transforming brownfield legacy systems into intelligent networks.",
+                "badge": "SYS. INTEGRITY: 100%"
+            }
+        ]
+    },
+    "engagement": {
+        "pre_title": "Risk-Reversal Engagement",
+        "title": "We Invest Before You Do.",
+        "description": "Our Risk-Reversal model means we absorb the professional fees for the initial assessment. You pay only operational expenses—once we've proven the value of the change.",
+        "timeline_badge": "Engagement Timeline",
+        "phase1": {
+            "pre": "PHASE 1 - OUR INVESTMENT",
+            "title": "Capital-Protected Diagnostic",
+            "body": "Deep-dive assessment across Digital, Supply Chain, and Manufacturing streams, including quantified upside, roadmap, and implementation phasing.",
+            "points": [
+                "· Professional fees absorbed by us",
+                "· You cover only on-site and data costs",
+                "· Go / no-go decision at the end of the phase"
+            ]
+        },
+        "phase2": {
+            "pre": "PHASE 2 - SHARED REWARD",
+            "title": "Execution & Upside",
+            "body": "Joint execution against agreed levers. Fees align to realized operational and financial outcomes, not hours logged.",
+            "points": [
+                "· Metrics hard-wired into governance",
+                "· Shared upside mechanisms available",
+                "· Embedded capability-building, not dependency"
+            ]
+        },
+        "disclaimer": "This isn't a free workshop. It's a structured, capital-protected diagnostic where both sides put skin in the game. If the upside isn't there, you walk away with clarity—not a sunk fee stack. If we proceed, we transition into a shared-reward model that links our economics to the realized EBITDA and working capital improvements.",
+        "cta": "Apply for Capital-Protected Diagnostic"
+    },
+    "faq": {
+        "title": "Operational Protocol",
+        "subtitle": "// FAQ",
+        "items": [
+            {
+                "q": "What is the 'Risk-Reversal' Diagnostic?",
+                "a": "We absorb the initial capex. We deploy our team to audit your operations at our cost (you only cover travel expenses). If we don't present a validated ROI roadmap greater than our fee, the engagement ends at zero cost to you."
+            },
+            {
+                "q": "What happens if no savings are found?",
+                "a": "Then we have failed our mission, and you owe us nothing for the diagnostic time. However, in our history across automotive and logistics sectors, we have never failed to uncover 'hidden factory' costs."
+            },
+            {
+                "q": "How long is a typical engagement?",
+                "a": "The 'Signal Check' diagnostic is 2-4 weeks. Full embedded transformation projects typically run 6-18 months depending on the scope (e.g., full ERP integration vs. single line balancing)."
+            },
+            {
+                "q": "Do you integrate with our existing IT teams?",
+                "a": "Yes. We work 'Embedded'. That means we sit in your stand-ups, use your Jira/Teams, and respect your governance. We are not a shadow IT force; we are an acceleration layer."
+            },
+            {
+                "q": "What industries do you serve?",
+                "a": "Our core DNA is heavy industry: Automotive, Industrial Manufacturing, Logistics/3PL, Pharma/Life Sciences, and large-scale Retail Supply Chain."
+            }
+        ]
+    },
+    "foundry": {
+        "title": "THE FOUNDRY CORE",
+        "subtitle": "Three distinct disciplines. One integrated force.",
+        "unit": "UNIT",
+        "members": [
+            {
+                "role": "HEAD OF PRODUCTION",
+                "expert": "Manufacturing Expert",
+                "desc": "Six Sigma Master Black Belt. Decades of floor experience optimizing throughput and OEE.",
+                "tech_spec": "OP-EX LEVEL 5"
+            },
+            {
+                "role": "HEAD OF SUPPLY CHAIN",
+                "expert": "Supply Chain Expert",
+                "desc": "Procurement & Logistics Strategist. Connecting raw materials to final delivery with zero friction.",
+                "tech_spec": "FLOW RATE: MAX"
+            },
+            {
+                "role": "HEAD OF DIGITAL",
+                "expert": "Digital Expert",
+                "desc": "AI & Digital Backbone Architect. Transforming brownfield legacy systems into intelligent networks.",
+                "tech_spec": "SYS.INTEGRITY: 100%"
+            }
+        ]
+    },
+    "industry": {
+        "title": "Trusted Across Critical Industries",
+        "labels": {
+            "auto": "Global Automotive OEM",
+            "pharma": "Tier-1 Pharma Manufacturer",
+            "retail": "Global Retailer",
+            "electronics": "Consumer Electronics",
+            "goods": "Global White Goods Supplier"
+        }
+    },
+    "insights_section": {
+        "pre_title": "Insights",
+        "title": "Field Notes from the Line.",
+        "description": "Short, opinionated takes on what's actually working in brownfield digital, supply chain, and manufacturing transformations—no hype, just operating reality.",
+        "articles": {
+            "supply": {
+                "tag": "Supply Chain",
+                "body": "Why most \"control towers\" fail: they optimize slideware, not the planner's 7AM reality."
+            },
+            "mfg": {
+                "tag": "Manufacturing",
+                "body": "The fastest throughput gains rarely come from robots—they come from fixing invisible micro-constraints."
+            },
+            "digital": {
+                "tag": "Digital Backbone",
+                "body": "AI that ignores messy master data is theatre. Real impact comes from models that embrace imperfection."
+            }
+        }
+    },
+    "partners": {
+        "pre_title": "Leadership",
+        "title": "The Smiths",
+        "description": "Senior operators who've lived on the floor, not in the boardroom.",
+        "roles": {
+            "digital": "Digital Architecture",
+            "supply": "Supply Chain Operations",
+            "strategy": "Strategy & Manufacturing"
+        }
+    },
+    "trio": {
+        "pre_title": "Core Expertise",
+        "title": "EMBEDDED EXPERTISE. OPERATIONAL OUTCOMES.",
+        "description": "We don't parachute in slide-makers. We embed senior operators across Digital, Supply Chain, and Manufacturing who sit inside your war room and own outcomes with you.",
+        "items": [
+            {
+                "title": "MANUFACTURING",
+                "subtitle": "The Foundry — Optimization based on decades of floor experience.",
+                "features": [
+                    "Line diagnostics without stopping production",
+                    "Constraint-based debottlenecking",
+                    "Operator-centric UX for adoption"
+                ],
+                "footer": "MANUFACTURING"
+            },
+            {
+                "title": "SUPPLY CHAIN",
+                "subtitle": "The Flow — End-to-end procurement and logistics.",
+                "features": [
+                    "Network and lane redesign",
+                    "Inventory segmentation and buffers",
+                    "Control towers that operators actually use"
+                ],
+                "footer": "SUPPLY CHAIN"
+            },
+            {
+                "title": "DIGITAL BACKBONE",
+                "subtitle": "The Torque — AI-driven transformation within organically grown environments.",
+                "features": [
+                    "Data products on top of legacy stacks",
+                    "AI that respects process reality",
+                    "Secure, governed integration patterns"
+                ],
+                "footer": "DIGITAL BACKBONE"
+            }
+        ]
+    },
+    "quick_contact": {
+        "title": "Direct Uplink",
+        "description": "Skip the diagnostic protocol. Bypass the algorithm for urgent brownfield turnarounds, executive briefing requests, or complex operational triage.",
+        "email_btn": "info@torquefoundryadvisory.com",
+        "schedule_btn": "Schedule Briefing"
+    },
+    "trust": {
+        "label": "Validated Protocols",
+        "brands": [
+            "GLOBAL RETAIL",
+            "AUTOMOTIVE OEM",
+            "TIER 1 MFG",
+            "ENTERPRISE TECH",
+            "LOGISTICS"
+        ]
+    },
+    "vertical": {
+        "pre_title": "Our Approach",
+        "title": "Vertical System Integration Timeline",
+        "description": "We don't sell a generic framework. We run a fixed protocol that ties your brownfield reality to a live digital core from diagnostic through to P&L.",
+        "steps": [
+            {
+                "label": "Step 1",
+                "title": "Deep-Dive Diagnostic",
+                "subtitle": "We map the messy reality of your brownfield site.",
+                "body": "We quantify constraints before writing code."
+            },
+            {
+                "label": "Step 2",
+                "title": "The Blueprint",
+                "subtitle": "We design the digital overlay that fits your physical reality.",
+                "body": "No fantasy architectures. Only systems your floor can actually run."
+            },
+            {
+                "label": "Step 3",
+                "title": "Embedded Execution",
+                "subtitle": "We ship change from inside your operation.",
+                "body": "We don't hand off the plan. We code and configure alongside your team on the floor to upskill them in real-time."
+            },
+            {
+                "label": "Step 4",
+                "title": "Continuous Optimization",
+                "subtitle": "We keep optimising until the P&L reflects the change.",
+                "body": "We verify the ROI and tune the system as conditions shift, not just at quarter-end reviews."
+            }
+        ]
+    },
+    "insights_page": {
+        "title": "Field Notes",
+        "subtitle": "LOGS FROM THE INDUSTRIAL FRONT LINE. NO FLUFF.",
+        "note_prefix": "NOTE_0",
+        "generate_report": "Generate Full Report",
+        "articles": [
+            {
+                "title": "The Control Tower Mirage",
+                "summary": "Why spending $5M on a visual dashboard fails if your underlying data hygiene is trash. You cannot visualize what you cannot measure. Most 'Control Towers' are just expensive screensaver for executives. The real work is in the API layer and the messy EDI data cleaning that happens in the dark.",
+                "tag": "DIGITAL HYGIENE // 5 MIN READ"
+            },
+            {
+                "title": "Stop Waiting for Greenfield",
+                "summary": "The perfect factory doesn't exist. How to overlay AI onto 1980s PLCs and legacy ERPs without ripping out the nervous system.",
+                "tag": "BROWNFIELD REALITY"
+            },
+            {
+                "title": "The Hidden Factory P&L",
+                "summary": "Your financial P&L lies. It hides the 'Shadow P&L' of rework, expedited freight, and manual Excel reconciliation. Here is how to audit it.",
+                "tag": "FINANCIAL FORENSICS"
+            },
+            {
+                "title": "Merging the Frankenstein",
+                "summary": "A case study on merging three different ERPs over a holiday weekend using an API layer instead of a migration script.",
+                "tag": "SYSTEM ARCHITECTURE"
+            },
+            {
+                "title": "The Uncomfortable Truth About Cost Reduction",
+                "summary": "You can't cut cost by emailing suppliers for a 2% discount. You cut cost by aligning your inbound logic with your production takt time.",
+                "tag": "SUPPLY CHAIN PHYSICS"
+            }
+        ]
+    },
+    "footer": {
+        "location": "Basel, Switzerland · Industrial Digital Transformation",
+        "copyright": "© 2025 TorqueFoundry Advisory. Basel, Switzerland."
+    },
+    "not_found": {
+        "title": "404",
+        "message": "Oops! Page not found",
+        "return_home": "Return to Home"
+    }
+}

@@ -1,0 +1,106 @@
+{
+    "nav": {
+        "core_expertise": "Kernkompetenzen",
+        "our_approach": "Unser Ansatz",
+        "portfolio": "Portfolio",
+        "insights": "Insights",
+        "initiate_signal_check": "Signalprüfung starten"
+    },
+    "hero": {
+        "badge": "KI-gestützte Produktion",
+        "title": "Industrielle Co-Piloten der Zukunft",
+        "subtitle": "Intelligenz für die Produktion schmieden. Wir orchestrieren das Zusammenspiel von menschlicher Expertise und maschineller Intelligenz und optimieren Produktionslinien durch autonome Agenten.",
+        "cta_primary": "Signalprüfung starten",
+        "cta_portfolio": "Unser Portfolio",
+        "see_risk_model": "Risikominimierungsmodell ansehen",
+        "our_expertise": "Unsere Expertise",
+        "embedded_domains": "Integrierte Bereiche",
+        "engagement_model": "Engagement-Modell",
+        "telemetry": "Echtzeit-Fabriktelemetrie",
+        "signal_active": "SIGNAL: AKTIV"
+    },
+    "portfolio": {
+        "back_to_home": "← Zurück zur Startseite",
+        "view_mode": "Ansichtsmodus:",
+        "authorized": "AUTORISIERT",
+        "public": "ÖFFENTLICH",
+        "lock_dossier": "AKTE SPERREN",
+        "unlock_data": "DATEN FREIGEBEN",
+        "access_denied": "ZUGRIFF VERWEIGERT: UNZUREICHENDE BERECHTIGUNGEN.",
+        "digital_dossier": "Digitales Dossier",
+        "title": "Wirkungskraft entschlüsselt.",
+        "subtitle": "Keine Theorie. Keine Folien. Nur realisierte G&V-Auswirkungen in Produktion, Supply Chain und Digital.",
+        "foundry_core": "Der Foundry-Kern",
+        "executive_curriculum": "Executive Curriculum",
+        "technical_stack": "Technischer Stack",
+        "modules": {
+            "0": "Von Control-Tower-Folien zu Echtzeit-Operationen",
+            "1": "Nutzung moderner Datenstandards zur Bereinigung der Logistik",
+            "2": "Transformation der verborgenen Fabrik: Der Lean-Ansatz",
+            "3": "Von Ausschreibungseinsparungen zur strukturellen Kostenführerschaft"
+        },
+        "partners": {
+            "supply_chain": "HEAD OF SUPPLY CHAIN",
+            "manufacturing": "HEAD OF PRODUCTION",
+            "digital": "HEAD OF DIGITAL"
+        }
+    },
+    "apply": {
+        "title": "Systemkonfiguration",
+        "subtitle": "Konfigurieren Sie Ihre Engagement-Parameter",
+        "signal_rejected": {
+            "title": "Signal verweigert",
+            "message": "Die Telemetrie zeigt an, dass Ihr Betriebsvolumen unter dem Schwellenwert für unser Risikominimierungsmodell liegt. Sie können jedoch weiterhin über das Self-Service-Protokoll auf unsere bewährten Methoden zugreifen.",
+            "self_service": "Zugriff auf Self-Service-Kit",
+            "cancel": "Protokoll abbrechen"
+        },
+        "steps": {
+            "load": {
+                "title": "Modul 01 // Operationale Last",
+                "sub": "KAPAZITÄT WÄHLEN",
+                "options": {
+                    "sme": "Startup / KMU-Skala",
+                    "mid": "Mittelstand-Geschwindigkeit",
+                    "ent": "Enterprise-Komplexität"
+                }
+            },
+            "interference": {
+                "title": "Modul 02 // Signalstörung",
+                "sub": "STÖRQUELLE IDENTIFIZIEREN",
+                "options": {
+                    "inventory": "Bestandsverlust",
+                    "costs": "Die Black Box (Kosten)",
+                    "erp": "ERP-Stillstand",
+                    "throughput": "Durchsatz-Stagnation"
+                }
+            },
+            "architecture": {
+                "title": "Modul 03 // Terrain",
+                "sub": "Beschreiben Sie Ihre aktuelle IT-Landschaft.",
+                "options": {
+                    "pristine": "Makellos",
+                    "frankenstein": "Frankenstein (Stückwerk)",
+                    "analog": "Analog"
+                }
+            },
+            "context": {
+                "title": "Modul 04 // Übertragung",
+                "sub": "ZUSÄTZLICHER KONTEXT",
+                "placeholder": "> Geben Sie zusätzliche operative Einschränkungen oder Ziele ein...",
+                "submit": "Daten übertragen",
+                "terminal_label": "TERMINAL_EINGABE_V.01"
+            },
+            "complete": {
+                "title": "Konfiguration abgeschlossen",
+                "subtitle": "Systemtelemetrie nominal. Bereit zur Initialisierung.",
+                "button": "Handschlag initialisieren",
+                "status_ready": "BEREIT",
+                "configuring": "KONFIGURATION..."
+            }
+        },
+        "hud": {
+            "system_status": "Systemstatus",
+            "signal_strength": "Signalstärke"
+        }
+    }
+}

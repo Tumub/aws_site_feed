@@ -1,0 +1,106 @@
+{
+    "nav": {
+        "core_expertise": "Core Expertise",
+        "our_approach": "Our Approach",
+        "portfolio": "Portfolio",
+        "insights": "Insights",
+        "initiate_signal_check": "Initiate Signal Check"
+    },
+    "hero": {
+        "badge": "AI-Powered Manufacturing",
+        "title": "Industrial Co-Pilots for the Future",
+        "subtitle": "Forging Intelligence into Production. We orchestrate the symbiosis of human expertise and machine intelligence, optimizing production lines with autonomous agents.",
+        "cta_primary": "Initiate Signal Check",
+        "cta_portfolio": "Our Portfolio",
+        "see_risk_model": "See the Risk-Reversal Model",
+        "our_expertise": "Our Expertise",
+        "embedded_domains": "Embedded Domains",
+        "engagement_model": "Engagement Model",
+        "telemetry": "Live Factory Telemetry",
+        "signal_active": "SIGNAL: ACTIVE"
+    },
+    "portfolio": {
+        "back_to_home": "← Back to Home",
+        "view_mode": "View Mode:",
+        "authorized": "AUTHORIZED",
+        "public": "PUBLIC",
+        "lock_dossier": "LOCK DOSSIER",
+        "unlock_data": "UNLOCK DATA",
+        "access_denied": "ACCESS DENIED: INSUFFICIENT PERMISSIONS.",
+        "digital_dossier": "Digital Dossier",
+        "title": "Decoding the Impact.",
+        "subtitle": "No theory. No slides. Just realized P&L impact across Manufacturing, Supply Chain, and Digital.",
+        "foundry_core": "The Foundry Core",
+        "executive_curriculum": "Executive Curriculum",
+        "technical_stack": "Technical Stack",
+        "modules": {
+            "0": "From Control Tower Slides to Real-Time Operations",
+            "1": "Using Modern Data Standards to Clean Up Logistics",
+            "2": "Transforming Hidden Factories: The Lean Path",
+            "3": "From Tender Savings to Structural Cost Leadership"
+        },
+        "partners": {
+            "supply_chain": "HEAD OF SUPPLY CHAIN",
+            "manufacturing": "HEAD OF PRODUCTION",
+            "digital": "HEAD OF DIGITAL"
+        }
+    },
+    "apply": {
+        "title": "System Configuration",
+        "subtitle": "Configure your engagement paramaters",
+        "signal_rejected": {
+            "title": "Signal Rejected",
+            "message": "Telemetry indicates your operational volume is below the threshold for our Risk-Reversal model. However, you can still access our proven methodologies via the Self-Service Protocol.",
+            "self_service": "Access Self-Service Kit",
+            "cancel": "Cancel Protocol"
+        },
+        "steps": {
+            "load": {
+                "title": "Module 01 // Operational Load",
+                "sub": "SELECT CAPACITY",
+                "options": {
+                    "sme": "Startup / SME Scale",
+                    "mid": "Mid-Market Velocity",
+                    "ent": "Enterprise Complexity"
+                }
+            },
+            "interference": {
+                "title": "Module 02 // Signal Interference",
+                "sub": "IDENTIFY NOISE SOURCE",
+                "options": {
+                    "inventory": "Inventory Bleed",
+                    "costs": "The Black Box",
+                    "erp": "ERP Paralysis",
+                    "throughput": "Throughput Stagnation"
+                }
+            },
+            "architecture": {
+                "title": "Module 03 // Terrain",
+                "sub": "Describe your current IT Landscape.",
+                "options": {
+                    "pristine": "Pristine",
+                    "frankenstein": "Frankenstein",
+                    "analog": "Analog"
+                }
+            },
+            "context": {
+                "title": "Module 04 // Transmission",
+                "sub": "ADDITIONAL CONTEXT",
+                "placeholder": "> Enter additional operational constraints or objectives...",
+                "submit": "Transmit Data",
+                "terminal_label": "TERMINAL_INPUT_V.01"
+            },
+            "complete": {
+                "title": "Configuration Complete",
+                "subtitle": "System telemetry nominal. Ready to initialize.",
+                "button": "Initialize Handshake",
+                "status_ready": "READY",
+                "configuring": "CONFIGURING..."
+            }
+        },
+        "hud": {
+            "system_status": "System Status",
+            "signal_strength": "Signal Strength"
+        }
+    }
+}

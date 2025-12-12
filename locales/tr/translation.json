@@ -1,0 +1,106 @@
+{
+    "nav": {
+        "core_expertise": "Temel Uzmanlıklar",
+        "our_approach": "Yaklaşımımız",
+        "portfolio": "Portföy",
+        "insights": "İçgörüler",
+        "initiate_signal_check": "Sinyal Kontrolünü Başlat"
+    },
+    "hero": {
+        "badge": "Yapay Zeka Destekli Üretim",
+        "title": "Geleceğin Endüstriyel Co-Pilotları",
+        "subtitle": "Zekayı Üretime Entegre Ediyoruz. İnsan uzmanlığı ve makine zekası arasındaki sinerjiyi yönetiyor, otonom ajanlarla üretim hatlarını optimize ediyoruz.",
+        "cta_primary": "Sinyal Kontrolünü Başlat",
+        "cta_portfolio": "Portföyümüz",
+        "see_risk_model": "Risk Giderme Modelini İncele",
+        "our_expertise": "Uzmanlığımız",
+        "embedded_domains": "Gömülü Alanlar",
+        "engagement_model": "Çalışma Modeli",
+        "telemetry": "Canlı Fabrika Telemetrisi",
+        "signal_active": "SİNYAL: AKTİF"
+    },
+    "portfolio": {
+        "back_to_home": "← Ana Sayfaya Dön",
+        "view_mode": "Görüntüleme Modu:",
+        "authorized": "YETKİLİ",
+        "public": "GENEL",
+        "lock_dossier": "DOSYAYI KİLİTLE",
+        "unlock_data": "VERİ KİLİDİNİ AÇ",
+        "access_denied": "ERİŞİM REDDEDİLDİ: YETERSİZ YETKİ.",
+        "digital_dossier": "Dijital Dosya",
+        "title": "Etki Analizi.",
+        "subtitle": "Teori yok. Slayt yok. Üretim, Tedarik Zinciri ve Dijital genelinde gerçekleşmiş P&L etkisi.",
+        "foundry_core": "Foundry Çekirdeği",
+        "executive_curriculum": "Yönetici Müfredatı",
+        "technical_stack": "Teknik Altyapı",
+        "modules": {
+            "0": "Kontrol Kulesi Slaytlarından Gerçek Zamanlı Operasyonlara",
+            "1": "Lojistiği Düzenlemek İçin Modern Veri Standartları Kullanımı",
+            "2": "Gizli Fabrikaların Dönüşümü: Yalın Yöntem",
+            "3": "İhale Tasarruflarından Yapısal Maliyet Liderliğine"
+        },
+        "partners": {
+            "supply_chain": "TEDARİK ZİNCİRİ DİREKTÖRÜ",
+            "manufacturing": "ÜRETİM DİREKTÖRÜ",
+            "digital": "DİJİTAL DİREKTÖRÜ"
+        }
+    },
+    "apply": {
+        "title": "Sistem Yapılandırması",
+        "subtitle": "Çalışma parametrelerinizi yapılandırın",
+        "signal_rejected": {
+            "title": "Sinyal Reddedildi",
+            "message": "Telemetri verileri, operasyonel hacminizin Risk Giderme modelimiz için belirlenen eşiğin altında olduğunu gösteriyor. Ancak, kanıtlanmış metodolojilerimize Self-Servis Protokolü üzerinden erişebilirsiniz.",
+            "self_service": "Self-Servis Kitine Erişim",
+            "cancel": "Protokolü İptal Et"
+        },
+        "steps": {
+            "load": {
+                "title": "Modül 01 // Operasyonel Yük",
+                "sub": "KAPASİTE SEÇİMİ",
+                "options": {
+                    "sme": "Startup / KOBİ Ölçeği",
+                    "mid": "Orta Ölçekli Hız",
+                    "ent": "Kurumsal Karmaşıklık"
+                }
+            },
+            "interference": {
+                "title": "Modül 02 // Sinyal Girişimi",
+                "sub": "GÜRÜLTÜ KAYNAĞINI TANIMLA",
+                "options": {
+                    "inventory": "Envanter Kaybı / Sızıntısı",
+                    "costs": "Kara Kutu Maliyetler",
+                    "erp": "ERP Tıkanıklığı",
+                    "throughput": "Verimlilik Durgunluğu"
+                }
+            },
+            "architecture": {
+                "title": "Modül 03 // Arazi",
+                "sub": "Mevcut BT Altyapınızı Tanımlayın.",
+                "options": {
+                    "pristine": "Kusursuz",
+                    "frankenstein": "Frankenstein (Yamalı Bohça)",
+                    "analog": "Analog / Manuel"
+                }
+            },
+            "context": {
+                "title": "Modül 04 // İletim",
+                "sub": "EK BAĞLAM",
+                "placeholder": "> Ek operasyonel kısıtlamaları veya hedefleri girin...",
+                "submit": "Veri İlet",
+                "terminal_label": "TERMİNAL_GİRİŞİ_V.01"
+            },
+            "complete": {
+                "title": "Yapılandırma Tamamlandı",
+                "subtitle": "Sistem telemetrisi nominal. Başlatmaya hazır.",
+                "button": "El Sıkışmayı Başlat",
+                "status_ready": "HAZIR",
+                "configuring": "YAPILANDIRILIYOR..."
+            }
+        },
+        "hud": {
+            "system_status": "Sistem Durumu",
+            "signal_strength": "Sinyal Gücü"
+        }
+    }
+}

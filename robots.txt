@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /legal/
+Disallow: /api/
+
+# Sitemaps
+# Sitemap: http://52.58.88.177/sitemap.xml
