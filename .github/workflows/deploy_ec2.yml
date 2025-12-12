@@ -134,31 +134,92 @@ jobs:
           sudo nginx -T 2>/dev/null | grep -nE "server_name|root |listen|try_files|location" | head -n 200 || true
           
           # ---------------------------------------------------------
-          # AUTO-DETECT ROOT
+          # AUTO-DETECT ROOT (PYTHON PARSER)
           # ---------------------------------------------------------
-          ROOT=""
-          if [ -n "\$CONF" ]; then
-            ROOT=\$(sudo awk '
-              BEGIN{in=0}
-              \$0 ~ /server_name/ && \$0 ~ /torquefoundryadvisory\.com/ {in=1}
-              in==1 && \$1=="root" {gsub(";"," \",\$2); print \$2; exit}
-            ' "\$CONF" || true)
-          fi
+          echo "🐍 Parsing Nginx Config with Python (Robust)..."
+          
+          # Dump full config to file
+          sudo nginx -T > /tmp/nginx_dump.conf 2>/dev/null
+          
+          # Python Script to find root for specific server_name
+          cat << 'PYEOF' > /tmp/find_root.py
+          import re
+          import sys
+
+          config_file = "/tmp/nginx_dump.conf"
+          target_domain = "torquefoundryadvisory.com"
+          
+          def find_root():
+              try:
+                  with open(config_file, 'r') as f:
+                      content = f.read()
+              except Exception as e:
+                   print("")
+                   return
+
+              # Clean up Windows newlines if any (though on linux it's fine)
+              
+              lines = content.splitlines()
+              current_server_block = []
+              in_server = False
+              brace_count = 0
+              
+              server_blocks = []
+              
+              for line in lines:
+                  trimmed = line.strip()
+                  if not trimmed or trimmed.startswith("#"):
+                      continue
+                      
+                  if "server {" in line:
+                      in_server = True
+                      current_server_block = []
+                      brace_count = 1
+                      # Add line to block
+                      current_server_block.append(line)
+                  elif in_server:
+                      current_server_block.append(line)
+                      brace_count += line.count("{")
+                      brace_count -= line.count("}")
+                      if brace_count <= 0:
+                          in_server = False
+                          server_blocks.append("\n".join(current_server_block))
+                          
+              # Now iterate blocks to find our domain
+              for block in server_blocks:
+                  # Check if this block has our server_name
+                  # Simple check first
+                  if target_domain in block:
+                      # verify it's accurate server_name directive
+                      if re.search(r'server_name\s+.*' + re.escape(target_domain), block):
+                          # Found the block. Find root.
+                          root_match = re.search(r'^\s*root\s+(.*?);', block, re.MULTILINE)
+                          if root_match:
+                              print(root_match.group(1).strip())
+                              return
+
+              print("") # Not found
+
+          if __name__ == "__main__":
+              find_root()
+          PYEOF
+          
+          ROOT=$(python3 /tmp/find_root.py)
           
           # Fallback mechanism
-          if [ -z "\$ROOT" ]; then
-             echo "⚠️ Parsing failed. Trying fallback candidates..."
+          if [ -z "$ROOT" ]; then
+             echo "⚠️ Parsing failed or no root found. Trying fallback candidates..."
              for p in /var/www/torquefoundry/dist /var/www/torquefoundry /usr/share/nginx/html /var/www/html; do
-               if [ -f "\$p/index.html" ]; then 
-                 ROOT="\$p"
-                 echo "Using fallback root: \$ROOT"
+               if [ -f "$p/index.html" ]; then 
+                 ROOT="$p"
+                 echo "Using fallback root: $ROOT"
                  break; 
                fi
              done
           fi
           
-          echo "===== DETECTED_ROOT=\$ROOT ====="
-          if [ -z "\$ROOT" ]; then
+          echo "===== DETECTED_ROOT=$ROOT ====="
+          if [ -z "$ROOT" ]; then
             echo "❌ Could not detect nginx root. Aborting surgical deploy."
             exit 1
           fi
