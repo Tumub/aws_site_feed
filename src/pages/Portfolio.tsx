@@ -119,24 +119,24 @@ const TECH_CATEGORIES = [
 ];
 
 const PARTNERS = {
-  umut: {
-    name: "Umut — Supply Chain",
-    title: "The Spine: Connecting Source to Customer",
-    bio: "15+ years managing 40,000+ shipments and >$790M spend.",
+  supplyChain: {
+    name: "Supply Chain",
+    title: "Connecting Source to Customer",
+    bio: "15+ years managing 40,000+ shipments and >$790M spend. Unified operations across 3 regions.",
     badge: "Coupa Sourcing Excellence 2024",
     cases: UMUT_CASES,
   },
-  emrah: {
-    name: "Emrah — Manufacturing",
-    title: "The Muscle: Shop Floor Excellence",
+  manufacturing: {
+    name: "Manufacturing",
+    title: "Shop Floor Excellence",
     bio: "19+ years. OEM-Ready Compliance (BMW, Mercedes, Toyota). Hidden Factory Optimization.",
     badge: "IATF 16949 Lead Auditor",
     cases: EMRAH_CASES,
   },
-  sebastian: {
-    name: "Sebastian — Digital",
-    title: "The Brain: Agentic Automation & Data Architecture",
-    bio: "Bridging the gap between IT and Business.",
+  digital: {
+    name: "Digital",
+    title: "Agentic Automation & Architecture",
+    bio: "Bridging the gap between IT and Business. Driving AI transformation in legacy environments.",
     badge: null,
     cases: SEBASTIAN_CASES,
   },
@@ -167,7 +167,7 @@ const CaseCard = ({ title, pub, auth, isAuthorized }: CaseCardProps) => (
 
 const Portfolio = () => {
   const [isAuthorized, setIsAuthorized] = useState(false);
-  const [activePartner, setActivePartner] = useState<PartnerKey>("umut");
+  const [activePartner, setActivePartner] = useState<PartnerKey>("supplyChain");
 
   const partner = PARTNERS[activePartner];
 
@@ -184,7 +184,18 @@ const Portfolio = () => {
               View Mode: <span className={isAuthorized ? "text-accent" : "text-primary"}>{isAuthorized ? "AUTHORIZED" : "PUBLIC"}</span>
             </span>
             <button
-              onClick={() => setIsAuthorized(!isAuthorized)}
+              onClick={() => {
+                if (isAuthorized) {
+                  setIsAuthorized(false);
+                  return;
+                }
+                const pwd = window.prompt("ENTER ACCESS CODE:");
+                if (pwd === "TORQUE2025") {
+                  setIsAuthorized(true);
+                } else if (pwd) {
+                  alert("ACCESS DENIED");
+                }
+              }}
               className="rounded border border-accent px-3 py-1.5 font-mono text-xs uppercase text-accent transition-colors hover:bg-accent/10 hover:shadow-[0_0_10px_hsl(var(--accent)_/_0.3)]"
             >
               {isAuthorized ? "LOCK DOSSIER" : "UNLOCK DATA"}
