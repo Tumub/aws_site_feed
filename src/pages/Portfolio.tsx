@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { Award } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Award, Lock, Unlock, Loader2, Terminal } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 /* -------------------------------------------------------------------------- */
 /*                                 DATA STORE                                 */
@@ -165,14 +167,116 @@ const CaseCard = ({ title, pub, auth, isAuthorized }: CaseCardProps) => (
   </div>
 );
 
+/* -------------------------------------------------------------------------- */
+/*                              SECURITY TERMINAL                             */
+/* -------------------------------------------------------------------------- */
+
+const SecurityModal = ({ isOpen, onClose, onSuccess }: { isOpen: boolean; onClose: () => void; onSuccess: () => void }) => {
+  const [input, setInput] = useState("");
+  const [status, setStatus] = useState<"IDLE" | "CHECKING" | "DENIED" | "GRANTED">("IDLE");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      setInput("");
+      setStatus("IDLE");
+      setTimeout(() => inputRef.current?.focus(), 100);
+    }
+  }, [isOpen]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("CHECKING");
+
+    // Artificial delay for "processing" feel
+    setTimeout(() => {
+      if (input === "TORQUE2025") {
+        setStatus("GRANTED");
+        setTimeout(onSuccess, 800);
+      } else {
+        setStatus("DENIED");
+        setInput("");
+        setTimeout(() => setStatus("IDLE"), 1500);
+      }
+    }, 600);
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+      <div className="w-full max-w-md overflow-hidden rounded-lg border border-accent bg-black shadow-[0_0_50px_hsl(var(--accent)_/_0.15)]">
+        {/* Terminal Header */}
+        <div className="flex items-center justify-between border-b border-accent/30 bg-accent/5 px-4 py-2">
+          <div className="flex items-center gap-2">
+            <Terminal className="h-4 w-4 text-accent" />
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-accent">Security Protocol V1.0</span>
+          </div>
+          <button onClick={onClose} className="text-accent/50 hover:text-accent font-mono text-xs">[ESC]</button>
+        </div>
+
+        {/* Terminal Body */}
+        <div className="p-6 font-mono">
+          <div className="mb-4 space-y-1 text-xs text-muted-foreground">
+            <p>> INITIATING HANDSHAKE...</p>
+            <p>> ENCRYPTED CONNECTION ESTABLISHED.</p>
+            <p>> AWAITING AUTHORIZATION CODE.</p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="relative">
+            <div className="flex items-center gap-2 text-accent">
+              <span className="animate-pulse">▶</span>
+              <input
+                ref={inputRef}
+                type="password"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                className="w-full bg-transparent outline-none placeholder:text-accent/30 text-accent uppercase tracking-widest"
+                placeholder="ENTER CODE"
+                autoComplete="off"
+              />
+            </div>
+
+            {/* Status Indicator */}
+            <div className="mt-6 flex h-8 items-center justify-center border border-accent/20 bg-accent/5 text-xs font-bold uppercase tracking-[0.2em]">
+              {status === "IDLE" && <span className="text-accent animate-pulse">AWAITING INPUT</span>}
+              {status === "CHECKING" && <span className="text-yellow-400 flex items-center gap-2"><Loader2 className="h-3 w-3 animate-spin" /> VERIFYING HASH</span>}
+              {status === "DENIED" && <span className="text-red-500">ACCESS DENIED</span>}
+              {status === "GRANTED" && <span className="text-green-400">ACCESS GRANTED /// UNLOCKING</span>}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Portfolio = () => {
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [activePartner, setActivePartner] = useState<PartnerKey>("supplyChain");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const partner = PARTNERS[activePartner];
 
+  const handleUnlockRequest = () => {
+    if (isAuthorized) {
+      setIsAuthorized(false);
+    } else {
+      setIsModalOpen(true);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SecurityModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSuccess={() => {
+          setIsAuthorized(true);
+          setIsModalOpen(false);
+        }}
+      />
+
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
@@ -183,23 +287,20 @@ const Portfolio = () => {
             <span className="font-mono text-xs uppercase tracking-wide text-muted-foreground">
               View Mode: <span className={isAuthorized ? "text-accent" : "text-primary"}>{isAuthorized ? "AUTHORIZED" : "PUBLIC"}</span>
             </span>
-            <button
-              onClick={() => {
-                if (isAuthorized) {
-                  setIsAuthorized(false);
-                  return;
-                }
-                const pwd = window.prompt("ENTER ACCESS CODE:");
-                if (pwd === "TORQUE2025") {
-                  setIsAuthorized(true);
-                } else if (pwd) {
-                  alert("ACCESS DENIED");
-                }
-              }}
-              className="rounded border border-accent px-3 py-1.5 font-mono text-xs uppercase text-accent transition-colors hover:bg-accent/10 hover:shadow-[0_0_10px_hsl(var(--accent)_/_0.3)]"
+            <Button
+              onClick={handleUnlockRequest}
+              variant="outline"
+              size="sm"
+              className={cn(
+                "font-mono text-xs uppercase tracking-widest transition-all",
+                isAuthorized
+                  ? "border-primary text-primary hover:bg-primary/10"
+                  : "border-accent text-accent hover:bg-accent/10 hover:shadow-[0_0_15px_hsl(var(--accent)_/_0.25)]"
+              )}
             >
+              {isAuthorized ? <Lock className="mr-2 h-3 w-3" /> : <Unlock className="mr-2 h-3 w-3" />}
               {isAuthorized ? "LOCK DOSSIER" : "UNLOCK DATA"}
-            </button>
+            </Button>
           </div>
         </div>
       </header>
