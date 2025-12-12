@@ -22,6 +22,11 @@ jobs:
       with:
         node-version: 18
 
+    - name: Repo Guardrails (Forbidden Check)
+      run: |
+        chmod +x scripts/forbidden-check.sh
+        bash scripts/forbidden-check.sh
+
     - name: Generate Build ID
       run: |
         echo "commit=$(git rev-parse HEAD)" > build-id.txt
@@ -108,3 +113,23 @@ jobs:
         EOF
         
         rm ~/.ssh/deploy_key
+
+    - name: Verify Live Deployment (Build ID)
+      run: |
+        echo "Waiting for Nginx reload..."
+        sleep 5
+        echo "Checking http://${{ secrets.EC2_HOST }}/build-id.txt..."
+        LIVE_ID=$(curl -s --fail http://${{ secrets.EC2_HOST }}/build-id.txt || echo "FETCH_FAILED")
+        echo "Live Content:"
+        echo "$LIVE_ID"
+        
+        CURRENT_COMMIT=$(git rev-parse HEAD)
+        
+        if [[ "$LIVE_ID" == *"$CURRENT_COMMIT"* ]]; then
+          echo "✅ VERIFIED: Live site is serving commit $CURRENT_COMMIT"
+        else
+          echo "❌ FAILED: Live site does not match current commit."
+          echo "Expected: $CURRENT_COMMIT"
+          echo "Received: $LIVE_ID"
+          exit 1
+        fi

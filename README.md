@@ -1,44 +1,52 @@
-# TorqueFoundry Advisory
+# TorqueFoundry Advisory (Website)
 
-## Repository Overview
+This repository hosts the **TorqueFoundry Advisory** website.
+It is a "Clean Room" repository containing **only** the production Vite web application.
 
-This repository hosts the digital presence and operational assets for **TorqueFoundry Advisory**.
+## 🚧 Repository Guardrails
 
-### Directory Structure
+**Strict Rules Enforced:**
+This repository allows **ONLY** website source code.
+*   ❌ NO `packages/`, `archive/`, `docs/` directories.
+*   ❌ NO `.pem`, `.key`, `.pfx` keys (Secrets only).
+*   ❌ NO Office documents (`.docx`, `.pptx`, `.pdf`).
+*   ❌ NO large dumps (`all_files.txt`).
 
-*   **/apps/torquefoundry-web/** (Canonical)
-    *   The active, deployable web application.
-    *   **Stack:** React + Vite + Tailwind CSS + shadcn/ui.
-    *   **Deploy:** Deploys to AWS via GitHub Actions.
-*   **/packages/portfolio/**
-    *   Marketing assets, presentation decks, sales operations, and templates.
-    *   **Key File:** `00_PROJECT_ASSETS/Marketing/MASTER_PRESENTATION_BRIEF.md` (Brand Source of Truth).
-*   **/docs/**
-    *   Strategy documents, operating procedures, and decision logs.
-*   **/archive/**
-    *   Legacy backups, zip files, and the previous `industrial-co-pilots-main` codebase.
+### One-Time Setup (Required)
+To prevent accidental commits of forbidden files, install the local Git hook:
 
----
-
-## Local Development (Web App)
-
-To run the specific website application locally:
-
-```bash
-cd apps/torquefoundry-web
-npm install
-npm run dev
+**Windows (PowerShell):**
+```powershell
+.\scripts\install-hooks.ps1
 ```
 
-## Building for Production
-
+**Linux/Mac:**
 ```bash
-cd apps/torquefoundry-web
-npm run build
+cp scripts/forbidden-check.sh .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
 ```
 
-## Brand & Strategy
+## 🚀 Local Development
 
-For all brand guidelines, voice, and visual standards, refer to:
-`packages/portfolio/00_PROJECT_ASSETS/Marketing/MASTER_PRESENTATION_BRIEF.md`
+1.  **Install Dependencies:**
+    ```bash
+    npm ci
+    ```
+2.  **Start Dev Server:**
+    ```bash
+    npm run dev
+    ```
+3.  **Build for Production:**
+    ```bash
+    npm run build
+    ```
 
+## 🌍 Deployment
+
+**Automatic Deployment:**
+Pushes to `main` trigger the GitHub Actions workflow `.github/workflows/deploy_ec2.yml`.
+
+1.  **Checks:** Runs `scripts/forbidden-check.sh`.
+2.  **Builds:** `npm run build` -> `dist/`.
+3.  **Deploys:** Atomic symlink swap on AWS EC2 (`/var/www/torquefoundry`).
+4.  **Verifies:** Checks `http://52.58.88.177/build-id.txt` matches commit SHA.
