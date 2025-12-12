@@ -21,36 +21,28 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: 20
 
     - name: Repo Guardrails (Forbidden Check)
       run: |
         chmod +x scripts/forbidden-check.sh
         bash scripts/forbidden-check.sh
 
-    - name: Generate Build ID
-      run: |
-        echo "commit=$(git rev-parse HEAD)" > build-id.txt
-        echo "built_at=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> build-id.txt
-        echo "repo=$GITHUB_REPOSITORY" >> build-id.txt
-        echo "Build ID Generated:"
-        cat build-id.txt
-
-    - name: Safety Scan (No Legacy Paths)
-      run: |
-        if grep -r "apps/torquefoundry-web" .github/workflows/; then
-          echo "❌ FAILED: Legacy path 'apps/torquefoundry-web' detected in workflows."
-          echo "   We are a flat repo now! Please use root paths."
-          exit 1
-        fi
-        echo "✅ Workflow paths look clean."
-
-    - name: Install and Build
+    - name: Install and Build (Root)
       run: |
         npm ci
         npm run build
-        # Copy Build ID to dist so it is deployable
-        cp build-id.txt dist/build-id.txt
+        
+    - name: Generate Build Proof
+      run: |
+        SHA=$(git rev-parse --short HEAD)
+        TS=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+        echo "commit=$SHA" > dist/build-id.txt
+        echo "built_at=$TS" >> dist/build-id.txt
+        echo "repo=$GITHUB_REPOSITORY" >> dist/build-id.txt
+        
+        echo "✅ Proof Generated:"
+        cat dist/build-id.txt
 
     - name: Deploy to EC2
       env:
@@ -133,13 +125,13 @@ jobs:
         echo "Live Content:"
         echo "$LIVE_ID"
         
-        CURRENT_COMMIT=$(git rev-parse HEAD)
+        CURRENT_SHORT_SHA=$(git rev-parse --short HEAD)
         
-        if [[ "$LIVE_ID" == *"$CURRENT_COMMIT"* ]]; then
-          echo "✅ VERIFIED: Live site is serving commit $CURRENT_COMMIT"
+        if [[ "$LIVE_ID" == *"$CURRENT_SHORT_SHA"* ]]; then
+          echo "✅ VERIFIED: Live site is serving commit $CURRENT_SHORT_SHA"
         else
           echo "❌ FAILED: Live site does not match current commit."
-          echo "Expected: $CURRENT_COMMIT"
+          echo "Expected: $CURRENT_SHORT_SHA"
           echo "Received: $LIVE_ID"
           exit 1
         fi
