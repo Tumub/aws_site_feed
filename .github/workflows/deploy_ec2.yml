@@ -26,10 +26,19 @@ jobs:
     - name: Debug Connectivity (Safe)
       run: |
         echo "Validating Configuration..."
-        # Print length of secrets to verify they are loaded (masked in logs)
-        if [ -n "${{ secrets.HOST_IP }}" ]; then echo "HOST_IP: Loaded (Length: ${#{{ secrets.HOST_IP }}})"; else echo "HOST_IP: MISSING"; fi
-        if [ -n "${{ secrets.SSH_USER }}" ]; then echo "SSH_USER: Loaded (Length: ${#{{ secrets.SSH_USER }}})"; else echo "SSH_USER: MISSING"; fi
-        if [ -n "${{ secrets.SSH_KEY }}" ]; then echo "SSH_KEY: Loaded (Length: ${#{{ secrets.SSH_KEY }}})"; else echo "SSH_KEY: MISSING"; fi
+        # Assign to variables first to avoid bad substitution errors
+        HOST="${{ secrets.HOST_IP }}"
+        USER="${{ secrets.SSH_USER }}"
+        KEY="${{ secrets.SSH_KEY }}"
+        
+        echo "HOST_IP loaded: $([ -n "$HOST" ] && echo YES || echo NO) (len=${#HOST})"
+        echo "SSH_USER loaded: $([ -n "$USER" ] && echo YES || echo NO) (len=${#USER})"
+        echo "SSH_KEY loaded: $([ -n "$KEY" ] && echo YES || echo NO) (len=${#KEY})"
+        
+        if [ -z "$HOST" ] || [ -z "$USER" ] || [ -z "$KEY" ]; then 
+          echo "❌ Critical secrets missing."
+          exit 1
+        fi
 
     - name: Preflight SSH Check
       timeout-minutes: 1
