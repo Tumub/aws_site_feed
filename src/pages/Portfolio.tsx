@@ -211,7 +211,7 @@ const Portfolio = () => {
         {/* Partner Dossiers */}
         <section className="mb-16">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="font-display text-3xl uppercase tracking-tight">The Smiths</h2>
+            <h2 className="font-display text-3xl uppercase tracking-tight">Managing Partners</h2>
             <div className="hidden md:block h-px flex-1 bg-border ml-8"></div>
           </div>
 
@@ -293,7 +293,7 @@ const Portfolio = () => {
       {/* Footer */}
       <footer className="border-t border-border bg-secondary/20 p-8 text-center">
         <p className="font-mono text-xs text-muted-foreground space-y-2">
-          <span className="block">THREADSMITHS INDUSTRIAL</span>
+          <span className="block">TORQUEFOUNDRY ADVISORY</span>
           <span className="block text-muted-foreground/60">BASEL, SWITZERLAND</span>
           <span className="block pt-4 text-[0.6rem] opacity-50">EST. 2025 // DIGITAL MEETS DIRTY HANDS</span>
         </p>

@@ -30,7 +30,7 @@ export const PartnersSection = () => {
           id="partners-heading"
           className="font-display text-2xl uppercase tracking-tight sm:text-3xl md:text-4xl"
         >
-          The Smiths
+          Our Leadership
         </h2>
         <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
           Senior operators who've lived on the floor, not in the boardroom.
