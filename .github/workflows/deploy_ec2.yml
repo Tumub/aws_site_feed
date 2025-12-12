@@ -12,6 +12,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # Working directory is implicitly repo root (./)
     
     steps:
     - name: Checkout
