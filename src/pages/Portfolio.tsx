@@ -218,9 +218,9 @@ const SecurityModal = ({ isOpen, onClose, onSuccess }: { isOpen: boolean; onClos
         {/* Terminal Body */}
         <div className="p-6 font-mono">
           <div className="mb-4 space-y-1 text-xs text-muted-foreground">
-            <p>> INITIATING HANDSHAKE...</p>
-            <p>> ENCRYPTED CONNECTION ESTABLISHED.</p>
-            <p>> AWAITING AUTHORIZATION CODE.</p>
+            <p>&gt; INITIATING HANDSHAKE...</p>
+            <p>&gt; ENCRYPTED CONNECTION ESTABLISHED.</p>
+            <p>&gt; AWAITING AUTHORIZATION CODE.</p>
           </div>
 
           <form onSubmit={handleSubmit} className="relative">

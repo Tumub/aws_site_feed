@@ -40,11 +40,10 @@ export const EngagementSection = () => {
 
             <div className="grid gap-4 md:grid-cols-2">
               <div
-                className={`rounded-2xl border p-4 cursor-pointer transition-colors ${
-                  activePhase === 1
+                className={`rounded-2xl border p-4 cursor-pointer transition-colors ${activePhase === 1
                     ? "border-secondary/60 bg-secondary/80"
                     : "border-border/70 bg-background/80"
-                }`}
+                  }`}
                 onMouseEnter={() => setActivePhase(1)}
               >
                 <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-accent">
@@ -66,11 +65,10 @@ export const EngagementSection = () => {
               </div>
 
               <div
-                className={`rounded-2xl border p-4 cursor-pointer transition-colors ${
-                  activePhase === 2
+                className={`rounded-2xl border p-4 cursor-pointer transition-colors ${activePhase === 2
                     ? "border-secondary/60 bg-secondary/80"
                     : "border-border/70 bg-background/80"
-                }`}
+                  }`}
                 onMouseEnter={() => setActivePhase(2)}
               >
                 <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-primary">
@@ -111,7 +109,10 @@ export const EngagementSection = () => {
             </p>
           </div>
 
-          <Button className="mt-2 font-mono text-[0.75rem] uppercase tracking-[0.25em]">
+          <Button
+            className="mt-2 font-mono text-[0.75rem] uppercase tracking-[0.25em]"
+            onClick={() => window.location.href = "/apply"}
+          >
             Apply for Capital-Protected Diagnostic
           </Button>
         </div>

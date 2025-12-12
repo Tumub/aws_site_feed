@@ -7,6 +7,7 @@ import { VerticalIntegrationSection } from "@/components/sections/VerticalIntegr
 import { EmbeddedSection } from "@/components/sections/EmbeddedSection";
 import { EngagementSection } from "@/components/sections/EngagementSection";
 import { InsightsSection } from "@/components/sections/InsightsSection";
+import { ContactSection } from "@/components/sections/ContactSection";
 
 
 const Index = () => {
@@ -21,6 +22,7 @@ const Index = () => {
         <EmbeddedSection />
         <EngagementSection />
         <InsightsSection />
+        <ContactSection />
 
       </main>
       <SiteFooter />
