@@ -103,8 +103,9 @@ jobs:
         # 2. Upload to temp
         scp -i ~/.ssh/id_rsa build.tar.gz $USER@$HOST:/tmp/build.tar.gz
         
-        # 3. Upload Helper Script
+        # 3. Upload Helper Scripts
         scp -i ~/.ssh/id_rsa scripts/find_root.py $USER@$HOST:/tmp/find_root.py
+        scp -i ~/.ssh/id_rsa scripts/ensure_spa_routing.py $USER@$HOST:/tmp/ensure_spa_routing.py
         
         # 4. Path Surgery & Deploy on Server
         ssh -i ~/.ssh/id_rsa $USER@$HOST << EOF
@@ -132,6 +133,14 @@ jobs:
           if [ -n "\$CONF" ]; then
             echo "----- CONF SNIPPET -----"
             sudo nl -ba "\$CONF" | sed -n '1,220p'
+            
+            # ---------------------------------------------------------
+            # FIX: Ensure SPA Routing
+            # ---------------------------------------------------------
+            echo "🔧 Checking/Fixing SPA Routing in \$CONF..."
+            sudo python3 /tmp/ensure_spa_routing.py "\$CONF" || echo "⚠️ SPA Fix script failed (non-critical if already correct)."
+          else
+            echo "⚠️ Could not locate config file for SPA patching."
           fi
 
           echo "===== DIAG: nginx -T root/server_name lines (first 200 matches) ====="
@@ -185,8 +194,8 @@ jobs:
           echo "===== DIAG: server build-id ====="
           cat "\$ROOT/build-id.txt" || (echo "❌ build-id missing in served root" && exit 1)
           
-          # Cleanup Script
-          rm /tmp/find_root.py
+          # Cleanup Scripts
+          rm /tmp/find_root.py /tmp/ensure_spa_routing.py
           
         EOF
         
