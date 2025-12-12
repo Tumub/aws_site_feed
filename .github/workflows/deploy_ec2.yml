@@ -46,26 +46,35 @@ jobs:
 
     - name: Deploy to EC2
       env:
-        EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
-        HOST: ${{ secrets.EC2_HOST }}
-        USER: ${{ secrets.EC2_USER }}
+        EC2_SSH_KEY: ${{ secrets.SSH_KEY }}
+        HOST: ${{ secrets.HOST_IP }}
+        USER: ${{ secrets.SSH_USER }}
         LINK_PATH: /var/www/torquefoundry
         RELEASES_PATH: /var/www/releases
       run: |
         # Setup SSH
-        mkdir -p ~/.ssh/
-        echo "$EC2_SSH_KEY" > ~/.ssh/deploy_key
-        chmod 600 ~/.ssh/deploy_key
-        ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+        set -euo pipefail
+        mkdir -p ~/.ssh
+        chmod 700 ~/.ssh
+
+        if [ -z "${{ secrets.HOST_IP }}" ]; then
+          echo "❌ HOST_IP secret is missing/empty"
+          exit 1
+        fi
+
+        echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+
+        ssh-keyscan -H "${{ secrets.HOST_IP }}" >> ~/.ssh/known_hosts 2>/dev/null || true
 
         # 1. Archive build (root dist)
         tar -czf build.tar.gz -C dist .
         
         # 2. Upload to temp
-        scp -i ~/.ssh/deploy_key build.tar.gz $USER@$HOST:/tmp/build.tar.gz
+        scp -i ~/.ssh/id_rsa build.tar.gz $USER@$HOST:/tmp/build.tar.gz
         
         # 3. Atomic Symlink Swap on Server
-        ssh -i ~/.ssh/deploy_key $USER@$HOST << EOF
+        ssh -i ~/.ssh/id_rsa $USER@$HOST << EOF
           # Stop on error
           set -e
           
@@ -114,14 +123,14 @@ jobs:
           echo "Deployment Complete. Live Release: \$RELEASE_DIR"
         EOF
         
-        rm ~/.ssh/deploy_key
+        rm ~/.ssh/id_rsa
 
     - name: Verify Live Deployment (Build ID)
       run: |
         echo "Waiting for Nginx reload..."
         sleep 5
-        echo "Checking http://${{ secrets.EC2_HOST }}/build-id.txt..."
-        LIVE_ID=$(curl -s --fail http://${{ secrets.EC2_HOST }}/build-id.txt || echo "FETCH_FAILED")
+        echo "Checking http://${{ secrets.HOST_IP }}/build-id.txt..."
+        LIVE_ID=$(curl -s --fail http://${{ secrets.HOST_IP }}/build-id.txt || echo "FETCH_FAILED")
         echo "Live Content:"
         echo "$LIVE_ID"
         
