@@ -23,6 +23,28 @@ jobs:
       with:
         node-version: 20
 
+    - name: Debug Connectivity (Safe)
+      run: |
+        echo "Validating Configuration..."
+        # Print length of secrets to verify they are loaded (masked in logs)
+        if [ -n "${{ secrets.HOST_IP }}" ]; then echo "HOST_IP: Loaded (Length: ${#{{ secrets.HOST_IP }}})"; else echo "HOST_IP: MISSING"; fi
+        if [ -n "${{ secrets.SSH_USER }}" ]; then echo "SSH_USER: Loaded (Length: ${#{{ secrets.SSH_USER }}})"; else echo "SSH_USER: MISSING"; fi
+        if [ -n "${{ secrets.SSH_KEY }}" ]; then echo "SSH_KEY: Loaded (Length: ${#{{ secrets.SSH_KEY }}})"; else echo "SSH_KEY: MISSING"; fi
+
+    - name: Preflight SSH Check
+      timeout-minutes: 1
+      run: |
+        echo "Testing TCP Connectivity to ${{ secrets.HOST_IP }}:22..."
+        # Attempt to reach port 22. If this fails, Security Group is likely blocking GitHub.
+        if nc -z -v -w 5 ${{ secrets.HOST_IP }} 22; then
+            echo "✅ Connectivity Confirmed: Port 22 is OPEN."
+        else
+            echo "❌ Connectivity Error: Port 22 is BLOCKED or UNREACHABLE."
+            echo "   Action Required: Check AWS Security Group inbound rules."
+            echo "   Allow TCP 22 from 0.0.0.0/0 (temporary) or confirm IP allowlist."
+            exit 1
+        fi
+
     - name: Repo Guardrails (Forbidden Check)
       run: |
         chmod +x scripts/forbidden-check.sh
