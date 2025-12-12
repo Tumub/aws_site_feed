@@ -71,13 +71,11 @@ jobs:
         echo "commit=$SHA" > dist/build-id.txt
         echo "built_at=$TS" >> dist/build-id.txt
         echo "repo=$GITHUB_REPOSITORY" >> dist/build-id.txt
-        
-        echo "✅ Proof Generated:"
+        echo "Runner build-id:"
         cat dist/build-id.txt
 
     - name: Deploy to EC2
       env:
-        EC2_SSH_KEY: ${{ secrets.SSH_KEY }}
         HOST: ${{ secrets.HOST_IP }}
         USER: ${{ secrets.SSH_USER }}
         LINK_PATH: /var/www/torquefoundry
@@ -104,80 +102,86 @@ jobs:
         # 2. Upload to temp
         scp -i ~/.ssh/id_rsa build.tar.gz $USER@$HOST:/tmp/build.tar.gz
         
-        # 3. Atomic Symlink Swap on Server
+        # 3. Path Surgery & Deploy on Server
         ssh -i ~/.ssh/id_rsa $USER@$HOST << EOF
-          # Stop on error
-          set -e
+          # Stop on error & print commands
+          set -ex
           
           # Variables
           RELEASE_DIR=$RELEASES_PATH/release_\$(date +%s)
           
-          # Prepare Directories
+          # Prepare Release Directory
           sudo mkdir -p $RELEASES_PATH
           sudo mkdir -p \$RELEASE_DIR
           sudo chown $USER:$USER \$RELEASE_DIR
           
           # Extract
           tar -xzf /tmp/build.tar.gz -C \$RELEASE_DIR
-          
-          # Set Permissions
-          sudo chown -R www-data:www-data \$RELEASE_DIR
-          sudo chmod -R 755 \$RELEASE_DIR
+          rm /tmp/build.tar.gz
           
           # ---------------------------------------------------------
-          # DIAGNOSIS: Nginx Server Blocks & Routing
+          # DIAG: find nginx site config for torquefoundryadvisory.com
           # ---------------------------------------------------------
-          echo "=== NGINX SERVER BLOCKS (filtered) ==="
-          sudo nginx -T 2>/dev/null | grep -nE "server_name|listen|root |location /|try_files" | head -n 200
+          echo "===== DIAG: find nginx site config for torquefoundryadvisory.com ====="
+          CONF=\$(sudo grep -Rsl "server_name .*torquefoundryadvisory.com" /etc/nginx/sites-enabled /etc/nginx/conf.d 2>/dev/null | head -n 1 || true)
+          echo "CONF=\$CONF"
+          if [ -n "\$CONF" ]; then
+            echo "----- CONF SNIPPET -----"
+            sudo nl -ba "\$CONF" | sed -n '1,220p'
+          fi
 
-          echo "=== LOCAL TEST: domain host header ==="
-          curl -sS -i http://127.0.0.1/build-id.txt -H "Host: torquefoundryadvisory.com" | head -n 30 || true
-
-          echo "=== LOCAL TEST: default host (IP) ==="
-          curl -sS -i http://127.0.0.1/build-id.txt | head -n 30 || true
-
-          echo "=== NGINX ERROR LOG (last 60 lines) ==="
-          sudo tail -n 60 /var/log/nginx/error.log || true
+          echo "===== DIAG: nginx -T root/server_name lines (first 200 matches) ====="
+          sudo nginx -T 2>/dev/null | grep -nE "server_name|root |listen|try_files|location" | head -n 200 || true
           
           # ---------------------------------------------------------
-          # ATOMIC SWAP LOGIC
+          # AUTO-DETECT ROOT
           # ---------------------------------------------------------
-          
-          # Handle Legacy Directory Case (Migrate if it's a dir and not a link)
-          if [ -d "$LINK_PATH" ] && [ ! -L "$LINK_PATH" ]; then
-            echo "Detected legacy directory at $LINK_PATH. Moving to backup..."
-            sudo mv $LINK_PATH ${LINK_PATH}_backup_\$(date +%s)
+          ROOT=""
+          if [ -n "\$CONF" ]; then
+            ROOT=\$(sudo awk '
+              BEGIN{in=0}
+              \$0 ~ /server_name/ && \$0 ~ /torquefoundryadvisory\.com/ {in=1}
+              in==1 && \$1=="root" {gsub(";"," \",\$2); print \$2; exit}
+            ' "\$CONF" || true)
           fi
           
-          # Update Symlink
-          # ln -sfn does atomic link replacement
-          sudo ln -sfn \$RELEASE_DIR $LINK_PATH
+          # Fallback mechanism
+          if [ -z "\$ROOT" ]; then
+             echo "⚠️ Parsing failed. Trying fallback candidates..."
+             for p in /var/www/torquefoundry/dist /var/www/torquefoundry /usr/share/nginx/html /var/www/html; do
+               if [ -f "\$p/index.html" ]; then 
+                 ROOT="\$p"
+                 echo "Using fallback root: \$ROOT"
+                 break; 
+               fi
+             done
+          fi
+          
+          echo "===== DETECTED_ROOT=\$ROOT ====="
+          if [ -z "\$ROOT" ]; then
+            echo "❌ Could not detect nginx root. Aborting surgical deploy."
+            exit 1
+          fi
           
           # ---------------------------------------------------------
+          # DEPLOY TO ROOT (RSYNC)
+          # ---------------------------------------------------------
+          echo "🚀 Deploying to DETECTED ROOT: \$ROOT"
+          sudo mkdir -p "\$ROOT"
+          sudo rsync -a --delete "\$RELEASE_DIR"/ "\$ROOT"/
           
-          # Cleanup: Keep last 3 releases
-          echo "Cleaning up old releases..."
-          cd $RELEASES_PATH
-          ls -dt release_* | tail -n +4 | xargs -r sudo rm -rf
-          
-          # Cleanup Temp
-          rm /tmp/build.tar.gz
+          # Permissions
+          sudo chown -R www-data:www-data "\$ROOT"
+          sudo chmod -R 755 "\$ROOT"
           
           # Reload Nginx
           sudo systemctl reload nginx
           
-          echo "✅ Deployment Complete. Live Release: \$RELEASE_DIR"
+          echo "===== DIAG: served root listing ====="
+          ls -la "\$ROOT" | head -n 50
+          echo "===== DIAG: server build-id ====="
+          cat "\$ROOT/build-id.txt" || (echo "❌ build-id missing in served root" && exit 1)
           
-          echo "📂 Server-side File Verification (First 20 files):"
-          ls -la \$RELEASE_DIR | head -n 20
-          
-          echo "📄 Checking for build-id.txt at root of release:"
-          if [ -f "\$RELEASE_DIR/build-id.txt" ]; then
-              echo "FOUND: \$RELEASE_DIR/build-id.txt"
-              cat "\$RELEASE_DIR/build-id.txt"
-          else
-              echo "❌ ERROR: build-id.txt MISSING in \$RELEASE_DIR"
-          fi
         EOF
         
         rm ~/.ssh/id_rsa
@@ -192,35 +196,30 @@ jobs:
         
         echo "Checking http://${DOMAIN}/build-id.txt via origin $IP..."
         
-        # Curl with resolve to bypass Cloudflare/DNS propagation and go straight to EC2
-        # -sS: Silent but show errors
-        # -o live.txt: Save body
-        # -w: Print status code
         code=$(curl -sS -o live.txt -w "%{http_code}" --max-time 10 \
           --resolve "${DOMAIN}:80:${IP}" \
           "http://${DOMAIN}/build-id.txt" || echo "000")
         
         echo "HTTP_STATUS=$code"
-        echo "BODY (First 100 bytes):"
-        head -c 100 live.txt || true
-        echo ""
+        cat live.txt || true
         
         if [ "$code" -ne 200 ]; then
           echo "❌ FAILED: Status code $code (Expected 200)"
-          cat live.txt || true
+          # Print diagnostics if available
+          echo "Diagnostics:"
+          head -n 20 live.txt
           exit 1
         fi
         
-        # Verification Logic
-        CURRENT_SHORT_SHA=$(git rev-parse --short HEAD)
-        LIVE_CONTENT=$(cat live.txt)
+        EXPECTED=$(git rev-parse --short HEAD)
+        RECEIVED=$(grep -E "^commit=" live.txt | cut -d= -f2 | tr -d "\r" || true)
         
-        if [[ "$LIVE_CONTENT" == *"$CURRENT_SHORT_SHA"* ]]; then
-          echo "✅ VERIFIED: Live site is serving commit $CURRENT_SHORT_SHA"
-        else
-          echo "❌ FAILED: Live site does not match current commit."
-          echo "Expected: $CURRENT_SHORT_SHA"
-          echo "Received Body:"
-          echo "$LIVE_CONTENT"
+        echo "Expected=$EXPECTED"
+        echo "Received=$RECEIVED"
+        
+        if [ "$EXPECTED" != "$RECEIVED" ]; then
+          echo "❌ FAILED: Content mismatch"
           exit 1
+        else
+          echo "✅ VERIFIED: Content matches commit $EXPECTED"
         fi
