@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Industrial chic dark surface */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 47% 14%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 47% 14%;
+    --popover-foreground: 210 40% 96%;
+
+    /* Primary accent: Safety Orange for CTAs */
+    --primary: 21 90% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary: industrial charcoal surfaces */
+    --secondary: 217 25% 20%;
+    --secondary-foreground: 210 40% 96%;
+
+    /* Muted surfaces & labels */
+    --muted: 215 25% 16%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Digital cyan accent for HUD elements */
+    --accent: 188 94% 43%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 22%;
+    --input: 215 25% 22%;
+    --ring: 188 94% 43%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 47% 9%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 21 90% 53%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 25% 20%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 215 25% 22%;
+    --sidebar-ring: 188 94% 43%;
+
+    /* Chart palette tuned to industrial accents */
+    --chart-1: 21 90% 53%;
+    --chart-2: 188 94% 43%;
+    --chart-3: 217 25% 60%;
+    --chart-4: 0 84% 60%;
+    --chart-5: 48 96% 53%;
+
+    --sidebar: 222 47% 9%;
+
+    /* Typography system */
+    --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+      "Noto Color Emoji";
+
+    --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+    --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+
+    /* Shadow system aligned with dark factory aesthetic */
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.3);
+    --shadow-sm: 0 12px 30px -12px hsl(222 47% 5% / 0.9);
+    --shadow: 0 18px 45px -18px hsl(222 47% 5% / 0.95);
+    --shadow-md: 0 20px 55px -18px hsl(222 47% 5% / 0.95);
+    --shadow-lg: 0 24px 70px -24px hsl(222 47% 5% / 0.98);
+    --shadow-xl: 0 32px 90px -26px hsl(222 47% 5% / 0.98);
+    --shadow-2xl: 0 40px 120px -30px hsl(222 47% 5% / 0.99);
+
+    --tracking-normal: 0em;
+
+    --spacing: 0.25rem;
+  }
+
+  .dark {
+    --background: 222 47% 9%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 47% 12%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 21 90% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 25% 18%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 215 25% 16%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 188 94% 43%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 24%;
+    --input: 215 25% 24%;
+    --ring: 188 94% 50%;
+
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 21 90% 53%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 25% 18%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 215 25% 24%;
+    --sidebar-ring: 188 94% 50%;
+
+    --chart-1: 21 90% 53%;
+    --chart-2: 188 94% 43%;
+    --chart-3: 217 25% 60%;
+    --chart-4: 0 84% 60%;
+    --chart-5: 48 96% 53%;
+
+    --sidebar: 222 47% 6%;
+
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.3);
+    --shadow-sm: 0 12px 30px -12px hsl(222 47% 5% / 0.9);
+    --shadow: 0 18px 45px -18px hsl(222 47% 5% / 0.95);
+    --shadow-md: 0 20px 55px -18px hsl(222 47% 5% / 0.95);
+    --shadow-lg: 0 24px 70px -24px hsl(222 47% 5% / 0.98);
+    --shadow-xl: 0 32px 90px -26px hsl(222 47% 5% / 0.98);
+    --shadow-2xl: 0 40px 120px -30px hsl(222 47% 5% / 0.99);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}

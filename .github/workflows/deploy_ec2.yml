@@ -1,0 +1,110 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Generate Build ID
+      run: |
+        echo "commit=$(git rev-parse HEAD)" > build-id.txt
+        echo "built_at=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> build-id.txt
+        echo "repo=$GITHUB_REPOSITORY" >> build-id.txt
+        echo "Build ID Generated:"
+        cat build-id.txt
+
+    - name: Install and Build
+      run: |
+        npm ci
+        npm run build
+        # Copy Build ID to dist so it is deployable
+        cp build-id.txt dist/build-id.txt
+
+    - name: Deploy to EC2
+      env:
+        EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+        HOST: ${{ secrets.EC2_HOST }}
+        USER: ${{ secrets.EC2_USER }}
+        LINK_PATH: /var/www/torquefoundry
+        RELEASES_PATH: /var/www/releases
+      run: |
+        # Setup SSH
+        mkdir -p ~/.ssh/
+        echo "$EC2_SSH_KEY" > ~/.ssh/deploy_key
+        chmod 600 ~/.ssh/deploy_key
+        ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
+
+        # 1. Archive build (root dist)
+        tar -czf build.tar.gz -C dist .
+        
+        # 2. Upload to temp
+        scp -i ~/.ssh/deploy_key build.tar.gz $USER@$HOST:/tmp/build.tar.gz
+        
+        # 3. Atomic Symlink Swap on Server
+        ssh -i ~/.ssh/deploy_key $USER@$HOST << EOF
+          # Stop on error
+          set -e
+          
+          # Variables
+          RELEASE_DIR=$RELEASES_PATH/release_\$(date +%s)
+          
+          # Prepare Directories
+          sudo mkdir -p $RELEASES_PATH
+          sudo mkdir -p \$RELEASE_DIR
+          sudo chown $USER:$USER \$RELEASE_DIR
+          
+          # Extract
+          tar -xzf /tmp/build.tar.gz -C \$RELEASE_DIR
+          
+          # Set Permissions
+          sudo chown -R www-data:www-data \$RELEASE_DIR
+          sudo chmod -R 755 \$RELEASE_DIR
+          
+          # ---------------------------------------------------------
+          # ATOMIC SWAP LOGIC
+          # ---------------------------------------------------------
+          
+          # Handle Legacy Directory Case (Migrate if it's a dir and not a link)
+          if [ -d "$LINK_PATH" ] && [ ! -L "$LINK_PATH" ]; then
+            echo "Detected legacy directory at $LINK_PATH. Moving to backup..."
+            sudo mv $LINK_PATH ${LINK_PATH}_backup_\$(date +%s)
+          fi
+          
+          # Update Symlink
+          # ln -sfn does atomic link replacement
+          sudo ln -sfn \$RELEASE_DIR $LINK_PATH
+          
+          # ---------------------------------------------------------
+          
+          # Cleanup: Keep last 3 releases
+          echo "Cleaning up old releases..."
+          cd $RELEASES_PATH
+          ls -dt release_* | tail -n +4 | xargs -r sudo rm -rf
+          
+          # Cleanup Temp
+          rm /tmp/build.tar.gz
+          
+          # Reload Nginx
+          sudo systemctl reload nginx
+          
+          echo "Deployment Complete. Live Release: \$RELEASE_DIR"
+        EOF
+        
+        rm ~/.ssh/deploy_key
