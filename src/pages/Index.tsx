@@ -7,7 +7,7 @@ import { VerticalIntegrationSection } from "@/components/sections/VerticalIntegr
 import { EmbeddedSection } from "@/components/sections/EmbeddedSection";
 import { EngagementSection } from "@/components/sections/EngagementSection";
 import { InsightsSection } from "@/components/sections/InsightsSection";
-import { PartnersSection } from "@/components/sections/PartnersSection";
+
 
 const Index = () => {
   return (
@@ -21,7 +21,7 @@ const Index = () => {
         <EmbeddedSection />
         <EngagementSection />
         <InsightsSection />
-        <PartnersSection />
+
       </main>
       <SiteFooter />
     </div>
