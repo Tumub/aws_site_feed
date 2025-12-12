@@ -184,18 +184,41 @@ jobs:
       run: |
         echo "Waiting for Nginx reload..."
         sleep 5
-        echo "Checking http://${{ secrets.HOST_IP }}/build-id.txt..."
-        LIVE_ID=$(curl -s --fail http://${{ secrets.HOST_IP }}/build-id.txt || echo "FETCH_FAILED")
-        echo "Live Content:"
-        echo "$LIVE_ID"
         
+        DOMAIN="torquefoundryadvisory.com"
+        IP="${{ secrets.HOST_IP }}"
+        
+        echo "Checking http://${DOMAIN}/build-id.txt via origin $IP..."
+        
+        # Curl with resolve to bypass Cloudflare/DNS propagation and go straight to EC2
+        # -sS: Silent but show errors
+        # -o live.txt: Save body
+        # -w: Print status code
+        code=$(curl -sS -o live.txt -w "%{http_code}" --max-time 10 \
+          --resolve "${DOMAIN}:80:${IP}" \
+          "http://${DOMAIN}/build-id.txt" || echo "000")
+        
+        echo "HTTP_STATUS=$code"
+        echo "BODY (First 100 bytes):"
+        head -c 100 live.txt || true
+        echo ""
+        
+        if [ "$code" -ne 200 ]; then
+          echo "❌ FAILED: Status code $code (Expected 200)"
+          cat live.txt || true
+          exit 1
+        fi
+        
+        # Verification Logic
         CURRENT_SHORT_SHA=$(git rev-parse --short HEAD)
+        LIVE_CONTENT=$(cat live.txt)
         
-        if [[ "$LIVE_ID" == *"$CURRENT_SHORT_SHA"* ]]; then
+        if [[ "$LIVE_CONTENT" == *"$CURRENT_SHORT_SHA"* ]]; then
           echo "✅ VERIFIED: Live site is serving commit $CURRENT_SHORT_SHA"
         else
           echo "❌ FAILED: Live site does not match current commit."
           echo "Expected: $CURRENT_SHORT_SHA"
-          echo "Received: $LIVE_ID"
+          echo "Received Body:"
+          echo "$LIVE_CONTENT"
           exit 1
         fi
