@@ -125,17 +125,19 @@ jobs:
           sudo chmod -R 755 \$RELEASE_DIR
           
           # ---------------------------------------------------------
-          # DEBUG: Nginx Config Check (Instruction-based)
+          # DIAGNOSIS: Nginx Server Blocks & Routing
           # ---------------------------------------------------------
-          echo "🔍 CHECKING NGINX ROOT CONFIGURATION..."
-          # Grep for root in the site config if expected file exists, or general nginx
-          if [ -f /etc/nginx/sites-enabled/torquefoundry ]; then
-              grep -n "root" /etc/nginx/sites-enabled/torquefoundry || echo "No root found in site config"
-              grep -n "server_name" /etc/nginx/sites-enabled/torquefoundry || echo "No server_name found"
-          else
-              echo "⚠️ /etc/nginx/sites-enabled/torquefoundry NOT FOUND. Checking default..."
-              grep -r "root" /etc/nginx/sites-enabled/ || true
-          fi
+          echo "=== NGINX SERVER BLOCKS (filtered) ==="
+          sudo nginx -T 2>/dev/null | grep -nE "server_name|listen|root |location /|try_files" | head -n 200
+
+          echo "=== LOCAL TEST: domain host header ==="
+          curl -sS -i http://127.0.0.1/build-id.txt -H "Host: torquefoundryadvisory.com" | head -n 30 || true
+
+          echo "=== LOCAL TEST: default host (IP) ==="
+          curl -sS -i http://127.0.0.1/build-id.txt | head -n 30 || true
+
+          echo "=== NGINX ERROR LOG (last 60 lines) ==="
+          sudo tail -n 60 /var/log/nginx/error.log || true
           
           # ---------------------------------------------------------
           # ATOMIC SWAP LOGIC
