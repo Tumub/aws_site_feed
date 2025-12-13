@@ -1,7 +1,9 @@
-import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/lib/i18n";
 import originMap from "@/assets/origin_strategy_map.png";
 
 export const OriginStorySection = () => {
+    const { t } = useLanguage();
+
     return (
         <section className="relative overflow-hidden bg-background py-20 lg:py-32">
             <div className="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-2 lg:items-center lg:gap-20 lg:px-0">
@@ -10,36 +12,34 @@ export const OriginStorySection = () => {
                 <div className="space-y-8">
                     <div className="space-y-6">
                         <h2 className="font-display text-3xl uppercase tracking-tight text-white sm:text-4xl md:text-5xl">
-                            We Don't Advise. <span className="text-primary">We Embed.</span>
+                            {t.origin.headline}
                         </h2>
 
                         <div className="space-y-6 text-sm leading-relaxed text-muted-foreground sm:text-base">
                             <p>
-                                I’ve spent years inside global operations—operating at the intersection of <strong className="text-accent">Sweden’s planning discipline</strong>, <strong className="text-accent">Turkey’s execution agility</strong>, and <strong className="text-accent">Switzerland’s systems precision</strong>.
+                                {t.origin.story}
                             </p>
                             <p>
-                                Across industries, the pattern is the same: Transformation doesn't fail because the strategy is wrong. It fails because execution can't survive the reality of the shopfloor.
+                                {t.origin.pattern}
                             </p>
                             <p className="text-lg font-medium text-white">
-                                TorqueFoundry was built to close that gap.
+                                {t.origin.closing}
                             </p>
                             <p>
-                                This isn't a solo game. It requires fusing three disciplines into one execution spine: <span className="text-accent">Digital + Supply Chain + Manufacturing</span>. So, I built a team that matches the reality:
+                                {t.origin.solo_game}
                             </p>
                             <ul className="space-y-4 border-l-2 border-primary/30 pl-6">
                                 <li>
-                                    <strong className="block text-white">A Manufacturing Leader</strong>
-                                    <span className="text-xs uppercase tracking-wider text-muted-foreground/80">Shopfloor-First · Relentlessly Practical</span>
-                                    <br />Shaped by high-pressure industrial environments.
+                                    <strong className="block text-white">{t.origin.leader_role.split(":")[0]}</strong>
+                                    <span className="text-xs uppercase tracking-wider text-muted-foreground/80">{t.origin.leader_role.split(":")[1]}</span>
                                 </li>
                                 <li>
-                                    <strong className="block text-white">A Systems Architect</strong>
-                                    <span className="text-xs uppercase tracking-wider text-muted-foreground/80">Data-Driven · Precision Engineering</span>
-                                    <br />Focused on building the architecture that turns data into measurable performance.
+                                    <strong className="block text-white">{t.origin.architect_role.split(":")[0]}</strong>
+                                    <span className="text-xs uppercase tracking-wider text-muted-foreground/80">{t.origin.architect_role.split(":")[1]}</span>
                                 </li>
                             </ul>
                             <p>
-                                We don’t do magic. We do engineering. We evolve in place—inside the systems you already run.
+                                {t.origin.no_magic}
                             </p>
                         </div>
                     </div>
@@ -55,15 +55,15 @@ export const OriginStorySection = () => {
                             <div className="flex justify-between items-start">
                                 <div className="flex items-center gap-2">
                                     <div className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-                                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-accent">Strategic Coverage</span>
+                                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-accent">{t.origin.strategic_coverage}</span>
                                 </div>
-                                <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground">EU-MENA-CH Corridor</span>
+                                <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground">{t.origin.corridor}</span>
                             </div>
 
                             <div className="flex justify-between items-end">
                                 <div className="space-y-1">
                                     <div className="h-0.5 w-12 bg-primary/60" />
-                                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground">Origin Node</span>
+                                    <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground">{t.origin.origin_node}</span>
                                 </div>
                             </div>
                         </div>

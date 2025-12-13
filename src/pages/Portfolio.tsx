@@ -2,149 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import { Award, Lock, Unlock, Loader2, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/i18n";
+import { LanguageSwitcher } from "@/components/ui/language-switcher";
 
 /* -------------------------------------------------------------------------- */
-/*                                 DATA STORE                                 */
+/*                                    TYPES                                   */
 /* -------------------------------------------------------------------------- */
 
-const UMUT_CASES = [
-  {
-    title: "Volvo Cars CoE",
-    pub: "Intercontinental Ops Center.",
-    auth: "Created team of 34 from scratch. Unified 40k shipments/year across 3 regions."
-  },
-  {
-    title: "AI Track & Trace",
-    pub: "GIT Reduction & Auto-Audit.",
-    auth: "Reduced GIT by 125 MSEK (~$11M). 70% reduction in manual invoicing via AI milestones."
-  },
-  {
-    title: "Global Transport Sourcing",
-    pub: "Coupa Optimization ($790M).",
-    auth: "30% value improvement on $790M spend. Cycle time reduced 8mo → 4mo using 'Best Value' logic."
-  },
-  {
-    title: "Crisis Management",
-    pub: "Covid Volume Surge.",
-    auth: "Managed $1.2B spend during port lockdowns. Volume surged 596k → 638k TEU."
-  },
-  {
-    title: "DCSA Control Tower",
-    pub: "Snowflake & API Integration.",
-    auth: "Reduced carrier onboarding 6mo → 4 weeks using DCSA standards."
-  },
-  {
-    title: "Global Capacity Planning",
-    pub: "IKEA Supplier Capacity.",
-    auth: "Predicted stock-outs months in advance via monthly IBP cycles."
-  },
-  {
-    title: "Coupa Excellence 2024",
-    pub: "Global Sourcing Award.",
-    auth: "Best-in-class implementation for >$600M spend."
-  },
-];
-
-const EMRAH_CASES = [
-  {
-    title: "Chemical Optimization",
-    pub: "Process & Recipe Optimization.",
-    auth: "$1.5M Annual Savings via Six Sigma without compromising quality."
-  },
-  {
-    title: "The 'Invisible' Machine",
-    pub: "Line Balancing (5 → 4 machines).",
-    auth: "Eliminated €450K machine cost. Unlocked $1.0M capacity value."
-  },
-  {
-    title: "Greenfield Commissioning",
-    pub: "4 Major Facility Setups.",
-    auth: "Managed €5M+ investment. Plating & Extrusion plants (Auto & White Goods)."
-  },
-  {
-    title: "Solar Energy Revenue",
-    pub: "Sustainability as Profit.",
-    auth: "Generated $300k/year revenue via SPP installation."
-  },
-  {
-    title: "Market Entry Line",
-    pub: "Kartepe White Goods Line.",
-    auth: "Unlocked contracts with Arçelik, Vestel & Uğur Cooling."
-  },
-];
-
-const SEBASTIAN_CASES = [
-  {
-    title: "Agentic Logistics",
-    pub: "Swarm of AI Agents.",
-    auth: "Replaced manual booking/verification with agents in legacy systems."
-  },
-  {
-    title: "Automated Underwriting",
-    pub: "First Multi-Million AI in EU.",
-    auth: "Moved from documents to information. Massive knowledge-bearing AI."
-  },
-  {
-    title: "Airline CX Transformation",
-    pub: "Major European Airline.",
-    auth: "Redesigned aftersales with AI bots. Improved UX & reduced workload."
-  },
-  {
-    title: "AI Self-Service",
-    pub: "Insurance & Gov Automation.",
-    auth: "Design lead for major Swiss insurer & German labor agency (DWP)."
-  },
-  {
-    title: "AI Center of Excellence",
-    pub: "Automation Strategy.",
-    auth: "Established CoE to drive automation from business, not IT."
-  },
-  {
-    title: "Automotive AI Strategy",
-    pub: "Major German OEM.",
-    auth: "Designed operational model embedded with automotive teams."
-  },
-];
-
-const MODULES = [
-  "From Control Tower Slides to Real-Time Operations",
-  "Using DCSA & APIs to Clean Up Logistics Data",
-  "Transforming Hidden Factories: The Lean Path",
-  "From Tender Savings to Structural Cost Leadership",
-];
-
-const TECH_CATEGORIES = [
-  { label: "DATA & CODE", items: ["Snowflake", "SQL", "Python", "C++", "Visual Basic", "R"] },
-  { label: "VISIBILITY", items: ["Project44", "FourKites", "DCSA Standards", "SAP BN"] },
-  { label: "ANALYTICS", items: ["Power BI", "Tableau", "Streamlit", "Qlik"] },
-  { label: "CERTIFICATIONS", items: ["IATF 16949 Lead Auditor", "ISO 9001/14001/45001", "CPMAI", "Lean Six Sigma Black Belt", "PMP / Google Project Mgmt"] },
-];
-
-const PARTNERS = {
-  supplyChain: {
-    name: "Supply Chain",
-    title: "Connecting Source to Customer",
-    bio: "15+ years managing 40,000+ shipments and >$790M spend. Unified operations across 3 regions.",
-    badge: "Coupa Sourcing Excellence 2024",
-    cases: UMUT_CASES,
-  },
-  manufacturing: {
-    name: "Manufacturing",
-    title: "Shop Floor Excellence",
-    bio: "19+ years. OEM-Ready Compliance (BMW, Mercedes, Toyota). Hidden Factory Optimization.",
-    badge: "IATF 16949 Lead Auditor",
-    cases: EMRAH_CASES,
-  },
-  digital: {
-    name: "Digital",
-    title: "Agentic Automation & Architecture",
-    bio: "Bridging the gap between IT and Business. Driving AI transformation in legacy environments.",
-    badge: null,
-    cases: SEBASTIAN_CASES,
-  },
-};
-
-type PartnerKey = keyof typeof PARTNERS;
+type PartnerKey = "supplyChain" | "manufacturing" | "digital";
 
 interface CaseCardProps {
   title: string;
@@ -153,25 +18,29 @@ interface CaseCardProps {
   isAuthorized: boolean;
 }
 
-const CaseCard = ({ title, pub, auth, isAuthorized }: CaseCardProps) => (
-  <div className="rounded-lg border border-border/60 bg-secondary/30 p-4 transition-all hover:border-accent/50 hover:bg-secondary/50">
-    <h4 className="mb-2 font-mono text-xs font-semibold uppercase tracking-wide">{title}</h4>
-    {isAuthorized ? (
-      <p className="text-sm text-accent animate-in fade-in">{auth}</p>
-    ) : (
-      <div>
-        <p className="text-sm text-muted-foreground">{pub}</p>
-        <p className="mt-1 select-none font-mono text-xs text-muted-foreground/50 blur-[2px]">[REDACTED]</p>
-      </div>
-    )}
-  </div>
-);
+/* -------------------------------------------------------------------------- */
+/*                                 COMPONENTS                                 */
+/* -------------------------------------------------------------------------- */
 
-/* -------------------------------------------------------------------------- */
-/*                              SECURITY TERMINAL                             */
-/* -------------------------------------------------------------------------- */
+const CaseCard = ({ title, pub, auth, isAuthorized }: CaseCardProps) => {
+  const { t } = useLanguage();
+  return (
+    <div className="rounded-lg border border-border/60 bg-secondary/30 p-4 transition-all hover:border-accent/50 hover:bg-secondary/50">
+      <h4 className="mb-2 font-mono text-xs font-semibold uppercase tracking-wide">{title}</h4>
+      {isAuthorized ? (
+        <p className="text-sm text-accent animate-in fade-in">{auth}</p>
+      ) : (
+        <div>
+          <p className="text-sm text-muted-foreground">{pub}</p>
+          <p className="mt-1 select-none font-mono text-xs text-muted-foreground/50 blur-[2px]">{t.portfolio.redacted}</p>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const SecurityModal = ({ isOpen, onClose, onSuccess }: { isOpen: boolean; onClose: () => void; onSuccess: () => void }) => {
+  const { t } = useLanguage();
   const [input, setInput] = useState("");
   const [status, setStatus] = useState<"IDLE" | "CHECKING" | "DENIED" | "GRANTED">("IDLE");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -210,7 +79,7 @@ const SecurityModal = ({ isOpen, onClose, onSuccess }: { isOpen: boolean; onClos
         <div className="flex items-center justify-between border-b border-accent/30 bg-accent/5 px-4 py-2">
           <div className="flex items-center gap-2">
             <Terminal className="h-4 w-4 text-accent" />
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-accent">Security Protocol V1.0</span>
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-accent">{t.portfolio.security.header}</span>
           </div>
           <button onClick={onClose} className="text-accent/50 hover:text-accent font-mono text-xs">[ESC]</button>
         </div>
@@ -218,9 +87,9 @@ const SecurityModal = ({ isOpen, onClose, onSuccess }: { isOpen: boolean; onClos
         {/* Terminal Body */}
         <div className="p-6 font-mono">
           <div className="mb-4 space-y-1 text-xs text-muted-foreground">
-            <p>&gt; INITIATING HANDSHAKE...</p>
-            <p>&gt; ENCRYPTED CONNECTION ESTABLISHED.</p>
-            <p>&gt; AWAITING AUTHORIZATION CODE.</p>
+            <p>&gt; {t.portfolio.security.init_handshake}</p>
+            <p>&gt; {t.portfolio.security.encrypted}</p>
+            <p>&gt; {t.portfolio.security.awaiting}</p>
           </div>
 
           <form onSubmit={handleSubmit} className="relative">
@@ -232,17 +101,17 @@ const SecurityModal = ({ isOpen, onClose, onSuccess }: { isOpen: boolean; onClos
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 className="w-full bg-transparent outline-none placeholder:text-accent/30 text-accent uppercase tracking-widest"
-                placeholder="ENTER CODE"
+                placeholder={t.portfolio.security.placeholder}
                 autoComplete="off"
               />
             </div>
 
             {/* Status Indicator */}
             <div className="mt-6 flex h-8 items-center justify-center border border-accent/20 bg-accent/5 text-xs font-bold uppercase tracking-[0.2em]">
-              {status === "IDLE" && <span className="text-accent animate-pulse">AWAITING INPUT</span>}
-              {status === "CHECKING" && <span className="text-yellow-400 flex items-center gap-2"><Loader2 className="h-3 w-3 animate-spin" /> VERIFYING HASH</span>}
-              {status === "DENIED" && <span className="text-red-500">ACCESS DENIED</span>}
-              {status === "GRANTED" && <span className="text-green-400">ACCESS GRANTED /// UNLOCKING</span>}
+              {status === "IDLE" && <span className="text-accent animate-pulse">{t.portfolio.security.status.idle}</span>}
+              {status === "CHECKING" && <span className="text-yellow-400 flex items-center gap-2"><Loader2 className="h-3 w-3 animate-spin" /> {t.portfolio.security.status.checking}</span>}
+              {status === "DENIED" && <span className="text-red-500">{t.portfolio.security.status.denied}</span>}
+              {status === "GRANTED" && <span className="text-green-400">{t.portfolio.security.status.granted}</span>}
             </div>
           </form>
         </div>
@@ -251,12 +120,23 @@ const SecurityModal = ({ isOpen, onClose, onSuccess }: { isOpen: boolean; onClos
   );
 };
 
+/* -------------------------------------------------------------------------- */
+/*                                MAIN PAGE                                   */
+/* -------------------------------------------------------------------------- */
+
 const Portfolio = () => {
+  const { t } = useLanguage();
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [activePartner, setActivePartner] = useState<PartnerKey>("supplyChain");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const partner = PARTNERS[activePartner];
+  const partners = t.portfolio.partners;
+  const partner = partners[activePartner];
+  // Cast keys back to PartnerKey array to map
+  const partnerKeys = Object.keys(partners) as PartnerKey[];
+
+  const MODULES = t.portfolio.modules;
+  const TECH_CATEGORIES = t.portfolio.tech_categories;
 
   const handleUnlockRequest = () => {
     if (isAuthorized) {
@@ -284,6 +164,7 @@ const Portfolio = () => {
             ← Back to Home
           </a>
           <div className="flex items-center gap-4">
+            <LanguageSwitcher />
             <span className="font-mono text-xs uppercase tracking-wide text-muted-foreground">
               View Mode: <span className={isAuthorized ? "text-accent" : "text-primary"}>{isAuthorized ? "AUTHORIZED" : "PUBLIC"}</span>
             </span>
@@ -310,37 +191,41 @@ const Portfolio = () => {
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-2">
             <div className="h-px w-8 bg-accent/50"></div>
-            <p className="font-mono text-xs uppercase tracking-widest text-accent">Digital Dossier</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-accent">{t.portfolio.dossier_label}</p>
           </div>
           <h1 className="mb-4 font-display text-4xl font-bold uppercase tracking-tight md:text-5xl">
-            Decoding the Impact.
+            {t.portfolio.headline}
           </h1>
           <p className="max-w-2xl text-lg text-muted-foreground border-l-2 border-primary/50 pl-4 py-1">
-            No theory. No slides. Just realized P&L impact across Manufacturing, Supply Chain, and Digital.
+            {t.portfolio.subheadline}
           </p>
         </section>
 
         {/* Partner Dossiers */}
         <section className="mb-16">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="font-display text-3xl uppercase tracking-tight">Managing Partners</h2>
+            <h2 className="font-display text-3xl uppercase tracking-tight">{t.portfolio.partners_title}</h2>
             <div className="hidden md:block h-px flex-1 bg-border ml-8"></div>
           </div>
 
           {/* Tab Buttons */}
           <div className="mb-8 flex flex-wrap gap-2">
-            {(Object.keys(PARTNERS) as PartnerKey[]).map((key) => (
-              <button
-                key={key}
-                onClick={() => setActivePartner(key)}
-                className={`rounded border px-4 py-2 font-mono text-xs uppercase transition-all ${activePartner === key
-                  ? "border-accent bg-accent/10 text-accent shadow-[0_0_15px_hsl(var(--accent)_/_0.15)]"
-                  : "border-border text-muted-foreground hover:border-accent/50 hover:text-foreground"
-                  }`}
-              >
-                {PARTNERS[key].name}
-              </button>
-            ))}
+            {partnerKeys.map((key) => {
+              // We use the static key names from i18n but the display name from the object
+              const pName = partners[key].name || key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setActivePartner(key)}
+                  className={`rounded border px-4 py-2 font-mono text-xs uppercase transition-all ${activePartner === key
+                    ? "border-accent bg-accent/10 text-accent shadow-[0_0_15px_hsl(var(--accent)_/_0.15)]"
+                    : "border-border text-muted-foreground hover:border-accent/50 hover:text-foreground"
+                    }`}
+                >
+                  {pName}
+                </button>
+              )
+            })}
           </div>
 
           {/* Active Partner Content */}
@@ -368,7 +253,7 @@ const Portfolio = () => {
 
         {/* Executive Curriculum */}
         <section className="mb-16">
-          <h2 className="mb-6 font-display text-3xl uppercase tracking-tight">Executive Curriculum</h2>
+          <h2 className="mb-6 font-display text-3xl uppercase tracking-tight">{t.portfolio.curriculum_title}</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {MODULES.map((mod, idx) => (
               <div key={idx} className="group flex items-start gap-4 rounded-lg border border-border/60 bg-card/50 p-5 transition-all hover:border-accent/50 hover:bg-secondary/40">
@@ -381,7 +266,7 @@ const Portfolio = () => {
 
         {/* Technical Stack */}
         <section>
-          <h2 className="mb-6 font-display text-3xl uppercase tracking-tight">Technical Stack</h2>
+          <h2 className="mb-6 font-display text-3xl uppercase tracking-tight">{t.portfolio.tech_stack_title}</h2>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {TECH_CATEGORIES.map((cat) => (
               <div key={cat.label} className="rounded-lg border border-border/60 bg-card/40 p-4">

@@ -9,6 +9,7 @@ interface ImageComparisonSliderProps {
 const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
 
 const ImageComparisonSlider = ({ leftLabel, rightLabel }: ImageComparisonSliderProps) => {
+  const { t } = useLanguage();
   const [position, setPosition] = useState(50); // percentage, 0 = full physical, 100 = full digital
   const [dragging, setDragging] = useState(false);
 
@@ -74,7 +75,7 @@ const ImageComparisonSlider = ({ leftLabel, rightLabel }: ImageComparisonSliderP
               {/* Throughput graph HUD */}
               <div className="absolute left-6 top-6 w-40 rounded-lg border border-border/70 bg-background/90 p-2 text-[0.6rem] text-muted-foreground shadow-[0_0_20px_hsl(var(--background)_/_0.9)] backdrop-blur-md">
                 <div className="mb-1 flex items-center justify-between gap-2">
-                  <span className="font-mono uppercase tracking-[0.25em]">THROUGHPUT</span>
+                  <span className="font-mono uppercase tracking-[0.25em]">{t.brownfield.throughput}</span>
                   <span className="font-semibold text-accent">+12%</span>
                 </div>
                 <div className="relative h-16 w-full">
@@ -100,15 +101,15 @@ const ImageComparisonSlider = ({ leftLabel, rightLabel }: ImageComparisonSliderP
 
               {/* OEE status card */}
               <div className="absolute left-1/2 top-1/2 w-44 -translate-x-1/2 -translate-y-1/2 rounded-lg border border-accent/60 bg-background/90 px-3 py-2 text-left shadow-[0_0_28px_hsl(var(--accent)_/_0.65)] backdrop-blur-md">
-                <p className="text-[0.55rem] font-mono uppercase tracking-[0.25em] text-muted-foreground">OEE</p>
+                <p className="text-[0.55rem] font-mono uppercase tracking-[0.25em] text-muted-foreground">{t.brownfield.oee}</p>
                 <p className="text-xl font-semibold leading-tight text-accent">85%</p>
-                <p className="mt-0.5 text-[0.6rem] font-medium text-foreground">OPTIMIZED FLOW</p>
+                <p className="mt-0.5 text-[0.6rem] font-medium text-foreground">{t.brownfield.optimized_flow}</p>
               </div>
 
               {/* Maintenance alert tag */}
               <div className="absolute right-10 top-1/3 inline-flex items-center gap-1.5 rounded-full border border-[hsl(var(--accent)_/_0.3)] bg-[hsl(var(--background)_/_0.8)] px-2.5 py-1 text-[0.6rem] font-mono uppercase tracking-[0.25em] text-accent shadow-[0_0_22px_hsl(var(--accent)_/_0.6)] backdrop-blur-md">
                 <AlertTriangle className="h-3 w-3" aria-hidden="true" />
-                <span>MAINTENANCE REQUIRED</span>
+                <span>{t.brownfield.maintenance}</span>
               </div>
 
               {/* Digital twin label */}
@@ -151,7 +152,7 @@ const ImageComparisonSlider = ({ leftLabel, rightLabel }: ImageComparisonSliderP
             aria-label="Drag to scan between physical asset and digital twin"
           >
             <span className="mr-1 text-xs">⇆</span>
-            <span className="text-[0.6rem] tracking-[0.25em]">DRAG TO SCAN</span>
+            <span className="text-[0.6rem] tracking-[0.25em]">{t.brownfield.drag_scan}</span>
           </button>
         </div>
       </div>
@@ -159,23 +160,27 @@ const ImageComparisonSlider = ({ leftLabel, rightLabel }: ImageComparisonSliderP
   );
 };
 
+import { useLanguage } from "@/lib/i18n";
+
 export const BrownfieldRealitySection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="approach" className="mb-20 scroll-mt-28 space-y-8" aria-labelledby="brownfield-heading">
       <header className="space-y-3">
-        <p className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-accent">See Through the Complexity</p>
+        <p className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-accent">{t.brownfield.complexity}</p>
         <h2
           id="brownfield-heading"
           className="font-display text-2xl uppercase tracking-tight sm:text-3xl md:text-4xl"
         >
-          Operations Don't Live In Slide Decks.
+          {t.problem.headline}
         </h2>
         <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
-          Transformation doesn't fail because the strategy is wrong. It fails because execution can't survive the reality of the shopfloor—the heat, the dust, and the legacy constraints shown here. We bridge that gap.
+          {t.problem.body}
         </p>
       </header>
 
-      <ImageComparisonSlider leftLabel="PHYSICAL ASSET (Legacy)" rightLabel="DIGITAL TWIN (Future)" />
+      <ImageComparisonSlider leftLabel={t.brownfield.labels.physical} rightLabel={t.brownfield.labels.digital} />
     </section>
   );
 };

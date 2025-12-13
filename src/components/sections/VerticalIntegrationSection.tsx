@@ -1,57 +1,59 @@
 import * as React from "react";
 import { Scan, CircuitBoard, Cog, Infinity } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const STEPS = [
-  {
-    id: "deep-dive-diagnostic",
-    label: "Step 1",
-    title: "Deep-Dive Diagnostic",
-    subtitle: "We map the messy reality of your brownfield site.",
-    body: "We quantify constraints before writing code.",
-    side: "left" as const,
-    icon: Scan,
-    tone: "accent" as const,
-    trigger: 0.1,
-  },
-  {
-    id: "blueprint",
-    label: "Step 2",
-    title: "The Blueprint",
-    subtitle: "We design the digital overlay that fits your physical reality.",
-    body: "No fantasy architectures. Only systems your floor can actually run.",
-    side: "right" as const,
-    icon: CircuitBoard,
-    tone: "primary" as const,
-    trigger: 0.35,
-  },
-  {
-    id: "embedded-execution",
-    label: "Step 3",
-    title: "Embedded Execution",
-    subtitle: "We ship change from inside your operation.",
-    body: "We don\'t hand off the plan. We code and configure alongside your team on the floor to upskill them in real-time.",
-    side: "left" as const,
-    icon: Cog,
-    tone: "accent" as const,
-    trigger: 0.6,
-  },
-  {
-    id: "continuous-optimization",
-    label: "Step 4",
-    title: "Continuous Optimization",
-    subtitle: "We keep optimising until the P&L reflects the change.",
-    body: "We verify the ROI and tune the system as conditions shift, not just at quarter-end reviews.",
-    side: "right" as const,
-    icon: Infinity,
-    tone: "accent" as const,
-    trigger: 0.85,
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export const VerticalIntegrationSection = () => {
+  const { t } = useLanguage();
   const [lineProgress, setLineProgress] = React.useState(0);
   const sectionRef = React.useRef<HTMLElement | null>(null);
+
+  const STEPS = [
+    {
+      id: "deep-dive-diagnostic",
+      label: "Step 1",
+      title: t.timeline.step1.title.split("Step 1")[1]?.trim() || t.timeline.step1.title,
+      subtitle: t.timeline.step1.desc.split(".")[0] + ".",
+      body: t.timeline.step1.desc,
+      side: "left" as const,
+      icon: Scan,
+      tone: "accent" as const,
+      trigger: 0.1,
+    },
+    {
+      id: "blueprint",
+      label: "Step 2",
+      title: t.timeline.step2.title.split("Step 2")[1]?.trim() || t.timeline.step2.title,
+      subtitle: t.timeline.step2.desc.split(".")[0] + ".",
+      body: t.timeline.step2.desc,
+      side: "right" as const,
+      icon: CircuitBoard,
+      tone: "primary" as const,
+      trigger: 0.35,
+    },
+    {
+      id: "embedded-execution",
+      label: "Step 3",
+      title: t.timeline.step3.title.split("Step 3")[1]?.trim() || t.timeline.step3.title,
+      subtitle: t.timeline.step3.desc.split(".")[0] + ".",
+      body: t.timeline.step3.desc,
+      side: "left" as const,
+      icon: Cog,
+      tone: "accent" as const,
+      trigger: 0.6,
+    },
+    {
+      id: "continuous-optimization",
+      label: "Step 4",
+      title: t.timeline.step4.title.split("Step 4")[1]?.trim() || t.timeline.step4.title,
+      subtitle: t.timeline.step4.desc.split(".")[0] + ".",
+      body: t.timeline.step4.desc,
+      side: "right" as const,
+      icon: Infinity,
+      tone: "accent" as const,
+      trigger: 0.85,
+    },
+  ];
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -98,17 +100,16 @@ export const VerticalIntegrationSection = () => {
     >
       <header className="space-y-3">
         <p className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-accent">
-          Our Approach
+          {t.hero.cta_secondary}
         </p>
         <h2
           id="vertical-integration-heading"
           className="font-display text-2xl uppercase tracking-tight sm:text-3xl md:text-4xl"
         >
-          Vertical System Integration Timeline
+          {t.timeline.title}
         </h2>
         <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
-          We don&apos;t sell a generic framework. We run a fixed protocol that ties your brownfield reality to a live Digital Backbone
-          from diagnostic through to P&amp;L.
+          {t.timeline.subtitle}
         </p>
       </header>
 

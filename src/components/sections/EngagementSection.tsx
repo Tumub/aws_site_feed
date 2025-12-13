@@ -1,8 +1,10 @@
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { LineChart } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 export const EngagementSection = () => {
+  const { t } = useLanguage();
   const [activePhase, setActivePhase] = React.useState<1 | 2>(1);
 
   return (
@@ -19,12 +21,10 @@ export const EngagementSection = () => {
           id="engagement-heading"
           className="font-display text-2xl uppercase tracking-tight sm:text-3xl md:text-4xl"
         >
-          We Invest Before You Do.
+          {t.engagement.headline}
         </h2>
         <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
-          Our Risk-Reversal model means we absorb the professional fees for the
-          initial assessment. You pay only operational expenses—once we&apos;ve
-          proven the value of the change.
+          {t.engagement.risk_reversal}
         </p>
       </header>
 
@@ -47,15 +47,13 @@ export const EngagementSection = () => {
                 onMouseEnter={() => setActivePhase(1)}
               >
                 <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-accent">
-                  PHASE 1 - OUR INVESTMENT
+                  PHASE 1
                 </p>
                 <h3 className="mt-2 font-display text-lg uppercase tracking-tight">
-                  Capital-Protected Diagnostic
+                  {t.engagement.phase1_title.includes("PHASE 1") ? t.engagement.phase1_title.split("-")[1] : t.engagement.phase1_title}
                 </h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Deep-dive assessment across Digital, Supply Chain, and
-                  Manufacturing streams, including quantified upside, roadmap,
-                  and implementation phasing.
+                  {t.engagement.phase1_desc}
                 </p>
                 <ul className="mt-3 space-y-1 text-[0.75rem] text-muted-foreground">
                   <li>· Professional fees absorbed by us</li>
@@ -72,14 +70,13 @@ export const EngagementSection = () => {
                 onMouseEnter={() => setActivePhase(2)}
               >
                 <p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-primary">
-                  PHASE 2 - SHARED REWARD
+                  PHASE 2
                 </p>
                 <h3 className="mt-2 font-display text-lg uppercase tracking-tight">
-                  Execution &amp; Upside
+                  {t.engagement.phase2_title.includes("PHASE 2") ? t.engagement.phase2_title.split("-")[1] : t.engagement.phase2_title}
                 </h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Joint execution against agreed levers. Fees align to realized
-                  operational and financial outcomes, not hours logged.
+                  {t.engagement.phase2_desc}
                 </p>
                 <ul className="mt-3 space-y-1 text-[0.75rem] text-muted-foreground">
                   <li>· Metrics hard-wired into governance</li>
@@ -113,7 +110,7 @@ export const EngagementSection = () => {
             className="mt-2 font-mono text-[0.75rem] uppercase tracking-[0.25em]"
             onClick={() => window.location.href = "/apply"}
           >
-            Apply for Capital-Protected Diagnostic
+            {t.engagement.apply_btn}
           </Button>
         </div>
       </div>

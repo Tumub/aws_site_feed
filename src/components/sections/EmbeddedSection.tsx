@@ -1,30 +1,24 @@
 import { useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const CASE_STUDIES = [
-  {
-    title: "Migrating Legacy ERP without stopping the line.",
-    description:
-      "Re-platformed core planning and execution from a 20-year-old ERP while maintaining service levels and OEE across three plants.",
-    metrics: [
-      "0 unscheduled line stops during cutover",
-      "+9% schedule adherence in 6 months",
-    ],
-  },
-  {
-    title: "Unlocking $145M in Inventory.",
-    description:
-      "Segmented SKUs, redefined buffers, and synchronized procurement with true demand signals instead of spreadsheet heuristics.",
-    metrics: [
-      "-$145M net working capital",
-      "+3.5 pts service improvement",
-    ],
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export const EmbeddedSection = () => {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const CASE_STUDIES = [
+    {
+      title: t.cases.erp.title,
+      description: t.cases.erp.desc,
+      metrics: t.cases.erp.metrics
+    },
+    {
+      title: t.cases.inventory.title,
+      description: t.cases.inventory.desc,
+      metrics: t.cases.inventory.metrics
+    },
+  ];
 
   const scroll = (direction: "left" | "right") => {
     const el = containerRef.current;
@@ -41,16 +35,15 @@ export const EmbeddedSection = () => {
     >
       <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
         <div className="space-y-3">
-          <p className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-accent">Embedded Philosophy</p>
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-accent">{t.embedded.philosophy}</p>
           <h2
             id="embedded-heading"
             className="font-display text-2xl uppercase tracking-tight sm:text-3xl md:text-4xl"
           >
-            Nested, Not Just Near.
+            {t.cases.headline}
           </h2>
           <p className="max-w-xl text-sm text-muted-foreground sm:text-base">
-            We don&apos;t just advise. We embed. We sit inside your stand-ups, shift handovers, and control towers—helping your teams
-            change from within.
+            {t.cases.subheadline}
           </p>
         </div>
 
@@ -87,7 +80,7 @@ export const EmbeddedSection = () => {
               className="relative w-80 shrink-0 snap-start rounded-2xl border border-border/70 bg-card/80 p-5 shadow-[0_0_26px_hsl(var(--background)_/_0.9)] backdrop-blur-2xl"
             >
               <p className="text-[0.7rem] font-mono uppercase tracking-[0.2em] text-muted-foreground/80">
-                War Story
+                {t.cases.war_story_label}
               </p>
               <h3 className="mt-2 font-display text-lg uppercase tracking-tight text-foreground">
                 {cs.title}

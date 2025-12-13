@@ -1,22 +1,18 @@
 import { Button } from "@/components/ui/button";
+import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { cn } from "@/lib/utils";
-
-const NAV_ITEMS = [
-  { label: "Core Expertise", href: "/#power-trio" },
-  { label: "Our Approach", href: "/#approach" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Insights", href: "/insights" },
-];
-
-const scrollToHash = (hash: string) => {
-  const id = hash.startsWith("#") ? hash.slice(1) : hash;
-  const el = document.getElementById(id);
-  if (el) {
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-};
+import { useLanguage } from "@/lib/i18n";
 
 export const SiteHeader = () => {
+  const { t } = useLanguage();
+
+  const NAV_ITEMS = [
+    { label: t.nav.core_expertise, href: "/#power-trio" },
+    { label: t.nav.our_approach, href: "/#approach" },
+    { label: t.nav.portfolio, href: "/portfolio" },
+    { label: t.nav.insights, href: "/insights" },
+  ];
+
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 lg:py-4">
@@ -46,13 +42,15 @@ export const SiteHeader = () => {
             ))}
           </ul>
 
+          <LanguageSwitcher />
+
           <Button
             size="sm"
             asChild
             className="font-mono text-[0.7rem] uppercase tracking-[0.25em]"
           >
             <a href="/apply">
-              Initiate Signal Check
+              {t.nav.signal_check_btn}
             </a>
           </Button>
         </nav>

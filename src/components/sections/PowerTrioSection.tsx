@@ -1,37 +1,39 @@
 import { useEffect, useState } from "react";
 import { Cog, Truck, Cpu } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const TRIO_CARDS = [
-  {
-    id: "manufacturing",
-    title: "Manufacturing",
-    subtitle: "The Foundry — Optimization based on decades of floor experience.",
-    icon: Cog,
-    tone: "neutral" as const,
-    bullets: ["Line diagnostics without stopping production", "Constraint-based debottlenecking", "Operator-centric UX for adoption"],
-  },
-  {
-    id: "supply-chain",
-    title: "Supply Chain",
-    subtitle: "The Flow — End-to-end procurement and logistics.",
-    icon: Truck,
-    tone: "amber" as const,
-    bullets: ["Network and lane redesign", "Inventory segmentation and buffers", "Control towers that operators actually use"],
-  },
-  {
-    id: "digital-backbone",
-    title: "Digital Backbone",
-    subtitle: "The Torque — AI-driven transformation within organically grown environments.",
-    icon: Cpu,
-    tone: "cyan" as const,
-    bullets: ["Data products on top of legacy stacks", "AI that respects process reality", "Secure, governed integration patterns"],
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export const PowerTrioSection = () => {
+  const { t } = useLanguage();
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [pulseProgress, setPulseProgress] = useState(0);
+
+  const TRIO_CARDS = [
+    {
+      id: "manufacturing",
+      title: t.trio.manufacturing.title,
+      subtitle: t.trio.manufacturing.subtitle,
+      icon: Cog,
+      tone: "neutral" as const,
+      bullets: t.trio.manufacturing.bullets,
+    },
+    {
+      id: "supply-chain",
+      title: t.trio.supply_chain.title,
+      subtitle: t.trio.supply_chain.subtitle,
+      icon: Truck,
+      tone: "amber" as const,
+      bullets: t.trio.supply_chain.bullets,
+    },
+    {
+      id: "digital-backbone",
+      title: t.trio.digital.title,
+      subtitle: t.trio.digital.subtitle,
+      icon: Cpu,
+      tone: "cyan" as const,
+      bullets: t.trio.digital.bullets,
+    },
+  ];
 
   useEffect(() => {
     let frameId: number;
@@ -55,16 +57,15 @@ export const PowerTrioSection = () => {
   return (
     <section id="power-trio" className="mb-20 scroll-mt-28 space-y-8" aria-labelledby="trio-heading">
       <header className="space-y-3">
-        <p className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-accent">Core Expertise</p>
+        <p className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-accent">{t.nav.core_expertise}</p>
         <h2
           id="trio-heading"
           className="font-display text-2xl uppercase tracking-tight sm:text-3xl md:text-4xl"
         >
-          Embedded Expertise. Operational Outcomes.
+          {t.trio.headline}
         </h2>
         <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
-          We don&apos;t parachute in slide-makers. We embed senior operators across Digital, Supply Chain, and Manufacturing who sit
-          inside your war room and own outcomes with you.
+          {t.trio.description}
         </p>
       </header>
 
