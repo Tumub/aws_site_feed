@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export const ContactSection = () => {
     return (
-        <section id="contact" className="mb-20 space-y-8">
+        <section id="contact" className="mb-20 pt-24 lg:pt-32 space-y-8">
             <div className="flex items-center gap-3 mb-2">
                 <div className="h-px w-8 bg-accent/50"></div>
                 <p className="font-mono text-xs uppercase tracking-widest text-accent">Communications</p>

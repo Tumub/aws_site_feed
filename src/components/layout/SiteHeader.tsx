@@ -31,7 +31,7 @@ export const SiteHeader = () => {
             <span className="font-display text-sm font-bold tracking-tight">
               <span className="text-accent">Torque</span><span className="text-primary">Foundry</span>
             </span>
-            <span className="text-[0.6rem] text-muted-foreground">Digital · Supply Chain · Manufacturing</span>
+            <span className="text-[0.65rem] font-medium text-foreground/90 tracking-wide">Digital · Supply Chain · Manufacturing</span>
           </span>
         </a>
 

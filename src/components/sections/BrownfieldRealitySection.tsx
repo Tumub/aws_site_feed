@@ -168,10 +168,10 @@ export const BrownfieldRealitySection = () => {
           id="brownfield-heading"
           className="font-display text-2xl uppercase tracking-tight sm:text-3xl md:text-4xl"
         >
-          Operational Reality.
+          Operations Don't Live In Slide Decks.
         </h2>
         <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
-          We map the real constraints—systems, contracts, people—and build a staged evolution path.
+          Transformation doesn't fail because the strategy is wrong. It fails because execution can't survive the reality of the shopfloor—the heat, the dust, and the legacy constraints shown here. We bridge that gap.
         </p>
       </header>
 
