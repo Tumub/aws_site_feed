@@ -6,9 +6,10 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
 const SPEND_OPTS = [
-    { label: "< $50M (Start-up / SME)", value: "sme", reject: true },
-    { label: "$50M - $200M (Mid-Market)", value: "mid", reject: false },
-    { label: "> $200M (Enterprise)", value: "ent", reject: false },
+    { label: "< $20M (Growth Stage)", value: "growth", reject: false },
+    { label: "$20M - $100M (Mid-Market)", value: "mid", reject: false },
+    { label: "$100M - $500M (Corporate)", value: "corp", reject: false },
+    { label: "> $500M (Enterprise)", value: "ent", reject: false },
 ];
 
 const PAIN_OPTS = [
@@ -48,12 +49,25 @@ const Application = () => {
         setStep(4);
     };
 
-    const handleSubmit = () => {
+    const handleContextSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setStep(5);
+    };
+
+    const handleFinalSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
         // Mock submission
+        const data = { ...formData };
+        console.log("Submission:", data);
+
         toast.success("SIGNAL RECEIVED. CLEARANCE REQUEST PENDING.");
         setTimeout(() => {
             window.location.href = "/";
         }, 2000);
+    };
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     return (
@@ -137,19 +151,97 @@ const Application = () => {
 
                         {step === 4 && (
                             <div className="animate-in fade-in slide-in-from-bottom-4">
-                                <h3 className="text-lg text-accent mb-6 uppercase tracking-widest">Step 04 /// CONFIRMATION</h3>
-                                <div className="bg-secondary/20 p-6 border border-border mb-6 space-y-2 text-sm">
-                                    <p><span className="text-muted-foreground mr-4">SPEND:</span> {formData.spend}</p>
-                                    <p><span className="text-muted-foreground mr-4">PAIN:</span> {formData.pain}</p>
-                                    <p><span className="text-muted-foreground mr-4">LANDSCAPE:</span> {formData.it}</p>
+                                <h3 className="text-lg text-accent mb-6 uppercase tracking-widest">Step 04 /// Intel</h3>
+                                <p className="mb-6 text-xl">Brief Mission Context (Optional)</p>
+                                <p className="mb-4 text-sm text-muted-foreground">Without revealing classified IP, briefly describe the operational friction or the target state you need to achieve.</p>
+                                <form onSubmit={handleContextSubmit} className="space-y-6">
+                                    <textarea
+                                        name="context"
+                                        rows={6}
+                                        className="w-full bg-secondary/10 border border-border p-4 text-sm focus:border-accent focus:ring-1 focus:ring-accent outline-none rounded-sm resize-none"
+                                        placeholder="// Enter mission brief data here..."
+                                        onChange={handleInputChange}
+                                    />
+                                    <Button
+                                        size="lg"
+                                        className="w-full bg-primary hover:bg-primary/90 text-white font-bold tracking-[0.2em] uppercase"
+                                        type="submit"
+                                    >
+                                        PROCEED TO ID CHECK
+                                    </Button>
+                                </form>
+                            </div>
+                        )}
+
+                        {step === 5 && (
+                            <div className="animate-in fade-in slide-in-from-bottom-4">
+                                <h3 className="text-lg text-accent mb-6 uppercase tracking-widest">Step 05 /// Identity</h3>
+                                <div className="bg-secondary/10 p-6 border border-border mb-8 space-y-2 text-xs">
+                                    <p><span className="text-muted-foreground mr-4">CALIBRATION:</span> {formData.spend?.toUpperCase()}</p>
+                                    <p><span className="text-muted-foreground mr-4">DIAGNOSTIC:</span> {formData.pain?.toUpperCase()}</p>
+                                    <p><span className="text-muted-foreground mr-4">TERRAIN:</span> {formData.it?.toUpperCase()}</p>
                                 </div>
-                                <Button
-                                    size="lg"
-                                    className="w-full bg-primary hover:bg-primary/90 text-white font-bold tracking-[0.2em] uppercase py-8"
-                                    onClick={handleSubmit}
-                                >
-                                    INITIATE SIGNAL CHECK
-                                </Button>
+
+                                <form onSubmit={handleFinalSubmit} className="space-y-4">
+                                    <div className="grid gap-4 md:grid-cols-2">
+                                        <div className="space-y-2">
+                                            <label className="text-xs uppercase tracking-widest text-muted-foreground">Operative Name</label>
+                                            <input
+                                                required
+                                                name="name"
+                                                type="text"
+                                                className="w-full h-12 px-4 bg-background border border-border focus:border-accent outline-none"
+                                                placeholder="Full Name"
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-xs uppercase tracking-widest text-muted-foreground">Organization</label>
+                                            <input
+                                                required
+                                                name="company"
+                                                type="text"
+                                                className="w-full h-12 px-4 bg-background border border-border focus:border-accent outline-none"
+                                                placeholder="Company Name"
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <label className="text-xs uppercase tracking-widest text-muted-foreground">Secure Comms (Email)</label>
+                                        <input
+                                            required
+                                            name="email"
+                                            type="email"
+                                            className="w-full h-12 px-4 bg-background border border-border focus:border-accent outline-none"
+                                            placeholder="corporate@domain.com"
+                                            onChange={handleInputChange}
+                                        />
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <label className="text-xs uppercase tracking-widest text-muted-foreground">Role / Clearance Level</label>
+                                        <input
+                                            name="role"
+                                            type="text"
+                                            className="w-full h-12 px-4 bg-background border border-border focus:border-accent outline-none"
+                                            placeholder="e.g. COO, VP Supply Chain"
+                                            onChange={handleInputChange}
+                                        />
+                                    </div>
+
+                                    <Button
+                                        size="lg"
+                                        className="w-full mt-6 bg-accent hover:bg-accent/90 text-accent-foreground font-bold tracking-[0.2em] uppercase py-6 shadow-[0_0_20px_hsl(var(--accent)_/_0.4)]"
+                                        type="submit"
+                                    >
+                                        TRANSMIT SIGNAL
+                                    </Button>
+                                    <p className="text-[0.6rem] text-center text-muted-foreground pt-4">
+                                        * By transmitting, you authorize a discrete initial reconnaissance of your public supply chain footprint.
+                                    </p>
+                                </form>
                             </div>
                         )}
                     </div>
