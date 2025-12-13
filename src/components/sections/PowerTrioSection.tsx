@@ -53,7 +53,7 @@ export const PowerTrioSection = () => {
   }, []);
 
   return (
-    <section id="power-trio" className="mb-20 space-y-8" aria-labelledby="trio-heading">
+    <section id="power-trio" className="mb-20 scroll-mt-28 space-y-8" aria-labelledby="trio-heading">
       <header className="space-y-3">
         <p className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-accent">Core Expertise</p>
         <h2

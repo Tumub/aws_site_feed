@@ -8,7 +8,7 @@ export const EngagementSection = () => {
   return (
     <section
       id="engagement-model"
-      className="mb-20 space-y-8"
+      className="mb-20 scroll-mt-28 space-y-8"
       aria-labelledby="engagement-heading"
     >
       <header className="space-y-3">
@@ -41,8 +41,8 @@ export const EngagementSection = () => {
             <div className="grid gap-4 md:grid-cols-2">
               <div
                 className={`rounded-2xl border p-4 cursor-pointer transition-colors ${activePhase === 1
-                    ? "border-secondary/60 bg-secondary/80"
-                    : "border-border/70 bg-background/80"
+                  ? "border-secondary/60 bg-secondary/80"
+                  : "border-border/70 bg-background/80"
                   }`}
                 onMouseEnter={() => setActivePhase(1)}
               >
@@ -66,8 +66,8 @@ export const EngagementSection = () => {
 
               <div
                 className={`rounded-2xl border p-4 cursor-pointer transition-colors ${activePhase === 2
-                    ? "border-secondary/60 bg-secondary/80"
-                    : "border-border/70 bg-background/80"
+                  ? "border-secondary/60 bg-secondary/80"
+                  : "border-border/70 bg-background/80"
                   }`}
                 onMouseEnter={() => setActivePhase(2)}
               >

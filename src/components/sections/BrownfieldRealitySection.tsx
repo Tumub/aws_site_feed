@@ -161,7 +161,7 @@ const ImageComparisonSlider = ({ leftLabel, rightLabel }: ImageComparisonSliderP
 
 export const BrownfieldRealitySection = () => {
   return (
-    <section className="mb-20 space-y-8" aria-labelledby="brownfield-heading">
+    <section id="approach" className="mb-20 scroll-mt-28 space-y-8" aria-labelledby="brownfield-heading">
       <header className="space-y-3">
         <p className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-accent">See Through the Complexity</p>
         <h2
