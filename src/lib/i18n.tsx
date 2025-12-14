@@ -88,6 +88,8 @@ type Translations = {
         story_p2: string;
         story_p3: string;
         story_p4: string;
+        founder_name: string;
+        founder_title: string;
         execution_core_title: string;
         leader: { title: string; sub: string; desc: string };
         architect: { title: string; sub: string; desc: string };
@@ -331,26 +333,20 @@ const translations: Record<Language, Translations> = {
             body: "Transformation doesn't fail because the strategy is wrong. It fails because execution can't survive the reality of the shopfloor—the heat, the dust, and the legacy constraints shown here. We bridge that gap."
         },
         origin: {
-            headline: "We Don't Advise. We Embed.",
-            story_p1: "I’ve spent years inside global operations—operating at the intersection of Sweden’s planning discipline, Turkey’s execution agility, and Switzerland’s systems precision.",
-            story_p2: "Across industries, the pattern is the same: Transformation doesn't fail because the strategy is wrong. It fails because execution can't survive the reality of the shopfloor.",
-            story_p3: "TorqueFoundry was built to close that gap.",
-            story_p4: "This isn't a solo game. It requires fusing three disciplines into one execution spine: Digital + Supply Chain + Manufacturing. So, I built a structure that matches the reality:",
+            headline: "WE DON'T ADVISE. WE EMBED.",
+            story_p1: "I’ve spent years inside global operations—operating at the intersection of Sweden’s planning discipline, Turkey’s execution agility, and Switzerland’s systems precision. Across industries, the pattern is the same: Transformation doesn't fail because the strategy is wrong. It fails because execution can't survive the reality of the shopfloor.",
+            story_p2: "TorqueFoundry was built to close that gap. This isn't a solo game. It requires fusing four disciplines into one execution spine: Digital + Supply Chain + Manufacturing + Finance. So, I built a structure that matches the reality:",
+            story_p3: "",
+            story_p4: "",
+            founder_name: "UMUT",
+            founder_title: "Founder & Managing Partner",
             execution_core_title: "THE EXECUTION CORE",
-            leader: {
-                title: "A Manufacturing Leader",
-                sub: "Shopfloor-First · Relentlessly Practical",
-                desc: "Shaped by high-pressure industrial environments. He ensures every strategy survives the heat, dust, and friction of the line."
-            },
-            architect: {
-                title: "A Systems Architect",
-                sub: "Data-Driven · Precision Engineering",
-                desc: "Focused on building the architecture that turns data into measurable performance. He bridges the gap between legacy machines and modern intelligence."
-            },
+            leader: { title: "SEBASTIAN", sub: "HEAD OF MANUFACTURING", desc: "Shaped by high-pressure industrial environments. He ensures every strategy survives the heat, dust, and friction of the line." },
+            architect: { title: "EMRAH", sub: "LEAD SYSTEMS ARCHITECT", desc: "Focused on building the architecture that turns data into measurable performance. He bridges the gap between legacy machines and modern intelligence." },
             governance_title: "STRATEGIC GOVERNANCE",
             advisor: {
-                title: "BOARD ADVISOR - CORPORATE FINANCE",
-                sub: "Strategic Oversight · Capital Structuring",
+                title: "ALPER PEKCAN",
+                sub: "BOARD ADVISOR - CORPORATE FINANCE",
                 desc: "He doesn't run the shopfloor; he validates the business case. As a seasoned finance strategist, he bridges the gap between operations and the CFO, engineering the models that allow us to share the transformation risk."
             },
             closing: "We don’t do magic. We do engineering. We evolve in place—inside the systems you already run."
@@ -642,26 +638,20 @@ const translations: Record<Language, Translations> = {
             body: "Dönüşüm projeleri strateji yanlış olduğu için değil; uygulama, sahanın sıcağına-tozuna ve eski sistem kısıtlarına (legacy constraints) dayanamadığı için dağılır. Biz bu boşluğu kapatırız."
         },
         origin: {
-            headline: "Tavsiye Vermeyiz. Entegre Oluruz.",
-            story_p1: "Yıllarımı küresel operasyonların içinde; İsveç’in planlama disiplini, Türkiye’nin uygulama çevikliği ve İsviçre’nin sistem hassasiyeti kesişiminde geçirdim.",
-            story_p2: "Sektörler arası desen hep aynı: Dönüşüm, strateji yanlış olduğu için başarısız olmaz. İcra, sahanın gerçekliğine dayanamadığı için başarısız olur.",
-            story_p3: "TorqueFoundry bu boşluğu kapatmak için kuruldu.",
-            story_p4: "Bu tek kişilik bir oyun değil. Dijital + Tedarik Zinciri + Üretim disiplinlerini tek bir icra omurgasında birleştirmeyi gerektirir. Bu yüzden, gerçekliğe uyan bir yapı kurdum:",
-            execution_core_title: "İCRA ÇEKİRDEĞİ",
-            leader: {
-                title: "Bir Üretim Lideri",
-                sub: "Önce Saha · Acımasızca Pratik",
-                desc: "Yüksek baskı altındaki endüstriyel ortamlarda şekillendi. Her stratejinin; hattın sıcağına, tozuna ve sürtünmesine dayanmasını sağlar."
-            },
-            architect: {
-                title: "Bir Sistem Mimarı",
-                sub: "Veri Odaklı · Hassas Mühendislik",
-                desc: "Veriyi ölçülebilir performansa dönüştüren mimariyi inşa etmeye odaklıdır. Eski makineler ile modern zeka arasındaki boşluğu kapatır."
-            },
+            headline: "TAVSİYE ETMİYORUZ. GÖMÜLÜ ÇALIŞIYORUZ.",
+            story_p1: "Yıllarımı küresel operasyonların içinde—İsveç'in planlama disiplini, Türkiye'nin uygulama çevikliği ve İsviçre'nin sistem hassasiyetinin kesişiminde—geçirdim. Endüstriler değişse de desen aynı: Dönüşüm strateji yanlış olduğu için başarısız olmaz. Uygulama, atölye zemininin gerçekliğine dayanamadığı için başarısız olur.",
+            story_p2: "TorqueFoundry bu boşluğu kapatmak için kuruldu. Bu tek kişilik bir oyun değil. Dört disiplini tek bir uygulama omurgasında birleştirmeyi gerektirir: Dijital + Tedarik Zinciri + Üretim + Finans. Bu yüzden, gerçekliğe uyan bir yapı kurdum:",
+            story_p3: "",
+            story_p4: "",
+            founder_name: "UMUT",
+            founder_title: "Kurucu & Yönetici Ortak",
+            execution_core_title: "UYGULAMA ÇEKİRDEĞİ",
+            leader: { title: "SEBASTIAN", sub: "ÜRETİM LİDERİ", desc: "Yüksek baskılı endüstriyel ortamlarda şekillendi. Her stratejinin üretim hattının sıcağına, tozuna ve sürtünmesine dayanmasını sağlar." },
+            architect: { title: "EMRAH", sub: "LİDER SİSTEM MİMARI", desc: "Veriyi ölçülebilir performansa dönüştüren mimariyi inşa etmeye odaklı. Eski makineler ile modern zeka arasındaki boşluğu kapatır." },
             governance_title: "STRATEJİK YÖNETİŞİM",
             advisor: {
-                title: "YÖNETİM KURULU DANIŞMANI",
-                sub: "Stratejik Gözetim · Sermaye Yapılandırma",
+                title: "ALPER PEKCAN",
+                sub: "YÖNETİM KURULU DANIŞMANI",
                 desc: "Sahayı yönetmez; iş modelini doğrular. Deneyimli bir finans stratejisti olarak, operasyonlar ile CFO arasındaki boşluğu kapatır ve dönüşüm riskini paylaşmamızı sağlayan modelleri kurgular."
             },
             closing: "Sihir yapmıyoruz. Mühendislik yapıyoruz. Olduğunuz yerde—halihazırda çalıştırdığınız sistemlerin içinde gelişiyoruz."
@@ -746,7 +736,7 @@ const translations: Record<Language, Translations> = {
                 digital: {
                     title: "Ajan Bazlı Otomasyon & Mimari",
                     bio: "BT ve İş Birimi arasındaki boşluğu kapatır. Eski (Legacy) ortamlarda Yapay Zeka dönüşümünü yönetir.",
-                    badge: null as string | null,
+                    badge: null,
                     cases: [
                         { title: "Ajan Bazlı Lojistik", pub: "Yapay Zeka Ajan Sürüsü.", auth: "Eski sistemlerde manuel rezervasyon/doğrulamayı ajanlarla değiştirdi." },
                         { title: "Otomatik Sigorta Tahsisi", pub: "AB'de İlk Çok-Milyonluk AI.", auth: "Belgelerden bilgiye geçiş. Devasa bilgi taşıyan Yapay Zeka." },

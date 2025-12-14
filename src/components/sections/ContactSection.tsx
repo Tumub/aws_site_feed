@@ -28,8 +28,8 @@ export const ContactSection = () => {
                             </div>
                             <div>
                                 <p className="text-xs uppercase tracking-widest text-muted-foreground">{t.contact.inquiries}</p>
-                                <a href="mailto:ops@torquefoundryadvisory.com" className="text-foreground hover:text-accent transition-colors">
-                                    ops@torquefoundryadvisory.com
+                                <a href="mailto:info@torquefoundryadvisory.com" className="text-foreground hover:text-accent transition-colors">
+                                    info@torquefoundryadvisory.com
                                 </a>
                             </div>
                         </div>
@@ -59,7 +59,7 @@ export const ContactSection = () => {
                             variant="default"
                             size="lg"
                             className="w-full bg-accent text-accent-foreground hover:bg-accent/90 uppercase tracking-widest font-mono font-bold"
-                            onClick={() => window.location.href = "mailto:urgent@torquefoundryadvisory.com?subject=URGENT: Operational Crisis Assessment"}
+                            onClick={() => window.location.href = "mailto:umut@torquefoundryadvisory.com?subject=URGENT: Operational Crisis Assessment"}
                         >
                             {t.contact.priority_btn}
                         </Button>

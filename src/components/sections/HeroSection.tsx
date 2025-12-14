@@ -49,10 +49,10 @@ export const HeroSection = () => {
 
         <div className="flex flex-wrap items-center gap-4">
           <Button asChild className="font-mono text-[0.75rem] uppercase tracking-[0.25em]">
-            <a href="#engagement-model">{t.hero.cta_primary}</a>
+            <a href="#vertical-integration">{t.hero.cta_primary}</a>
           </Button>
           <Button variant="outline" asChild className="border-accent bg-transparent font-mono text-[0.75rem] uppercase tracking-[0.25em] text-accent shadow-[0_0_15px_hsl(var(--accent)_/_0.35)] hover:bg-accent/10 hover:shadow-[0_0_25px_hsl(var(--accent)_/_0.6)]">
-            <a href="#approach">{t.hero.cta_secondary}</a>
+            <a href="#vertical-integration">{t.hero.cta_secondary}</a>
           </Button>
         </div>
 

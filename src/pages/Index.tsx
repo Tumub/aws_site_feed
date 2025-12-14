@@ -24,7 +24,6 @@ const Index = () => {
         <VerticalIntegrationSection />
         <EmbeddedSection />
         <EngagementSection />
-        <InsightsSection />
         <ContactSection />
 
       </main>

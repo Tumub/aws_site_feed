@@ -8,7 +8,7 @@ export const SiteHeader = () => {
 
   const NAV_ITEMS = [
     { label: t.nav.core_expertise, href: "/#power-trio" },
-    { label: t.nav.our_approach, href: "/#approach" },
+    { label: t.nav.our_approach, href: "/#vertical-integration" },
     { label: t.nav.portfolio, href: "/portfolio" },
     { label: t.nav.insights, href: "/insights" },
   ];
@@ -27,7 +27,7 @@ export const SiteHeader = () => {
             <span className="font-display text-sm font-bold tracking-tight">
               <span className="text-accent">Torque</span><span className="text-primary">Foundry</span>
             </span>
-            <span className="text-[0.65rem] font-medium text-foreground/90 tracking-wide">Digital · Supply Chain · Manufacturing</span>
+            <span className="text-[0.65rem] font-medium text-foreground/90 tracking-wide">Digital · Supply Chain · Manufacturing · Finance</span>
           </span>
         </a>
 
