@@ -50,15 +50,15 @@ export const EngagementSection = () => {
                   PHASE 1
                 </p>
                 <h3 className="mt-2 font-display text-lg uppercase tracking-tight">
-                  {t.engagement.phase1_title.includes("PHASE 1") ? t.engagement.phase1_title.split("-")[1] : t.engagement.phase1_title}
+                  {t.engagement.phase1_title}
                 </h3>
                 <p className="mt-2 text-sm text-muted-foreground">
                   {t.engagement.phase1_desc}
                 </p>
                 <ul className="mt-3 space-y-1 text-[0.75rem] text-muted-foreground">
-                  <li>· Professional fees absorbed by us</li>
-                  <li>· You cover only on-site and data costs</li>
-                  <li>· Go / no-go decision at the end of the phase</li>
+                  {t.engagement.phase1_bullets.map((bullet, i) => (
+                    <li key={i}>· {bullet}</li>
+                  ))}
                 </ul>
               </div>
 
@@ -73,15 +73,15 @@ export const EngagementSection = () => {
                   PHASE 2
                 </p>
                 <h3 className="mt-2 font-display text-lg uppercase tracking-tight">
-                  {t.engagement.phase2_title.includes("PHASE 2") ? t.engagement.phase2_title.split("-")[1] : t.engagement.phase2_title}
+                  {t.engagement.phase2_title}
                 </h3>
                 <p className="mt-2 text-sm text-muted-foreground">
                   {t.engagement.phase2_desc}
                 </p>
                 <ul className="mt-3 space-y-1 text-[0.75rem] text-muted-foreground">
-                  <li>· Metrics hard-wired into governance</li>
-                  <li>· Shared upside mechanisms available</li>
-                  <li>· Embedded capability-building, not dependency</li>
+                  {t.engagement.phase2_bullets.map((bullet, i) => (
+                    <li key={i}>· {bullet}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -91,19 +91,14 @@ export const EngagementSection = () => {
         <div className="space-y-5">
           <div className="space-y-2 text-sm text-muted-foreground">
             <p>
-              This isn&apos;t a free workshop. It&apos;s a structured,{" "}
-              <span className="font-semibold">capital-protected diagnostic</span>{" "}
-              where both sides put{" "}
-              <span className="font-semibold">skin in the game</span>. If the
-              upside isn&apos;t there, you walk away with clarity—
-              <span className="font-semibold">not a sunk fee stack</span>.
+              {t.engagement.context_text}
             </p>
-            <p>
+            {/* <p>
               If we proceed, we transition into a shared-reward model that links
               our economics to the
               <span className="font-semibold"> realized EBITDA</span> and
               working capital improvements.
-            </p>
+            </p> */}
           </div>
 
           <Button

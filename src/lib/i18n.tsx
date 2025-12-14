@@ -84,16 +84,16 @@ type Translations = {
     };
     origin: {
         headline: string;
-        story: string;
-        pattern: string;
-        solo_game: string;
-        leader_role: string;
-        architect_role: string;
+        story_p1: string;
+        story_p2: string;
+        story_p3: string;
+        story_p4: string;
+        execution_core_title: string;
+        leader: { title: string; sub: string; desc: string };
+        architect: { title: string; sub: string; desc: string };
+        governance_title: string;
+        advisor: { title: string; sub: string; desc: string };
         closing: string;
-        no_magic: string;
-        strategic_coverage: string;
-        corridor: string;
-        origin_node: string;
     };
     embedded: {
         philosophy: string;
@@ -197,8 +197,11 @@ type Translations = {
         risk_reversal: string;
         phase1_title: string;
         phase1_desc: string;
+        phase1_bullets: string[];
         phase2_title: string;
         phase2_desc: string;
+        phase2_bullets: string[];
+        context_text: string;
         apply_btn: string;
     };
     contact: {
@@ -329,16 +332,28 @@ const translations: Record<Language, Translations> = {
         },
         origin: {
             headline: "We Don't Advise. We Embed.",
-            story: "I’ve spent years inside global operations—operating at the intersection of Sweden’s planning discipline, Turkey’s execution agility, and Switzerland’s systems precision.",
-            pattern: "Across industries, the pattern is the same: Transformation doesn't fail because the strategy is wrong. It fails because execution can't survive the reality of the shopfloor. TorqueFoundry was built to close that gap.",
-            solo_game: "This isn't a solo game. It requires fusing three disciplines into one execution spine: Digital + Supply Chain + Manufacturing. So, I built a team that matches the reality:",
-            leader_role: "A Manufacturing Leader Shopfloor-First · Relentlessly Practical Shaped by high-pressure industrial environments.",
-            architect_role: "A Systems Architect Data-Driven · Precision Engineering Focused on building the architecture that turns data into measurable performance.",
-            closing: "TorqueFoundry was built to close that gap.",
-            no_magic: "We don’t do magic. We do engineering. We evolve in place—inside the systems you already run.",
-            strategic_coverage: "Strategic Coverage",
-            corridor: "EU-MENA-CH Corridor",
-            origin_node: "Origin Node"
+            story_p1: "I’ve spent years inside global operations—operating at the intersection of Sweden’s planning discipline, Turkey’s execution agility, and Switzerland’s systems precision.",
+            story_p2: "Across industries, the pattern is the same: Transformation doesn't fail because the strategy is wrong. It fails because execution can't survive the reality of the shopfloor.",
+            story_p3: "TorqueFoundry was built to close that gap.",
+            story_p4: "This isn't a solo game. It requires fusing three disciplines into one execution spine: Digital + Supply Chain + Manufacturing. So, I built a structure that matches the reality:",
+            execution_core_title: "THE EXECUTION CORE",
+            leader: {
+                title: "A Manufacturing Leader",
+                sub: "Shopfloor-First · Relentlessly Practical",
+                desc: "Shaped by high-pressure industrial environments. He ensures every strategy survives the heat, dust, and friction of the line."
+            },
+            architect: {
+                title: "A Systems Architect",
+                sub: "Data-Driven · Precision Engineering",
+                desc: "Focused on building the architecture that turns data into measurable performance. He bridges the gap between legacy machines and modern intelligence."
+            },
+            governance_title: "STRATEGIC GOVERNANCE",
+            advisor: {
+                title: "BOARD ADVISOR - CORPORATE FINANCE",
+                sub: "Strategic Oversight · Capital Structuring",
+                desc: "He doesn't run the shopfloor; he validates the business case. As a seasoned finance strategist, he bridges the gap between operations and the CFO, engineering the models that allow us to share the transformation risk."
+            },
+            closing: "We don’t do magic. We do engineering. We evolve in place—inside the systems you already run."
         },
         embedded: {
             philosophy: "Embedded Philosophy"
@@ -483,13 +498,24 @@ const translations: Record<Language, Translations> = {
             digital: { title: "Digital", desc: "System architecture and data integration strategies." }
         },
         engagement: {
-            headline: "We Invest Before You Do.",
-            risk_reversal: "Our Risk-Reversal model means we absorb the professional fees for the initial assessment. You pay only operational expenses—once we've proven the value of the change.",
-            phase1_title: "PHASE 1 - OUR INVESTMENT Capital-Protected Diagnostic",
-            phase1_desc: "Deep-dive assessment across Digital, Supply Chain, and Manufacturing streams, including quantified upside, roadmap, and implementation phasing.",
-            phase2_title: "PHASE 2 - SHARED REWARD Execution & Upside",
-            phase2_desc: "Joint execution against agreed levers. Fees align to realized operational and financial outcomes, not hours logged.",
-            apply_btn: "Apply for Capital-Protected Diagnostic"
+            headline: "TOTAL ALIGNMENT OF INTERESTS.",
+            risk_reversal: "Transformation shouldn't require blind faith. We deploy our expertise upfront to validate the business case before you commit your major budget.",
+            phase1_title: "BUSINESS CASE VALIDATION",
+            phase1_desc: "A deep-dive assessment across Digital, Supply Chain, Manufacturing, and Financial streams. We bear the initial cost to validate the upside first.",
+            phase1_bullets: [
+                "Fees: Performance-Vested (Unlocked only upon value confirmation)",
+                "Cost: Direct expenses only",
+                "Outcome: A validated Business Case"
+            ],
+            phase2_title: "OUTCOME-BASED REMUNERATION",
+            phase2_desc: "We move to implementation only if the data justifies it. We transition into a model where our remuneration is linked to the value we create, ensuring our incentives are perfectly aligned with your P&L.",
+            phase2_bullets: [
+                "Fees tied to realized operational impact",
+                "Shared upside / Gain-share mechanisms",
+                "Embedded capability transfer"
+            ],
+            context_text: "This isn't a free workshop. It's a structured 'Gate-0' assessment where we put our skin in the game. If the upside isn't there, you walk away with clarity—and zero sunk costs in consulting fees.",
+            apply_btn: "START VALIDATION"
         },
         contact: {
             direct_line: "Direct Line.",
@@ -616,17 +642,29 @@ const translations: Record<Language, Translations> = {
             body: "Dönüşüm projeleri strateji yanlış olduğu için değil; uygulama, sahanın sıcağına-tozuna ve eski sistem kısıtlarına (legacy constraints) dayanamadığı için dağılır. Biz bu boşluğu kapatırız."
         },
         origin: {
-            headline: "Tavsiye vermeyiz. Entegre oluruz.",
-            story: "Yıllarımı küresel operasyonların içinde; İsveç’in planlama disiplini, Türkiye’nin uygulama çevikliği ve İsviçre’nin sistem hassasiyeti kesişiminde geçirdim.",
-            pattern: "Desen hep aynı: Strateji doğru olabilir; ama icra sahada kırılır. TorqueFoundry, tam bu kırılmayı çözmek için kuruldu.",
-            solo_game: "Bu tek kişilik bir iş değil. Bu yüzden iki omurga rolü bir arada çalışır:",
-            leader_role: "Üretim Lideri: “Önce saha” · acımasız pragmatizm · yüksek baskı ortamı tecrübesi",
-            architect_role: "Sistem Mimarı: veri odaklı · hassas mühendislik · performansa dönük mimari",
-            closing: "TorqueFoundry, tam bu kırılmayı çözmek için kuruldu.",
-            no_magic: "Sihir değil, mühendislik. Mevcut sistemlerin içinde, “olduğu yerde” geliştiririz.",
-            strategic_coverage: "Stratejik Kapsam",
-            corridor: "EU-MENA-CH Koridoru",
-            origin_node: "Başlangıç Düğümü"
+            headline: "Tavsiye Vermeyiz. Entegre Oluruz.",
+            story_p1: "Yıllarımı küresel operasyonların içinde; İsveç’in planlama disiplini, Türkiye’nin uygulama çevikliği ve İsviçre’nin sistem hassasiyeti kesişiminde geçirdim.",
+            story_p2: "Sektörler arası desen hep aynı: Dönüşüm, strateji yanlış olduğu için başarısız olmaz. İcra, sahanın gerçekliğine dayanamadığı için başarısız olur.",
+            story_p3: "TorqueFoundry bu boşluğu kapatmak için kuruldu.",
+            story_p4: "Bu tek kişilik bir oyun değil. Dijital + Tedarik Zinciri + Üretim disiplinlerini tek bir icra omurgasında birleştirmeyi gerektirir. Bu yüzden, gerçekliğe uyan bir yapı kurdum:",
+            execution_core_title: "İCRA ÇEKİRDEĞİ",
+            leader: {
+                title: "Bir Üretim Lideri",
+                sub: "Önce Saha · Acımasızca Pratik",
+                desc: "Yüksek baskı altındaki endüstriyel ortamlarda şekillendi. Her stratejinin; hattın sıcağına, tozuna ve sürtünmesine dayanmasını sağlar."
+            },
+            architect: {
+                title: "Bir Sistem Mimarı",
+                sub: "Veri Odaklı · Hassas Mühendislik",
+                desc: "Veriyi ölçülebilir performansa dönüştüren mimariyi inşa etmeye odaklıdır. Eski makineler ile modern zeka arasındaki boşluğu kapatır."
+            },
+            governance_title: "STRATEJİK YÖNETİŞİM",
+            advisor: {
+                title: "YÖNETİM KURULU DANIŞMANI",
+                sub: "Stratejik Gözetim · Sermaye Yapılandırma",
+                desc: "Sahayı yönetmez; iş modelini doğrular. Deneyimli bir finans stratejisti olarak, operasyonlar ile CFO arasındaki boşluğu kapatır ve dönüşüm riskini paylaşmamızı sağlayan modelleri kurgular."
+            },
+            closing: "Sihir yapmıyoruz. Mühendislik yapıyoruz. Olduğunuz yerde—halihazırda çalıştırdığınız sistemlerin içinde gelişiyoruz."
         },
         embedded: {
             philosophy: "Gömülü Felsefe"
@@ -771,13 +809,24 @@ const translations: Record<Language, Translations> = {
             digital: { title: "Dijital", desc: "Sistem mimarisi ve veri entegrasyon stratejileri." }
         },
         engagement: {
-            headline: "Siz yatırım yapmadan önce biz kanıtlarız.",
-            risk_reversal: "İlk fazda profesyonel hizmet bedelini biz üstleniriz. Siz sadece saha ve veri erişimi gibi operasyonel maliyetleri karşılarsınız. Faz sonunda Go/No-Go kararı verilir.",
-            phase1_title: "Faz 1 | Sermaye-korumalı değerlendirme (bizim yatırımımız)",
-            phase1_desc: "Nicelendirilmiş kazanç potansiyeli + yol haritası + uygulama fazları",
-            phase2_title: "Faz 2 | Uygulama & paylaşılan kazanç",
-            phase2_desc: "Ücretler saat üzerinden değil, gerçekleşen sonuçlara göre. Metrikler yönetişime bağlanır, bağımlılık yaratmadan yetkinlik inşa edilir.",
-            apply_btn: "Sermaye-korumalı değerlendirme için başvurun"
+            headline: "ÇIKARLARIN TAM HİZALANMASI.",
+            risk_reversal: "Dönüşüm körü körüne inanç gerektirmemeli. Büyük bütçenizi taahhüt etmeden önce iş modelini (business case) doğrulamak için uzmanlığımızı önden sunuyoruz.",
+            phase1_title: "İŞ MODELİ DOĞRULAMA",
+            phase1_desc: "Dijital, Tedarik Zinciri, Üretim ve Finansal akışlarda derinlemesine bir değerlendirme. Potansiyeli doğrulamak için ilk maliyeti biz üstleniyoruz.",
+            phase1_bullets: [
+                "Ücretler: Performansa Dayalı (Yalnızca değer onaylandığında açılır)",
+                "Maliyet: Sadece doğrudan masraflar",
+                "Sonuç: Doğrulanmış Bir İş Modeli"
+            ],
+            phase2_title: "SONUÇ ODAKLI ÜCRETLENDİRME",
+            phase2_desc: "Uygulamaya ancak veriler bunu haklı çıkarırsa geçeriz. Ücretlendirmemizin yarattığımız değere endeksli olduğu bir modele geçerek teşviklerimizin P&L'inizle mükemmel şekilde hizalanmasını sağlarız.",
+            phase2_bullets: [
+                "Gerçekleşen operasyonel etkiye bağlı ücretler",
+                "Paylaşılan kazanç / Gain-share mekanizmaları",
+                "Gömülü yetkinlik transferi"
+            ],
+            context_text: "Bu ücretsiz bir çalıştay değildir. Her iki tarafın da elini taşın altına koyduğu yapılandırılmış bir 'Gate-0' değerlendirmesidir. Eğer potansiyel (upside) orada değilse, netlikle ayrılırsınız—ve danışmanlık ücretlerinde sıfır batık maliyetiniz olur.",
+            apply_btn: "DOĞRULAMAYI BAŞLAT"
         },
         contact: {
             direct_line: "Doğrudan hat.",
