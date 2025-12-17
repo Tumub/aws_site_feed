@@ -59,7 +59,7 @@ export const ContactSection = () => {
                             variant="default"
                             size="lg"
                             className="w-full bg-accent text-accent-foreground hover:bg-accent/90 uppercase tracking-widest font-mono font-bold"
-                            onClick={() => window.location.href = "mailto:umut.bakin@torquefoundryadvisory.com?subject=URGENT: Operational Crisis Assessment"}
+                            onClick={() => window.location.href = "mailto:info@torquefoundryadvisory.com?subject=URGENT: Operational Crisis Assessment"}
                         >
                             {t.contact.priority_btn}
                         </Button>
