@@ -428,14 +428,14 @@ const translations: Record<Language, Translations> = {
                 },
                 manufacturing: {
                     title: "Shop Floor Excellence",
-                    bio: "19+ years. OEM-Ready Compliance (BMW, Mercedes, Toyota). Hidden Factory Optimization.",
+                    bio: "19+ years. OEM-Ready Compliance (Leading German & Japanese OEMs). Hidden Factory Optimization.",
                     badge: "IATF 16949 Lead Auditor",
                     cases: [
                         { title: "Chemical Optimization", pub: "Process & Recipe Optimization.", auth: "$1.5M Annual Savings via Six Sigma without compromising quality." },
                         { title: "The 'Invisible' Machine", pub: "Line Balancing (5 → 4 machines).", auth: "Eliminated €450K machine cost. Unlocked $1.0M capacity value." },
                         { title: "Greenfield Commissioning", pub: "4 Major Facility Setups.", auth: "Managed €5M+ investment. Plating & Extrusion plants (Auto & White Goods)." },
                         { title: "Solar Energy Revenue", pub: "Sustainability as Profit.", auth: "Generated $300k/year revenue via SPP installation." },
-                        { title: "Market Entry Line", pub: "Kartepe White Goods Line.", auth: "Unlocked contracts with Arçelik, Vestel & Uğur Cooling." }
+                        { title: "Market Entry Line", pub: "Kartepe White Goods Line.", auth: "Unlocked contracts with Major White Goods Manufacturers." }
                     ]
                 },
                 digital: {
@@ -738,14 +738,14 @@ const translations: Record<Language, Translations> = {
                 },
                 manufacturing: {
                     title: "Saha Mükemmelliği",
-                    bio: "19+ yıl. OEM-Hazır Uyumluluk (BMW, Mercedes, Toyota). Gizli Fabrika (Hidden Factory) Optimizasyonu.",
+                    bio: "19+ yıl. OEM-Hazır Uyumluluk (Önde Gelen Alman & Japon OEM'leri). Gizli Fabrika (Hidden Factory) Optimizasyonu.",
                     badge: "IATF 16949 Baş Denetçi",
                     cases: [
                         { title: "Kimyasal Optimizasyon", pub: "Süreç & Reçete Optimizasyonu.", auth: "Kaliteden ödün vermeden Altı Sigma ile yıllık 1,5 Milyon Dolar Tasarruf." },
                         { title: "'Görünmez' Makine", pub: "Hat Dengeleme (5 makine yerine 4).", auth: "450K € makine maliyeti elimine edildi. 1,0 Milyon Dolarlık kapasite değeri açığa çıktı." },
                         { title: "Sıfırdan (Greenfield) Devreye Alma", pub: "4 Büyük Tesis Kurulumu.", auth: "5M €+ yatırımı yönetti. Kaplama & Ekstrüzyon tesisleri (Otomotiv & Beyaz Eşya)." },
                         { title: "Güneş Enerjisi Geliri", pub: "Kar Olarak Sürdürülebilirlik.", auth: "SPP kurulumu ile yıllık 300 bin dolar gelir sağlandı." },
-                        { title: "Pazara Giriş Hattı", pub: "Kartepe Beyaz Eşya Hattı.", auth: "Arçelik, Vestel & Uğur Soğutma ile sözleşmelerin kilidini açtı." }
+                        { title: "Pazara Giriş Hattı", pub: "Kartepe Beyaz Eşya Hattı.", auth: "Büyük Beyaz Eşya Üreticileri ile sözleşmelerin kilidini açtı." }
                     ]
                 },
                 digital: {
