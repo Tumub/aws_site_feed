@@ -422,7 +422,7 @@ const translations: Record<Language, Translations> = {
                         { title: "Global Transport Sourcing", pub: "Coupa Optimization ($790M).", auth: "30% value improvement on $790M spend. Cycle time reduced 8mo → 4mo using 'Best Value' logic." },
                         { title: "Crisis Management", pub: "Covid Volume Surge.", auth: "Managed $1.2B spend during port lockdowns. Volume surged 596k → 638k TEU." },
                         { title: "DCSA Control Tower", pub: "Snowflake & API Integration.", auth: "Reduced carrier onboarding 6mo → 4 weeks using DCSA standards." },
-                        { title: "Global Capacity Planning", pub: "IKEA Supplier Capacity.", auth: "Predicted stock-outs months in advance via monthly IBP cycles." },
+                        { title: "Global Capacity Planning", pub: "Global Retailer Supplier Capacity.", auth: "Predicted stock-outs months in advance via monthly IBP cycles." },
                         { title: "Coupa Excellence 2024", pub: "Global Sourcing Award.", auth: "Best-in-class implementation for >$600M spend." }
                     ]
                 },
@@ -732,7 +732,7 @@ const translations: Record<Language, Translations> = {
                         { title: "Global Taşıma Tedariki", pub: "Coupa Optimizasyonu (790M$).", auth: "790M$ harcamada %30 değer iyileştirmesi. 'En İyi Değer' mantığı ile döngü süresi 8 aydan 4 aya düştü." },
                         { title: "Kriz Yönetimi", pub: "Kovid Hacim Artışı.", auth: "Liman kapanışları sırasında 1,2 milyar dolar harcamayı yönetti. Hacim 596k TEU'dan 638k TEU'ya çıktı." },
                         { title: "DCSA Kontrol Kulesi", pub: "Snowflake & API Entegrasyonu.", auth: "DCSA standartlarını kullanarak taşıyıcı katılımını 6 aydan 4 haftaya indirdi." },
-                        { title: "Global Kapasite Planlama", pub: "IKEA Tedarikçi Kapasitesi.", auth: "Aylık IBP döngüleri ile stok tükenmelerini aylar öncesinden tahmin etti." },
+                        { title: "Global Kapasite Planlama", pub: "Global Perakendeci Tedarikçi Kapasitesi.", auth: "Aylık IBP döngüleri ile stok tükenmelerini aylar öncesinden tahmin etti." },
                         { title: "Coupa Mükemmelliği 2024", pub: "Global Tedarik Ödülü.", auth: "Best-in-class implementation for >$600M spend." }
                     ]
                 },
