@@ -12,11 +12,12 @@ const Application = () => {
     const [isRejected, setIsRejected] = useState(false);
 
     // Dynamic Options from i18n
+    // Dynamic Options from i18n
     const SPEND_OPTS = t.app.spend.opts.map((opt, idx) => ({
         ...opt,
         // Logic mapping: keep original values for logic if needed, or just map by index/id in real app
         // Here we map back to the logical values 
-        reject: idx === 0 // Logic: reject if growth stage (first option) - Assuming order is same
+        reject: false // Logic: Allow all stages including growth
     }));
 
     const PAIN_OPTS = t.app.pain.opts;
@@ -24,14 +25,8 @@ const Application = () => {
 
     const handleSpendSelect = (opt: any) => {
         setFormData({ ...formData, spend: opt.value });
-        // Logic: Rejection logic based on index or value. 
-        // For simplicity, let's keep the hardcoded logic "growth" check if we can, or just trust the index.
-        // Let's assume idx 0 is the rejection case.
-        if (opt.value === 'growth') {
-            setIsRejected(true);
-        } else {
-            setStep(2);
-        }
+        // Logic: All applicants proceed to next step
+        setStep(2);
     };
 
     const handlePainSelect = (opt: any) => {
