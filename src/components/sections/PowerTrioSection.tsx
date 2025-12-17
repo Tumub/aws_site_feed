@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Cog, Truck, Cpu } from "lucide-react";
+import { Cog, Truck, Cpu, LineChart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
 
@@ -32,6 +32,14 @@ export const PowerTrioSection = () => {
       icon: Cpu,
       tone: "cyan" as const,
       bullets: t.trio.digital.bullets,
+    },
+    {
+      id: "finance",
+      title: t.trio.finance.title,
+      subtitle: t.trio.finance.subtitle,
+      icon: LineChart,
+      tone: "emerald" as const, // Distinct tone for finance
+      bullets: t.trio.finance.bullets,
     },
   ];
 
@@ -81,7 +89,7 @@ export const PowerTrioSection = () => {
           />
         </div>
 
-        <div className="grid relative gap-6 md:grid-cols-3">
+        <div className="grid relative gap-6 md:grid-cols-2 lg:grid-cols-4">
           {TRIO_CARDS.map((card, index) => {
             const Icon = card.icon;
             const isDimmed = hoveredId !== null && hoveredId !== card.id;
@@ -118,6 +126,7 @@ export const PowerTrioSection = () => {
                       "flex h-10 w-10 items-center justify-center rounded-xl border bg-secondary/60 text-accent shadow-[0_0_18px_hsl(var(--accent)_/_0.35)] transition-shadow duration-300",
                       card.tone === "amber" && "text-primary border-primary/60 bg-primary/10",
                       card.tone === "cyan" && "text-accent border-accent/60 bg-accent/10",
+                      card.tone === "emerald" && "text-emerald-500 border-emerald-500/60 bg-emerald-500/10", // Added emerald handling
                       isPulseNear && "shadow-[0_0_28px_hsl(var(--accent)_/_0.95)]",
                     )}
                   >

@@ -118,6 +118,11 @@ type Translations = {
             subtitle: string;
             bullets: string[];
         };
+        finance: {
+            title: string;
+            subtitle: string;
+            bullets: string[];
+        };
     };
     timeline: {
         title: string;
@@ -371,6 +376,11 @@ const translations: Record<Language, Translations> = {
                 title: "Digital Backbone",
                 subtitle: "The Torque — AI-driven transformation within organically grown environments.",
                 bullets: ["Data products on top of legacy stacks", "AI that respects process reality", "Secure, governed integration patterns"]
+            },
+            finance: {
+                title: "Finance",
+                subtitle: "The Ledger — Business case validation and risk engineering.",
+                bullets: ["Business case validation before spend", "Risk-sharing financial models", "Tax Optimization & Incentive Alignment"]
             }
         },
         timeline: {
@@ -676,6 +686,11 @@ const translations: Record<Language, Translations> = {
                 title: "Dijital Omurga",
                 subtitle: "The Torque",
                 bullets: ["Eski sistemlerin üzerinde veri ürünleri", "Süreç gerçekliğine saygılı yapay zekâ", "Güvenli ve yönetişime uygun entegrasyon"]
+            },
+            finance: {
+                title: "Finans",
+                subtitle: "The Ledger — İş modeli doğrulama ve risk mühendisliği.",
+                bullets: ["Harcamadan önce iş modeli doğrulama", "Risk paylaşımlı finansal modeller", "Vergi Optimizasyonu ve Teşvik Yönetimi"]
             }
         },
         timeline: {
