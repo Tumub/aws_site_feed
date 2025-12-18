@@ -338,30 +338,38 @@ const translations: Record<Language, Translations> = {
             body: "Transformation doesn't fail because the strategy is wrong. It fails because execution can't survive the reality of the shopfloor—the heat, the dust, and the legacy constraints shown here. We bridge that gap."
         },
         origin: {
-            headline: "WE DON'T ADVISE. WE EMBED.",
-            story_p1: "I’ve spent years inside global operations—operating at the intersection of Sweden’s planning discipline, Turkey’s execution agility, and Switzerland’s systems precision. Across industries, the pattern is the same: Transformation doesn't fail because the strategy is wrong. It fails because execution can't survive the reality of the shopfloor.",
-            story_p2: "TorqueFoundry was built to close that gap. This isn't a solo game. It requires fusing four disciplines into one execution spine: Digital + Supply Chain + Manufacturing + Finance. So, I built a structure that matches the reality:",
+            headline: "We Don't Advise. We Embed.",
+            story_p1: "I’ve spent my career deep inside global manufacturing and industrial operations, where Sweden’s planning precision meets Turkey’s execution speed and Switzerland’s systems logic. Across every plant, process, and project, one truth stood out: Transformation doesn’t fail because of bad strategy. It fails because strategy can’t survive the real world.",
+            story_p2: "That’s why I built Torque Foundry Advisory, to close the gap between digital strategy and operational execution. We don't just consult. We embed. We work alongside your teams where it matters most, on the shop floor, in the systems, and across functions.",
             story_p3: "",
             story_p4: "",
             founder_name: "UMUT",
             founder_title: "Founder & Managing Partner",
-            execution_core_title: "THE EXECUTION CORE",
-            leader: { title: "SEBASTIAN", sub: "HEAD OF MANUFACTURING", desc: "Shaped by high-pressure industrial environments. He ensures every strategy survives the heat, dust, and friction of the line." },
-            architect: { title: "EMRAH", sub: "LEAD SYSTEMS ARCHITECT", desc: "Focused on building the architecture that turns data into measurable performance. He bridges the gap between legacy machines and modern intelligence." },
+            execution_core_title: "THE EXECUTION SPINE",
+            leader: { 
+                title: "SEBASTIAN", 
+                sub: "Head of Manufacturing", 
+                desc: "Tough, grounded, and focused on performance. Sebastian’s strength lies in translating strategic plans into action on the line. He is shaped by high-pressure production environments and makes sure every initiative survives the heat, dust, and pace of manufacturing reality." 
+            },
+            architect: { 
+                title: "EMRAH", 
+                sub: "Lead Systems Architect", 
+                desc: "Emrah connects old systems with new intelligence. From legacy machinery integration to real-time performance dashboards, he builds the architecture that turns raw data into smarter decisions and stronger execution." 
+            },
             governance_title: "STRATEGIC GOVERNANCE",
             advisor: {
                 title: "ALPER PEKCAN",
-                sub: "BOARD ADVISOR - CORPORATE FINANCE",
-                desc: "He doesn't run the shopfloor; he validates the business case. As a seasoned finance strategist, he bridges the gap between operations and the CFO, engineering the models that allow us to share the transformation risk."
+                sub: "Board Advisor – Corporate Finance",
+                desc: "Alper ensures financial alignment in operational transformation. As a seasoned strategist, he builds models that validate ROI and let us co-own the risk with clients. He links the boardroom to the factory and long-term value to day-one impact."
             },
-            closing: "We don’t do magic. We do engineering. We evolve in place—inside the systems you already run."
+            closing: "This Is Industrial Execution Consulting, Rebuilt. Torque Foundry Advisory exists for one reason: to turn strategy into sustainable, scalable industrial results. Let’s turn strategy into motion."
         },
         embedded: {
             philosophy: "Embedded Philosophy"
         },
         trio: {
-            headline: "Embedded Expertise. Operational Outcomes.",
-            description: "We don't parachute in slide-makers. We embed senior operators across Digital, Supply Chain, and Manufacturing who sit inside your war room and own outcomes with you.",
+            headline: "How We Make Strategy Real",
+            description: "Digital transformation in manufacturing isn’t about tech for tech’s sake. It’s about impact—faster throughput, better decision-making, and less friction between business units. That only happens when digital, supply chain, operations, and finance move together.",
             manufacturing: {
                 title: "Manufacturing",
                 subtitle: "The Foundry — Optimization based on decades of floor experience.",
