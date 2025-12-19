@@ -249,7 +249,7 @@ const translations: Record<Language, Translations> = {
             subheadline: "We fuse Digital, Supply Chain, and Manufacturing to evolve your operations from within. No \"rip and replace.\" Just execution that withstands the reality of production.",
             integrated_areas: "Digital · Supply Chain · Manufacturing Systems",
             engagement_model: "Co-investment, capital-protected diagnostics, shared upside.",
-            cta_primary: "SEE THE RISK-REVERSAL MODEL",
+            cta_primary: "How Do We De-Risk Transformation?",
             cta_secondary: "OUR APPROACH",
             engagement_label: "Engagement Model",
             oee_label: "OEE",
@@ -298,7 +298,7 @@ const translations: Record<Language, Translations> = {
             },
             context: {
                 title: "Operational Context",
-                desc: "Briefly describe the specific crisis or opportunity you are targeting. No fluff.",
+                desc: "Describe the specific crisis or opportunity you are targeting. No fluff.",
                 placeholder: "e.g. We are losing 12% OEE due to unexplained micro-stops in the packaging lines...",
                 btn: "PROCEED TO IDENTITY"
             },
@@ -328,39 +328,39 @@ const translations: Record<Language, Translations> = {
             }
         },
         stats: {
-            oee: "Line availability in live pilots.",
+            oee: "Line availability increase in live pilots.",
             inventory: "Working capital unlocked in 12 months.",
             throughput: "No additional capex, just evolution.",
             designs: "We design the overlays, telemetry, and decision HUDs that sit on top of your reality."
         },
         problem: {
             headline: "Operations Don't Live In Slide Decks.",
-            body: "Transformation doesn't fail because the strategy is wrong. It fails because execution can't survive the reality of the shopfloor—the heat, the dust, and the legacy constraints shown here. We bridge that gap."
+            body: "Transformation doesn't fail because the strategy is wrong. It fails because execution can't survive the reality of the shopfloor: the heat, the dust, and the legacy constraints. Bridging this gap is urgent: research shows that 70% of transformations stall after design. We bridge that gap."
         },
         origin: {
             headline: "We Don't Advise. We Embed.",
-            story_p1: "I’ve spent my career deep inside global manufacturing and industrial operations, where Sweden’s planning precision meets Turkey’s execution speed and Switzerland’s systems logic. Across every plant, process, and project, one truth stood out: Transformation doesn’t fail because of bad strategy. It fails because strategy can’t survive the real world.",
-            story_p2: "That’s why I built Torque Foundry Advisory, to close the gap between digital strategy and operational execution. We don't just consult. We embed. We work alongside your teams where it matters most, on the shop floor, in the systems, and across functions.",
+            story_p1: "Across every plant, process, and project, one truth stood out: transformation doesn't fail because of bad strategy. It fails because strategy can't survive the real world. I've spent my career deep inside global manufacturing and industrial operations where Sweden's planning precision meets Turkey's execution speed and Switzerland's systems logic.",
+            story_p2: "That’s why I built Torque Foundry Advisory—to close the gap between digital strategy and operational execution. We don't just consult. We embed. We work alongside your teams where it matters most: on the shop floor, in the systems, and across functions.",
             story_p3: "",
             story_p4: "",
             founder_name: "UMUT",
             founder_title: "Founder & Managing Partner",
             execution_core_title: "THE EXECUTION SPINE",
-            leader: { 
-                title: "SEBASTIAN", 
-                sub: "Head of Manufacturing", 
-                desc: "Tough, grounded, and focused on performance. Sebastian’s strength lies in translating strategic plans into action on the line. He is shaped by high-pressure production environments and makes sure every initiative survives the heat, dust, and pace of manufacturing reality." 
+            leader: {
+                title: "SEBASTIAN",
+                sub: "Head of Manufacturing",
+                desc: "Tough, grounded, and focused on performance. Sebastian’s strength lies in translating strategic plans into action on the line. Shaped by high-pressure production environments, he makes sure every initiative survives the heat, dust, and pace of manufacturing reality."
             },
-            architect: { 
-                title: "EMRAH", 
-                sub: "Lead Systems Architect", 
-                desc: "Emrah connects old systems with new intelligence. From legacy machinery integration to real-time performance dashboards, he builds the architecture that turns raw data into smarter decisions and stronger execution." 
+            architect: {
+                title: "EMRAH",
+                sub: "Lead Systems Architect",
+                desc: "Emrah connects old systems with new intelligence. From legacy machinery integration to real-time performance dashboards, he builds the architecture that turns raw data into smarter decisions and stronger execution."
             },
             governance_title: "STRATEGIC GOVERNANCE",
             advisor: {
                 title: "ALPER PEKCAN",
                 sub: "Board Advisor – Corporate Finance",
-                desc: "Alper ensures financial alignment in operational transformation. As a seasoned strategist, he builds models that validate ROI and let us co-own the risk with clients. He links the boardroom to the factory and long-term value to day-one impact."
+                desc: "Alper ensures financial alignment in operational transformation. As a seasoned strategist, he builds models that validate ROI and let us co-own risk with clients. He links the boardroom to the factory and long-term value to day-one impact."
             },
             closing: "This Is Industrial Execution Consulting, Rebuilt. Torque Foundry Advisory exists for one reason: to turn strategy into sustainable, scalable industrial results. Let’s turn strategy into motion."
         },
@@ -369,44 +369,44 @@ const translations: Record<Language, Translations> = {
         },
         trio: {
             headline: "How We Make Strategy Real",
-            description: "Digital transformation in manufacturing isn’t about tech for tech’s sake. It’s about impact—faster throughput, better decision-making, and less friction between business units. That only happens when digital, supply chain, operations, and finance move together.",
+            description: "Digital transformation in manufacturing isn’t about tech for tech’s sake. It’s about impact—faster throughput, better decision-making, and less friction between business units. That only happens when Digital, Supply Chain, Operations, and Finance move together.",
             manufacturing: {
                 title: "Manufacturing",
-                subtitle: "The Foundry — Optimization based on decades of floor experience.",
+                subtitle: "The Foundry: Optimization based on decades of floor experience.",
                 bullets: ["Line diagnostics without stopping production", "Constraint-based debottlenecking", "Operator-centric UX for adoption"]
             },
             supply_chain: {
                 title: "Supply Chain",
-                subtitle: "The Flow — End-to-end procurement and logistics.",
+                subtitle: "The Flow: End-to-end procurement and logistics.",
                 bullets: ["Network and lane redesign", "Inventory segmentation and buffers", "Control towers that operators actually use"]
             },
             digital: {
                 title: "Digital Backbone",
-                subtitle: "The Torque — AI-driven transformation within organically grown environments.",
+                subtitle: "The Torque: AI-driven transformation within organically grown environments.",
                 bullets: ["Data products on top of legacy stacks", "AI that respects process reality", "Secure, governed integration patterns"]
             },
             finance: {
                 title: "Finance",
-                subtitle: "The Ledger — Business case validation and risk engineering.",
+                subtitle: "The Ledger: Business case validation and risk engineering.",
                 bullets: ["Business case validation before spend", "Risk-sharing financial models", "Tax Optimization & Incentive Alignment"]
             }
         },
         timeline: {
             title: "Vertical System Integration Timeline",
-            subtitle: "We don't sell a generic framework. We run a fixed protocol that ties your brownfield reality to a live Digital Backbone from diagnostic through to P&L.",
-            step1: { title: "Step 1 Deep-Dive Diagnostic", desc: "We map the messy reality of your brownfield site. We quantify constraints before writing code." },
+            subtitle: "We don't sell a generic framework. We run a fixed protocol that ties your brownfield reality to a live Digital Backbone: from diagnostic through to P&L.",
+            step1: { title: "Step 1 Deep-Dive Diagnostic", desc: "We map the messy reality of your brownfield site and quantify constraints before writing code." },
             step2: { title: "Step 2 The Blueprint", desc: "We design the digital overlay that fits your physical reality. No fantasy architectures. Only systems your floor can actually run." },
             step3: { title: "Step 3 Embedded Execution", desc: "We ship change from inside your operation. We don't hand off the plan. We code and configure alongside your team on the floor to upskill them in real-time." },
             step4: { title: "Step 4 Continuous Optimization", desc: "We keep optimising until the P&L reflects the change. We verify the ROI and tune the system as conditions shift, not just at quarter-end reviews." }
         },
         cases: {
             headline: "Nested, Not Just Near.",
-            subheadline: "We don't just advise. We embed. We sit inside your stand-ups, shift handovers, and control towers—helping your teams change from within.",
+            subheadline: "We don't just advise. We embed. We sit inside your stand-ups, shift handovers, and control towers, helping your teams change from within.",
             war_story_label: "War Story",
             erp: {
                 title: "Migrating Legacy ERP without stopping the line.",
                 desc: "Re-platformed core planning and execution from a 20-year-old ERP while maintaining service levels and OEE across three plants.",
-                metrics: ["0 unscheduled line stops during cutover", "+9% schedule adherence in 6 months"]
+                metrics: ["Schedule adherence improved from 71% to 80% in 6 months", "0 unscheduled line stops during cutover"]
             },
             inventory: {
                 title: "Unlocking $145M in Inventory.",
@@ -422,7 +422,7 @@ const translations: Record<Language, Translations> = {
             partners: {
                 supplyChain: {
                     title: "Connecting Source to Customer",
-                    bio: "15+ years managing 40,000+ shipments and >$790M spend. Unified operations across 3 regions.",
+                    bio: "15+ years managing 40,000+ shipments and >$790M in spend. Unified operations across 3 regions.",
                     badge: "Coupa Sourcing Excellence 2024",
                     cases: [
                         { title: "Major Automotive OEM CoE", pub: "Intercontinental Ops Center.", auth: "Created team of 34 from scratch. Unified 40k shipments/year across 3 regions." },
@@ -436,7 +436,7 @@ const translations: Record<Language, Translations> = {
                 },
                 manufacturing: {
                     title: "Shop Floor Excellence",
-                    bio: "19+ years. OEM-Ready Compliance (Leading German & Japanese OEMs). Hidden Factory Optimization.",
+                    bio: "19+ years delivering OEM-Ready Compliance (Leading German & Japanese OEMs) and Hidden Factory Optimization.",
                     badge: "IATF 16949 Lead Auditor",
                     cases: [
                         { title: "Chemical Optimization", pub: "Process & Recipe Optimization.", auth: "$1.5M Annual Savings via Six Sigma without compromising quality." },
@@ -448,7 +448,7 @@ const translations: Record<Language, Translations> = {
                 },
                 digital: {
                     title: "Agentic Automation & Architecture",
-                    bio: "Bridging the gap between IT and Business. Driving AI transformation in legacy environments.",
+                    bio: "Bridging the gap between IT and business, driving AI transformation in legacy environments.",
                     badge: null as string | null, // Handling null in types is tricky here, will use string or empty
                     cases: [
                         { title: "Agentic Logistics", pub: "Swarm of AI Agents.", auth: "Replaced manual booking/verification with agents in legacy systems." },
@@ -496,10 +496,10 @@ const translations: Record<Language, Translations> = {
             generate_btn: "Generate Full Report",
             note_prefix: "NOTE_",
             articles: [
-                { title: "The Control Tower Mirage", summary: "Why spending $5M on a visual dashboard fails if your underlying data hygiene is trash. You cannot visualize what you cannot measure.", tag: "DIGITAL HYGIENE" },
-                { title: "Stop Waiting for Greenfield", summary: "The perfect factory doesn't exist. How to overlay AI onto 1980s PLCs and legacy ERPs without ripping out the nervous system.", tag: "BROWNFIELD REALITY" },
-                { title: "The Hidden Factory P&L", summary: "Your financial P&L lies. It hides the 'Shadow P&L' of rework, expedited freight, and manual Excel reconciliation. Here is how to audit it.", tag: "FINANCIAL FORENSICS" },
-                { title: "Merging the Frankenstein", summary: "A case study on merging three different ERPs over a holiday weekend using an API layer instead of a migration script.", tag: "SYSTEM ARCHITECTURE" },
+                { title: "How to Avoid the Control Tower Mirage", summary: "Why spending $5M on a visual dashboard fails if your underlying data hygiene is trash. You cannot visualize what you cannot measure.", tag: "DIGITAL HYGIENE" },
+                { title: "Why You Should Stop Waiting for Greenfield", summary: "The perfect factory doesn't exist. How to overlay AI onto 1980s PLCs and legacy ERPs without ripping out the nervous system.", tag: "BROWNFIELD REALITY" },
+                { title: "How to Discover the Hidden Factory P&L", summary: "Your financial P&L lies. It hides the 'Shadow P&L' of rework, expedited freight, and manual Excel reconciliation. Here is how to audit it.", tag: "FINANCIAL FORENSICS" },
+                { title: "When Merging the Frankenstein Works", summary: "A case study on merging three different ERPs over a holiday weekend using an API layer instead of a migration script.", tag: "SYSTEM ARCHITECTURE" },
                 { title: "The Uncomfortable Truth About Cost Reduction", summary: "You can't cut cost by emailing suppliers for a 2% discount. You cut cost by aligning your inbound logic with your production takt time.", tag: "SUPPLY CHAIN PHYSICS" }
             ]
         },
@@ -513,7 +513,7 @@ const translations: Record<Language, Translations> = {
         },
         engagement: {
             headline: "TOTAL ALIGNMENT OF INTERESTS.",
-            risk_reversal: "Transformation shouldn't require blind faith. We deploy our expertise upfront to validate the business case before you commit your major budget.",
+            risk_reversal: "Transformation shouldn't require blind faith. We deploy our expertise upfront to validate the business case before you commit your major budget. It's like a surgeon who only gets paid when the patient fully recovers, ensuring our success is aligned with your outcome.",
             phase1_title: "BUSINESS CASE VALIDATION",
             phase1_desc: "A deep-dive assessment across Digital, Supply Chain, Manufacturing, and Financial streams. We bear the initial cost to validate the upside first.",
             phase1_bullets: [
@@ -528,7 +528,7 @@ const translations: Record<Language, Translations> = {
                 "Shared upside / Gain-share mechanisms",
                 "Embedded capability transfer"
             ],
-            context_text: "This isn't a free workshop. It's a structured 'Gate-0' assessment where we put our skin in the game. If the upside isn't there, you walk away with clarity—and zero sunk costs in consulting fees.",
+            context_text: "This isn't a free workshop. It's a structured 'Gate-0' assessment where we put skin in the game. If the upside isn't there, you walk away with clarity—and zero sunk costs in consulting fees.",
             apply_btn: "START VALIDATION"
         },
         contact: {
