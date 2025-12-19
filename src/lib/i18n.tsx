@@ -548,7 +548,7 @@ const translations: Record<Language, Translations> = {
             our_approach: "Our Approach",
             portfolio: "Portfolio",
             insights: "Insights",
-            signal_check_btn: "Initiate Signal Check"
+            signal_check_btn: "IDENTIFY BOTTLENECKS"
         },
         footer: {
             tagline: "Basel, Switzerland · Industrial Digital Transformation",
