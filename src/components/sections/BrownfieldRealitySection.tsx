@@ -127,7 +127,7 @@ const ImageComparisonSlider = ({ leftLabel, rightLabel }: ImageComparisonSliderP
         <div className="relative flex h-full items-stretch justify-stretch">
           <div className="relative flex-1">
             <img
-              src="/images/brownfield-reality-factory.png"
+              src="/images/brownfield-reality-factory.webp"
               alt="Gritty dark industrial factory floor with pipes and old machinery"
               loading="lazy"
               className="h-full w-full object-cover object-center"
