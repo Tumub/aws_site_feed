@@ -573,7 +573,7 @@ const translations: Record<Language, Translations> = {
             oee_label: "OEE",
             inventory_label: "Stok",
             throughput_label: "Çıktı",
-            embedded_domains: "Gömülü Alanlar",
+            embedded_domains: "Entegre Alanlar",
             telemetry_label: "Canlı Fabrika Telemetrisi",
             video_feed: "/// Video akışı: Fabrika sahası · Katman hazır",
             signal_active: "SİNYAL: AKTİF",
@@ -656,9 +656,9 @@ const translations: Record<Language, Translations> = {
             body: "Dönüşüm, strateji yanlış olduğu için başarısız olmaz. İcraat, fabrika sahasının gerçekliğine (sıcağa, toza ve eski kısıtlara) dayanamadığı için başarısız olur. Bu boşluğu kapatmak acildir: araştırmalar, dönüşümlerin %70'inin tasarımdan sonra durduğunu gösteriyor. Biz o boşluğu kapatıyoruz."
         },
         origin: {
-            headline: "Tavsiye Etmiyoruz. Gömülüyoruz.",
+            headline: "Tavsiye Etmiyoruz. Entegre Oluyoruz.",
             story_p1: "Her fabrika, süreç ve projede bir gerçek öne çıktı: dönüşüm kötü strateji yüzünden başarısız olmaz. Strateji gerçek dünyada hayatta kalamadığı için başarısız olur. Kariyerimi, İsveç'in planlama hassasiyetinin, Türkiye'nin icraat hızıyla ve İsviçre'nin sistem mantığıyla buluştuğu küresel üretim operasyonlarının derinliklerinde geçirdim.",
-            story_p2: "Bu yüzden Torque Foundry Advisory'i kurdum; dijital strateji ile operasyonel icraat arasındaki boşluğu kapatmak için. Sadece danışmanlık yapmıyoruz. Gömülüyoruz. Ekiplerinizle omuz omuza, en önemli yerde çalışıyoruz: fabrika sahasında, sistemlerin içinde ve fonksiyonlar arasında.",
+            story_p2: "Bu yüzden Torque Foundry Advisory'i kurdum; dijital strateji ile operasyonel icraat arasındaki boşluğu kapatmak için. Sadece danışmanlık yapmıyoruz. Entegre oluyoruz. Ekiplerinizle omuz omuza, en önemli yerde çalışıyoruz: fabrika sahasında, sistemlerin içinde ve fonksiyonlar arasında.",
             story_p3: "",
             story_p4: "",
             founder_name: "UMUT",
@@ -683,7 +683,7 @@ const translations: Record<Language, Translations> = {
             closing: "Bu, Yeniden İnşa Edilmiş Endüstriyel İcraat Danışmanlığıdır. Torque Foundry Advisory tek bir sebeple var: stratejiyi sürdürülebilir, ölçeklenebilir endüstriyel sonuçlara dönüştürmek için. Stratejiyi harekete geçirelim."
         },
         embedded: {
-            philosophy: "Gömülü Felsefe"
+            philosophy: "Entegre Felsefe"
         },
         trio: {
             headline: "Stratejiyi Nasıl Gerçeğe Dönüştürüyoruz",
@@ -714,12 +714,12 @@ const translations: Record<Language, Translations> = {
             subtitle: "Genel geçer bir çerçeve satmıyoruz. Brownfield gerçekliğinizi canlı bir Dijital Omurgaya bağlayan sabit bir protokol uyguluyoruz: teşhisten P&L'e kadar.",
             step1: { title: "Adım 1 Derinlemesine Teşhis", desc: "Kod yazmadan önce brownfield sahanızın dağınık gerçekliğini haritalandırıyor ve kısıtları nicelikselleştiriyoruz." },
             step2: { title: "Adım 2 Taslak (Blueprint)", desc: "Fiziksel gerçekliğinize uyan dijital katmanı tasarlıyoruz. Fantezi mimariler yok. Sadece sahanızın gerçekten çalıştırabileceği sistemler." },
-            step3: { title: "Adım 3 Gömülü İcraat", desc: "Değişimi operasyonunuzun içinden sevk ediyoruz. Planı teslim edip gitmiyoruz. Ekibinizle birlikte sahada kodluyor ve yapılandırıyoruz, onları gerçek zamanlı olarak geliştiriyoruz." },
+            step3: { title: "Adım 3 Entegre İcraat", desc: "Değişimi operasyonunuzun içinden sevk ediyoruz. Planı teslim edip gitmiyoruz. Ekibinizle birlikte sahada kodluyor ve yapılandırıyoruz, onları gerçek zamanlı olarak geliştiriyoruz." },
             step4: { title: "Adım 4 Sürekli Optimizasyon", desc: "P&L değişimi yansıtana kadar optimize etmeye devam ediyoruz. Sadece çeyrek sonu değerlendirmelerinde değil, koşullar değiştikçe ROI'yi doğruluyor ve sistemi ayar yapıyoruz." }
         },
         cases: {
             headline: "Yakın Değil, İç içe.",
-            subheadline: "Sadece tavsiye vermiyoruz. Gömülüyoruz. Stand-up'larınızda, vardiya değişimlerinizde ve kontrol kulelerinizde oturuyor, ekiplerinizin içeriden değişmesine yardımcı oluyoruz.",
+            subheadline: "Sadece tavsiye vermiyoruz. Entegre oluyoruz. Stand-up'larınızda, vardiya değişimlerinizde ve kontrol kulelerinizde oturuyor, ekiplerinizin içeriden değişmesine yardımcı oluyoruz.",
             war_story_label: "Saha Hikayesi",
             erp: {
                 title: "Hattı durdurmadan Eski ERP Göçü.",
