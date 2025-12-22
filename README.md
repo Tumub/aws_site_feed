@@ -50,3 +50,28 @@ Pushes to `main` trigger the GitHub Actions workflow `.github/workflows/deploy_e
 2.  **Builds:** `npm run build` -> `dist/`.
 3.  **Deploys:** Atomic symlink swap on AWS EC2 (`/var/www/torquefoundry`).
 4.  **Verifies:** Checks `http://52.58.88.177/build-id.txt` matches commit SHA.
+
+## 🧭 Next Agent Notes (GitHub / Deployment)
+
+### What changed (safe)
+
+- Removed broken/legacy workflows that referenced old monorepo paths:
+    - Deleted `.github/workflows/deploy.yml` (legacy GitHub Pages deploy)
+    - Deleted `.github/workflows/ci.yml` (referenced `./apps/torquefoundry-web`)
+- Strengthened `.gitignore` to prevent committing private key formats:
+    - `*.pem`, `*.key`, `*.pfx`, `*.p12`
+
+### How it was shipped (to avoid impacting EC2)
+
+- Changes were pushed to a non-production branch: `security-immediate-actions`.
+- `main` was intentionally not pushed from this workspace session to avoid triggering the EC2 deploy workflow.
+
+### Next safe steps
+
+1. Open a PR from `security-immediate-actions` → `main`.
+2. Merge only when ready for a deploy (merge to `main` will trigger `.github/workflows/deploy_ec2.yml`).
+
+### Notes / gotchas
+
+- If a future agent sees a stuck state: run `git status`. If it shows a rebase in progress, finish it with `git rebase --continue` or abort with `git rebase --abort`.
+- If you see key files present locally (e.g. `*.pem`), they should remain untracked; store them outside the repo if possible.
