@@ -349,12 +349,12 @@ const translations: Record<Language, Translations> = {
             leader: {
                 title: "EMRAH",
                 sub: "Head of Manufacturing",
-                desc: "Tough, grounded, and focused on performance. Sebastian’s strength lies in translating strategic plans into action on the line. Shaped by high-pressure production environments, he makes sure every initiative survives the heat, dust, and pace of manufacturing reality."
+                desc: "Tough, grounded, and focused on performance. Emrah’s strength lies in translating strategic plans into action on the line. Shaped by high-pressure production environments, he makes sure every initiative survives the heat, dust, and pace of manufacturing reality."
             },
             architect: {
                 title: "JOHAN",
                 sub: "Lead Systems Architect",
-                desc: "Emrah connects old systems with new intelligence. From legacy machinery integration to real-time performance dashboards, he builds the architecture that turns raw data into smarter decisions and stronger execution."
+                desc: "Johan connects old systems with new intelligence. From legacy machinery integration to real-time performance dashboards, he builds the architecture that turns raw data into smarter decisions and stronger execution."
             },
             governance_title: "STRATEGIC GOVERNANCE",
             advisor: {
@@ -667,12 +667,12 @@ const translations: Record<Language, Translations> = {
             leader: {
                 title: "EMRAH",
                 sub: "Üretim Lideri",
-                desc: "Sert, yere basan ve performansa odaklı. Sebastian'ın gücü, stratejik planları hattaki eyleme dönüştürmekte yatar. Yüksek baskılı üretim ortamlarında şekillenmiş olarak, her girişimin üretim gerçekliğinin sıcağına, tozuna ve hızına dayanmasını sağlar."
+                desc: "Sert, yere basan ve performansa odaklı. Emrah'ın gücü, stratejik planları hattaki eyleme dönüştürmekte yatar. Yüksek baskılı üretim ortamlarında şekillenmiş olarak, her girişimin üretim gerçekliğinin sıcağına, tozuna ve hızına dayanmasını sağlar."
             },
             architect: {
                 title: "JOHAN",
                 sub: "Baş Sistem Mimarı",
-                desc: "Emrah eski sistemleri yeni zeka ile birleştirir. Eski makine entegrasyonundan gerçek zamanlı performans panellerine kadar, ham veriyi daha akıllı kararlara ve daha güçlü icraata dönüştüren mimariyi inşa eder."
+                desc: "Johan eski sistemleri yeni zeka ile birleştirir. Eski makine entegrasyonundan gerçek zamanlı performans panellerine kadar, ham veriyi daha akıllı kararlara ve daha güçlü icraata dönüştüren mimariyi inşa eder."
             },
             governance_title: "STRATEJİK YÖNETİŞİM",
             advisor: {
