@@ -43,6 +43,11 @@ jobs:
     - name: Preflight SSH Check
       timeout-minutes: 1
       run: |
+        if [ -z "${{ secrets.HOST_IP }}" ]; then
+          echo "❌ HOST_IP secret is missing or empty"
+          exit 1
+        fi
+        
         echo "Testing TCP Connectivity to ${{ secrets.HOST_IP }}:22..."
         # Attempt to reach port 22. If this fails, Security Group is likely blocking GitHub.
         if nc -z -v -w 5 ${{ secrets.HOST_IP }} 22; then
