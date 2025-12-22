@@ -246,8 +246,8 @@ const translations: Record<Language, Translations> = {
         hero: {
             title_suffix: "TorqueFoundry | Forging Intelligence into Production",
             headline: "Strategy That Survives The Shopfloor.",
-            subheadline: "We fuse Digital, Supply Chain, and Manufacturing to evolve your operations from within. No \"rip and replace.\" Just execution that withstands the reality of production.",
-            integrated_areas: "Digital · Supply Chain · Manufacturing Systems",
+            subheadline: "We fuse Digital, Supply Chain, Manufacturing, and Finance to evolve your operations from within. No \"rip and replace.\" Just execution that withstands the reality of production.",
+            integrated_areas: "Digital · Supply Chain · Manufacturing · Finance",
             engagement_model: "Co-investment, capital-protected diagnostics, shared upside.",
             cta_primary: "How Do We De-Risk Transformation?",
             cta_secondary: "OUR APPROACH",
@@ -347,12 +347,12 @@ const translations: Record<Language, Translations> = {
             founder_title: "Founder & Managing Partner",
             execution_core_title: "THE EXECUTION SPINE",
             leader: {
-                title: "SEBASTIAN",
+                title: "EMRAH",
                 sub: "Head of Manufacturing",
                 desc: "Tough, grounded, and focused on performance. Sebastian’s strength lies in translating strategic plans into action on the line. Shaped by high-pressure production environments, he makes sure every initiative survives the heat, dust, and pace of manufacturing reality."
             },
             architect: {
-                title: "EMRAH",
+                title: "JOHAN",
                 sub: "Lead Systems Architect",
                 desc: "Emrah connects old systems with new intelligence. From legacy machinery integration to real-time performance dashboards, he builds the architecture that turns raw data into smarter decisions and stronger execution."
             },
@@ -562,12 +562,12 @@ const translations: Record<Language, Translations> = {
     },
     tr: {
         hero: {
-            title_suffix: "TorqueFoundry | Zekâyı Sahada Sonuca Çeviriyoruz",
+            title_suffix: "TorqueFoundry | Zekâyı Üretim Bandına İndiriyoruz",
             headline: "Sahada ayakta kalan strateji.",
-            subheadline: "Operasyonlarınızı içeriden dönüştürmek için Dijital + Tedarik Zinciri + Üretim disiplinlerini tek bir icra omurgasında birleştiriyoruz. “Yık-yap” yok. Mevcut tesisin (brownfield) gerçekliğine uygun uygulama var.",
-            integrated_areas: "Entegre Alanlar: Dijital · Tedarik Zinciri · Üretim Sistemleri",
-            engagement_model: "Çalışma Modeli: Ortak yatırım · Sermaye-korumalı değerlendirme · Paylaşılan kazanç",
-            cta_primary: "SERMAYE-KORUMALI MODELİ GÖRÜN",
+            subheadline: "Dijital, Tedarik Zinciri ve Üretimi birleştirerek operasyonlarınızı içeriden dönüştürüyoruz. \"Söküp atma\" (rip and replace) yok. Sadece üretimin gerçekliğine dayanan bir icraat var.",
+            integrated_areas: "Dijital · Tedarik Zinciri · Üretim Sistemleri",
+            engagement_model: "Ortak yatırım, sermaye-korumalı değerlendirme, paylaşılan kazanç.",
+            cta_primary: "Dönüşüm Riskini Nasıl Azaltırız?",
             cta_secondary: "YAKLAŞIMIMIZ",
             engagement_label: "Çalışma Modeli",
             oee_label: "OEE",
@@ -639,134 +639,142 @@ const translations: Record<Language, Translations> = {
             optimized_flow: "OPTİMİZE AKIŞ",
             maintenance: "BAKIM GEREKLİ",
             drag_scan: "TARAMAK İÇİN SÜRÜKLE",
-            complexity: "Karmaşıklığın Ötesini Gör",
+            complexity: "Karmaşıklığın Ötesini Görün",
             labels: {
                 physical: "FİZİKSEL VARLIK (Eski)",
                 digital: "DİJİTAL İKİZ (Gelecek)"
             }
         },
         stats: {
-            oee: "OEE: %96,3 — canlı pilotlarda hat kullanılabilirliği",
-            inventory: "Stok: -%18 — 12 ayda serbest kalan işletme sermayesi",
-            throughput: "Çıktı (Throughput): +%11 — ek Capex olmadan",
-            designs: "Gerçekliğinizin üzerine oturan telemetri katmanlarını, karar ekranlarını ve yönetim panellerini tasarlarız."
+            oee: "Canlı pilotlarda hat kullanılabilirliği artışı.",
+            inventory: "12 ayda açığa çıkan işletme sermayesi.",
+            throughput: "Ek yatırım yok, sadece evrim.",
+            designs: "Gerçekliğinizin üzerine oturan katmanları, telemetriyi ve karar ekranlarını tasarlıyoruz."
         },
         problem: {
-            headline: "Operasyonlar sunumlarda yaşamaz.",
-            body: "Dönüşüm projeleri strateji yanlış olduğu için değil; uygulama, sahanın sıcağına-tozuna ve eski sistem kısıtlarına (legacy constraints) dayanamadığı için dağılır. Biz bu boşluğu kapatırız."
+            headline: "Operasyonlar Sunum Slaytlarında Yaşamaz.",
+            body: "Dönüşüm, strateji yanlış olduğu için başarısız olmaz. İcraat, fabrika sahasının gerçekliğine (sıcağa, toza ve eski kısıtlara) dayanamadığı için başarısız olur. Bu boşluğu kapatmak acildir: araştırmalar, dönüşümlerin %70'inin tasarımdan sonra durduğunu gösteriyor. Biz o boşluğu kapatıyoruz."
         },
         origin: {
-            headline: "TAVSİYE ETMİYORUZ. GÖMÜLÜ ÇALIŞIYORUZ.",
-            story_p1: "Yıllarımı küresel operasyonların içinde—İsveç'in planlama disiplini, Türkiye'nin uygulama çevikliği ve İsviçre'nin sistem hassasiyetinin kesişiminde—geçirdim. Endüstriler değişse de desen aynı: Dönüşüm strateji yanlış olduğu için başarısız olmaz. Uygulama, atölye zemininin gerçekliğine dayanamadığı için başarısız olur.",
-            story_p2: "TorqueFoundry bu boşluğu kapatmak için kuruldu. Bu tek kişilik bir oyun değil. Dört disiplini tek bir uygulama omurgasında birleştirmeyi gerektirir: Dijital + Tedarik Zinciri + Üretim + Finans. Bu yüzden, gerçekliğe uyan bir yapı kurdum:",
+            headline: "Tavsiye Etmiyoruz. Gömülüyoruz.",
+            story_p1: "Her fabrika, süreç ve projede bir gerçek öne çıktı: dönüşüm kötü strateji yüzünden başarısız olmaz. Strateji gerçek dünyada hayatta kalamadığı için başarısız olur. Kariyerimi, İsveç'in planlama hassasiyetinin, Türkiye'nin icraat hızıyla ve İsviçre'nin sistem mantığıyla buluştuğu küresel üretim operasyonlarının derinliklerinde geçirdim.",
+            story_p2: "Bu yüzden Torque Foundry Advisory'i kurdum; dijital strateji ile operasyonel icraat arasındaki boşluğu kapatmak için. Sadece danışmanlık yapmıyoruz. Gömülüyoruz. Ekiplerinizle omuz omuza, en önemli yerde çalışıyoruz: fabrika sahasında, sistemlerin içinde ve fonksiyonlar arasında.",
             story_p3: "",
             story_p4: "",
             founder_name: "UMUT",
             founder_title: "Kurucu & Yönetici Ortak",
-            execution_core_title: "UYGULAMA ÇEKİRDEĞİ",
-            leader: { title: "SEBASTIAN", sub: "ÜRETİM LİDERİ", desc: "Yüksek baskılı endüstriyel ortamlarda şekillendi. Her stratejinin üretim hattının sıcağına, tozuna ve sürtünmesine dayanmasını sağlar." },
-            architect: { title: "EMRAH", sub: "LİDER SİSTEM MİMARI", desc: "Veriyi ölçülebilir performansa dönüştüren mimariyi inşa etmeye odaklı. Eski makineler ile modern zeka arasındaki boşluğu kapatır." },
+            execution_core_title: "İCRAAT OMURGASI",
+            leader: {
+                title: "EMRAH",
+                sub: "Üretim Lideri",
+                desc: "Sert, yere basan ve performansa odaklı. Sebastian'ın gücü, stratejik planları hattaki eyleme dönüştürmekte yatar. Yüksek baskılı üretim ortamlarında şekillenmiş olarak, her girişimin üretim gerçekliğinin sıcağına, tozuna ve hızına dayanmasını sağlar."
+            },
+            architect: {
+                title: "JOHAN",
+                sub: "Baş Sistem Mimarı",
+                desc: "Emrah eski sistemleri yeni zeka ile birleştirir. Eski makine entegrasyonundan gerçek zamanlı performans panellerine kadar, ham veriyi daha akıllı kararlara ve daha güçlü icraata dönüştüren mimariyi inşa eder."
+            },
             governance_title: "STRATEJİK YÖNETİŞİM",
             advisor: {
                 title: "ALPER PEKCAN",
-                sub: "YÖNETİM KURULU DANIŞMANI",
-                desc: "Sahayı yönetmez; iş modelini doğrular. Deneyimli bir finans stratejisti olarak, operasyonlar ile CFO arasındaki boşluğu kapatır ve dönüşüm riskini paylaşmamızı sağlayan modelleri kurgular."
+                sub: "Yönetim Kurulu Danışmanı",
+                desc: "Alper, operasyonel dönüşümde finansal hizalanmayı sağlar. Deneyimli bir stratejist olarak, ROI'yi doğrulayan ve riskleri müşterilerle ortaklaşa üstlenmemizi sağlayan modeller kurar. Yönetim kurulunu fabrikaya ve uzun vadeli değeri ilk günkü etkiye bağlar."
             },
-            closing: "Sihir yapmıyoruz. Mühendislik yapıyoruz. Olduğunuz yerde—halihazırda çalıştırdığınız sistemlerin içinde gelişiyoruz."
+            closing: "Bu, Yeniden İnşa Edilmiş Endüstriyel İcraat Danışmanlığıdır. Torque Foundry Advisory tek bir sebeple var: stratejiyi sürdürülebilir, ölçeklenebilir endüstriyel sonuçlara dönüştürmek için. Stratejiyi harekete geçirelim."
         },
         embedded: {
             philosophy: "Gömülü Felsefe"
         },
         trio: {
-            headline: "Entegre Uzmanlık. Operasyonel Sonuçlar.",
-            description: "Sunum yapanları paraşütle indirmeyiz. Dijital, Tedarik Zinciri ve Üretim alanlarında kıdemli operatörleri, sizin savaş odanıza entegre eder ve sonuçları sizinle birlikte sahipleniriz.",
+            headline: "Stratejiyi Nasıl Gerçeğe Dönüştürüyoruz",
+            description: "Üretimde dijital dönüşüm, teknoloji için teknoloji demek değildir. Etki demektir—daha hızlı çıktı, daha iyi karar alma ve iş birimleri arasında daha az sürtünme. Bu ancak Dijital, Tedarik Zinciri, Operasyonlar ve Finans birlikte hareket ettiğinde gerçekleşir.",
             manufacturing: {
                 title: "Üretim",
-                subtitle: "The Foundry",
-                bullets: ["Üretimi durdurmadan hat teşhisi", "Kısıt tabanlı darboğaz giderme", "Benimsenme için operatör odaklı UX"]
+                subtitle: "Dökümhane: Onlarca yıllık saha deneyimine dayalı optimizasyon.",
+                bullets: ["Üretimi durdurmadan hat teşhisi", "Kısıt bazlı darboğaz giderme", "Benimseme için operatör odaklı UX"]
             },
             supply_chain: {
                 title: "Tedarik Zinciri",
-                subtitle: "The Flow",
-                bullets: ["Ağ/rota yeniden tasarımı", "Stok segmentasyonu ve tampon yönetimi", "Planlamacının gerçekten kullandığı kontrol kuleleri"]
+                subtitle: "Akış: Uçtan uca tedarik ve lojistik.",
+                bullets: ["Ağ ve hat tasarımı", "Stok segmentasyonu ve tamponlar", "Operatörlerin gerçekten kullandığı kontrol kuleleri"]
             },
             digital: {
                 title: "Dijital Omurga",
-                subtitle: "The Torque",
-                bullets: ["Eski sistemlerin üzerinde veri ürünleri", "Süreç gerçekliğine saygılı yapay zekâ", "Güvenli ve yönetişime uygun entegrasyon"]
+                subtitle: "Tork: Organik büyümüş ortamlarda yapay zeka destekli dönüşüm.",
+                bullets: ["Eski yığınların üzerinde veri ürünleri", "Süreç gerçekliğine saygı duyan yapay zeka", "Güvenli, yönetilen entegrasyon desenleri"]
             },
             finance: {
                 title: "Finans",
-                subtitle: "The Ledger — İş modeli doğrulama ve risk mühendisliği.",
-                bullets: ["Harcamadan önce iş modeli doğrulama", "Risk paylaşımlı finansal modeller", "Vergi Optimizasyonu ve Teşvik Yönetimi"]
+                subtitle: "Defter: İş modeli doğrulama ve risk mühendisliği.",
+                bullets: ["Harcama öncesi iş modeli doğrulama", "Risk paylaşımlı finansal modeller", "Vergi Optimizasyonu & Teşvik Uyumu"]
             }
         },
         timeline: {
-            title: "Dikey Sistem Entegrasyonu – 4 Adım",
-            subtitle: "Jenerik bir çerçeve (framework) satmıyoruz. Brownfield (mevcut) gerçeğinizi, teşhisten P&L’e kadar canlı bir Dijital Omurgaya bağlayan sabit bir protokol uyguluyoruz.",
-            step1: { title: "Derinlemesine Değerlendirme", desc: "Mevcut gerçekliği haritalar, kısıtları ölçeriz." },
-            step2: { title: "Blueprint", desc: "Fiziksel gerçekliğe uyan dijital katmanı tasarlarız." },
-            step3: { title: "Entegre Uygulama", desc: "Ekibinizle yan yana uygular, bilgiyi sahada transfer ederiz." },
-            step4: { title: "Sürekli Optimizasyon", desc: "P&L değişene kadar doğrular, ayarları iteratif iyileştiririz." }
+            title: "Dikey Sistem Entegrasyon Zaman Çizelgesi",
+            subtitle: "Genel geçer bir çerçeve satmıyoruz. Brownfield gerçekliğinizi canlı bir Dijital Omurgaya bağlayan sabit bir protokol uyguluyoruz: teşhisten P&L'e kadar.",
+            step1: { title: "Adım 1 Derinlemesine Teşhis", desc: "Kod yazmadan önce brownfield sahanızın dağınık gerçekliğini haritalandırıyor ve kısıtları nicelikselleştiriyoruz." },
+            step2: { title: "Adım 2 Taslak (Blueprint)", desc: "Fiziksel gerçekliğinize uyan dijital katmanı tasarlıyoruz. Fantezi mimariler yok. Sadece sahanızın gerçekten çalıştırabileceği sistemler." },
+            step3: { title: "Adım 3 Gömülü İcraat", desc: "Değişimi operasyonunuzun içinden sevk ediyoruz. Planı teslim edip gitmiyoruz. Ekibinizle birlikte sahada kodluyor ve yapılandırıyoruz, onları gerçek zamanlı olarak geliştiriyoruz." },
+            step4: { title: "Adım 4 Sürekli Optimizasyon", desc: "P&L değişimi yansıtana kadar optimize etmeye devam ediyoruz. Sadece çeyrek sonu değerlendirmelerinde değil, koşullar değiştikçe ROI'yi doğruluyor ve sistemi ayar yapıyoruz." }
         },
         cases: {
-            headline: "Yakınında Değil, İçinde.",
-            subheadline: "Sadece tavsiye vermeyiz. Gömülürüz (embed). Sizin vardiya toplantılarınıza, nöbet değişimlerinize ve kontrol kulelerinize oturur; ekiplerinizin içeriden değişmesine yardım ederiz.",
+            headline: "Yakın Değil, İç içe.",
+            subheadline: "Sadece tavsiye vermiyoruz. Gömülüyoruz. Stand-up'larınızda, vardiya değişimlerinizde ve kontrol kulelerinizde oturuyor, ekiplerinizin içeriden değişmesine yardımcı oluyoruz.",
             war_story_label: "Saha Hikayesi",
             erp: {
-                title: "Vaka Özeti | Hattı durdurmadan ERP geçişi",
-                desc: "20 yıllık bir ERP'den; servis seviyelerini ve OEE'yi koruyarak, üç fabrikada ana planlama ve yürütmeyi yeniden platformlaştırdık.",
-                metrics: ["Cutover’da 0 plansız hat duruşu", "6 ayda +%9 plan uyumu"]
+                title: "Hattı durdurmadan Eski ERP Göçü.",
+                desc: "Servis seviyelerini ve OEE'yi korurken, 20 yıllık bir ERP'den temel planlama ve yürütmeyi 3 fabrika genelinde yeniden platformladık.",
+                metrics: ["6 ayda çizelge uyumu %71'den %80'e çıktı", "Geçiş sırasında 0 plansız hat duruşu"]
             },
             inventory: {
-                title: "Vaka Özeti | 145M$ işletme sermayesi açığa çıkarma",
-                desc: "Spreadsheet tahminleri yerine; SKU'ları segmentlere ayırdık, tamponları yeniden tanımladık ve tedariği gerçek talep sinyalleriyle senkronize ettik.",
-                metrics: ["-$145M net işletme sermayesi", "Hizmet seviyesinde +3,5 puan iyileşme"]
+                title: "Stokta 145 Milyon $ Açığa Çıkarma.",
+                desc: "SKU'ları segmentlere ayırdık, tamponları yeniden tanımladık ve tedariği e-tablo varsayımları yerine gerçek talep sinyalleriyle senkronize ettik.",
+                metrics: ["-145 Milyon $ net işletme sermayesi", "+3.5 puan servis iyileştirmesi"]
             }
         },
         portfolio: {
             dossier_label: "Dijital Dosya",
             headline: "Etkiyi Deşifre Etmek.",
-            subheadline: "Teori yok. Slayt yok. Üretim, Tedarik Zinciri ve Dijital genelinde gerçekleşmiş net P&L etkisi.",
+            subheadline: "Teori yok. Slayt yok. Üretim, Tedarik Zinciri ve Dijital genelinde gerçekleşen P&L etkisi.",
             partners_title: "Yönetici Ortaklar",
             partners: {
                 supplyChain: {
                     title: "Kaynaktan Müşteriye Bağlantı",
-                    bio: "15+ yıl, 40.000+ sevkiyat ve >790M$ harcama yönetimi. 3 bölgede operasyonları birleştirdi.",
-                    badge: "Coupa Tedarik Mükemmelliği 2024",
+                    bio: "40.000+ sevkiyatı ve >790M$ harcamayı 15+ yıl boyunca yönetti. 3 kıtada operasyonları birleştirdi.",
+                    badge: "Coupa Satın Alma Mükemmelliği 2024",
                     cases: [
-                        { title: "Büyük Otomotiv OEM CoE", pub: "Kıtalararası Operasyon Merkezi.", auth: "Sıfırdan 34 kişilik ekip kurdu. 3 bölgede 40k sevkiyat/yıl birleştirdi." },
-                        { title: "Yapay Zeka Takip & İzleme", pub: "GIT Azaltma & Otomatik Denetim.", auth: "GIT'i 125 MSEK (~11M$) azalttı. AI kilometre taşları ile manuel faturalamada %70 azalma." },
-                        { title: "Global Taşıma Tedariki", pub: "Coupa Optimizasyonu (790M$).", auth: "790M$ harcamada %30 değer iyileştirmesi. 'En İyi Değer' mantığı ile döngü süresi 8 aydan 4 aya düştü." },
-                        { title: "Kriz Yönetimi", pub: "Kovid Hacim Artışı.", auth: "Liman kapanışları sırasında 1,2 milyar dolar harcamayı yönetti. Hacim 596k TEU'dan 638k TEU'ya çıktı." },
+                        { title: "Otomotiv OEM CoE", pub: "Kıtalararası Ops Merkezi.", auth: "Sıfırdan 34 kişilik ekip kurdu. 3 bölgede yıllık 40k sevkiyatı birleştirdi." },
+                        { title: "Yapay Zeka İzleme", pub: "GIT Azaltma & Oto-Denetim.", auth: "GIT'i 125 MSEK (~11M$) azalttı. AI kilometre taşlarıyla manuel faturalamada %70 azalma." },
+                        { title: "Küresel Nakliye Kaynağı", pub: "Coupa Optimizasyonu (790M$).", auth: "790M$ harcamada %30 değer artışı. 'En İyi Değer' mantığıyla döngü süresini 8 aydan 4 aya indirdi." },
+                        { title: "Kriz Yönetimi", pub: "Covid Hacim Dalgası.", auth: "Liman kapanmalarında 1.2M$ harcamayı yönetti. Hacim 596k'dan 638k TEU'ya fırladı." },
                         { title: "DCSA Kontrol Kulesi", pub: "Snowflake & API Entegrasyonu.", auth: "DCSA standartlarını kullanarak taşıyıcı katılımını 6 aydan 4 haftaya indirdi." },
-                        { title: "Global Kapasite Planlama", pub: "Global Perakendeci Tedarikçi Kapasitesi.", auth: "Aylık IBP döngüleri ile stok tükenmelerini aylar öncesinden tahmin etti." },
-                        { title: "Coupa Mükemmelliği 2024", pub: "Global Tedarik Ödülü.", auth: "Best-in-class implementation for >$600M spend." }
+                        { title: "Küresel Kapasite Planlama", pub: "Perakendeci Tedarikçi Kapasitesi.", auth: "Aylık IBP döngüleri ile stok tükenmelerini aylar önceden öngördü." },
+                        { title: "Coupa Mükemmelliği 2024", pub: "Küresel Kaynak Kullanımı Ödülü.", auth: ">600M$ harcama için sınıfının en iyisi uygulama." }
                     ]
                 },
                 manufacturing: {
-                    title: "Saha Mükemmelliği",
-                    bio: "19+ yıl. OEM-Hazır Uyumluluk (Önde Gelen Alman & Japon OEM'leri). Gizli Fabrika (Hidden Factory) Optimizasyonu.",
+                    title: "Fabrika Sahası Mükemmelliği",
+                    bio: "19+ yıllık OEM-Hazır Uyumluluk (Önde gelen Alman & Japon OEM'leri) ve Gizli Fabrika Optimizasyonu deneyimi.",
                     badge: "IATF 16949 Baş Denetçi",
                     cases: [
-                        { title: "Kimyasal Optimizasyon", pub: "Süreç & Reçete Optimizasyonu.", auth: "Kaliteden ödün vermeden Altı Sigma ile yıllık 1,5 Milyon Dolar Tasarruf." },
-                        { title: "'Görünmez' Makine", pub: "Hat Dengeleme (5 makine yerine 4).", auth: "450K € makine maliyeti elimine edildi. 1,0 Milyon Dolarlık kapasite değeri açığa çıktı." },
-                        { title: "Sıfırdan (Greenfield) Devreye Alma", pub: "4 Büyük Tesis Kurulumu.", auth: "5M €+ yatırımı yönetti. Kaplama & Ekstrüzyon tesisleri (Otomotiv & Beyaz Eşya)." },
-                        { title: "Güneş Enerjisi Geliri", pub: "Kar Olarak Sürdürülebilirlik.", auth: "SPP kurulumu ile yıllık 300 bin dolar gelir sağlandı." },
-                        { title: "Pazara Giriş Hattı", pub: "Kartepe Beyaz Eşya Hattı.", auth: "Büyük Beyaz Eşya Üreticileri ile sözleşmelerin kilidini açtı." }
+                        { title: "Kimyasal Optimizasyon", pub: "Süreç & Reçete Optimizasyonu.", auth: "Kaliteden ödün vermeden Altı Sigma ile Yıllık 1.5M$ Tasarruf." },
+                        { title: "Görünmez Makine", pub: "Hat Dengeleme (5 → 4 makine).", auth: "450K € makine maliyetini elimine etti. 1.0M$ kapasite değeri açığa çıkardı." },
+                        { title: "Greenfield Devreye Alma", pub: "4 Büyük Tesis Kurulumu.", auth: "5M €+ yatırımı yönetti. Kaplama & Ekstrüzyon tesisleri (Oto & Beyaz Eşya)." },
+                        { title: "Güneş Enerjisi Geliri", pub: "Kâr Olarak Sürdürülebilirlik.", auth: "SPP kurulumu ile yılda 300k$ gelir yarattı." },
+                        { title: "Pazar Giriş Hattı", pub: "Kartepe Beyaz Eşya Hattı.", auth: "Büyük Beyaz Eşya Üreticileriyle sözleşmelerin kilidini açtı." }
                     ]
                 },
                 digital: {
                     title: "Ajan Bazlı Otomasyon & Mimari",
-                    bio: "BT ve İş Birimi arasındaki boşluğu kapatır. Eski (Legacy) ortamlarda Yapay Zeka dönüşümünü yönetir.",
+                    bio: "BT ve iş dünyası arasındaki boşluğu doldurarak, eski ortamlarda yapay zeka dönüşümünü yönlendiriyor.",
                     badge: null,
                     cases: [
                         { title: "Ajan Bazlı Lojistik", pub: "Yapay Zeka Ajan Sürüsü.", auth: "Eski sistemlerde manuel rezervasyon/doğrulamayı ajanlarla değiştirdi." },
-                        { title: "Otomatik Sigorta Tahsisi", pub: "AB'de İlk Çok-Milyonluk AI.", auth: "Belgelerden bilgiye geçiş. Devasa bilgi taşıyan Yapay Zeka." },
-                        { title: "Havayolu CX Dönüşümü", pub: "Büyük Avrupa Havayolu.", auth: "AI botları ile satış sonrasını yeniden tasarladı. UX iyileştirildi & iş yükü azaltıldı." },
-                        { title: "Yapay Zeka Self-Servis", pub: "Sigorta & Kamu Otomasyonu.", auth: "Büyük İsviçreli sigortacı & Alman çalışma ajansı (DWP) için tasarım liderliği." },
-                        { title: "Yapay Zeka Mükemmeliyet Merkezi", pub: "Otomasyon Stratejisi.", auth: "Otomasyonu BT'den değil iş biriminden yönlendirmek için CoE kurdu." },
-                        { title: "Otomotiv AI Stratejisi", pub: "Büyük Alman OEM.", auth: "Otomotiv ekiplerine gömülü operasyonel model tasarladı." }
+                        { title: "Otomatik Sigortalama", pub: "AB'de İlk Çok Milyonluk YZ.", auth: "Belgelerden bilgiye geçiş. Devasa bilgi taşıyan YZ." },
+                        { title: "Havayolu CX Dönüşümü", pub: "Büyük Avrupa Havayolu.", auth: "Satış sonrasını YZ botlarıyla yeniden tasarladı. UX iyileştirildi & iş yükü azaldı." },
+                        { title: "YZ Self-Servis", pub: "Sigorta & Devlet Otomasyonu.", auth: "Büyük İsviçre sigortacısı & Alman iş kurumu (DWP) için tasarım lideri." },
+                        { title: "YZ Mükemmeliyet Merkezi", pub: "Otomasyon Stratejisi.", auth: "Otomasyonu BT'den değil, iş biriminden yönlendirmek için CoE kurdu." },
+                        { title: "Otomotiv YZ Stratejisi", pub: "Büyük Alman OEM.", auth: "Otomotiv ekiplerine gömülü operasyonel model tasarladı." }
                     ]
                 }
             },
@@ -780,7 +788,7 @@ const translations: Record<Language, Translations> = {
             tech_stack_title: "Teknik Yığın",
             tech_categories: [
                 { label: "VERİ & KOD", items: ["Snowflake", "SQL", "Python", "C++", "Visual Basic", "R"] },
-                { label: "GÖRÜNÜRLÜK (VISIBILITY)", items: ["Project44", "FourKites", "DCSA Standartları", "SAP BN"] },
+                { label: "GÖRÜNÜRLÜK", items: ["Project44", "FourKites", "DCSA Standartları", "SAP BN"] },
                 { label: "ANALİTİK", items: ["Power BI", "Tableau", "Streamlit", "Qlik"] },
                 { label: "SERTİFİKATLAR", items: ["IATF 16949 Baş Denetçi", "ISO 9001/14001/45001", "CPMAI", "Lean Six Sigma Black Belt", "PMP / Google Proje Yön."] }
             ],
@@ -823,7 +831,7 @@ const translations: Record<Language, Translations> = {
         },
         engagement: {
             headline: "ÇIKARLARIN TAM HİZALANMASI.",
-            risk_reversal: "Dönüşüm körü körüne inanç gerektirmemeli. Büyük bütçenizi taahhüt etmeden önce iş modelini (business case) doğrulamak için uzmanlığımızı önden sunuyoruz.",
+            risk_reversal: "Dönüşüm körü körüne inanç gerektirmemeli. Büyük bütçenizi taahhüt etmeden önce iş modelini (business case) doğrulamak için uzmanlığımızı önden sunuyoruz. Tıpkı hasta tamamen iyileştiğinde ödeme alan bir cerrah gibi, başarımızın sizin sonucunuza bağlı olmasını sağlıyoruz.",
             phase1_title: "İŞ MODELİ DOĞRULAMA",
             phase1_desc: "Dijital, Tedarik Zinciri, Üretim ve Finansal akışlarda derinlemesine bir değerlendirme. Potansiyeli doğrulamak için ilk maliyeti biz üstleniyoruz.",
             phase1_bullets: [
@@ -838,14 +846,14 @@ const translations: Record<Language, Translations> = {
                 "Paylaşılan kazanç / Gain-share mekanizmaları",
                 "Gömülü yetkinlik transferi"
             ],
-            context_text: "Bu ücretsiz bir çalıştay değildir. Her iki tarafın da elini taşın altına koyduğu yapılandırılmış bir 'Gate-0' değerlendirmesidir. Eğer potansiyel (upside) orada değilse, netlikle ayrılırsınız—ve danışmanlık ücretlerinde sıfır batık maliyetiniz olur.",
+            context_text: "Bu ücretsiz bir çalıştay değildir. Her iki tarafın da elini taşın altına koyduğu yapılandırılmış bir 'Gate-0' değerlendirmesidir. Eğer potansiyel (upside) orada değilse, netlikle ayrılırsınız; ve danışmanlık ücretlerinde sıfır batık maliyetiniz olur.",
             apply_btn: "DOĞRULAMAYI BAŞLAT"
         },
         contact: {
             direct_line: "Doğrudan hat.",
-            no_sdr: "SDR yok. Yazdığınızda doğrudan Yönetici Ortak ile konuşursunuz.",
+            no_sdr: "SDR kullanmıyoruz. Bize yazdığınızda doğrudan bir Yönetici Ortak ile konuşursunuz.",
             immediate_action: "Acil Eylem",
-            urgent_case: "Acil durum: Canlı kriz / başarısız proje için “Kırmızı Takım” hızlı değerlendirme.",
+            urgent_case: "Canlı bir operasyonel kriziniz varsa veya başarısız bir proje için acil \"Kırmızı Takım\" değerlendirmesi gerekiyorsa:",
             communications: "İletişim",
             inquiries: "Sorgular",
             headquarters: "Merkez",
@@ -858,7 +866,7 @@ const translations: Record<Language, Translations> = {
             our_approach: "Yaklaşımımız",
             portfolio: "Portföyümüz",
             insights: "İçgörüler",
-            signal_check_btn: "Sinyal Kontrolünü Başlat"
+            signal_check_btn: "RUN DIAGNOSTIC"
         },
         footer: {
             tagline: "Basel, İsviçre · Endüstriyel Dijital Dönüşüm",

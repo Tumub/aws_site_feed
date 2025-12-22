@@ -18,20 +18,23 @@ export const SiteHeader = () => {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 lg:py-4">
         <a
           href="/"
-          className="flex items-center gap-3 text-sm font-mono uppercase tracking-[0.25em] text-muted-foreground hover:text-foreground"
+          className="flex items-center gap-2 hover:opacity-90 transition-opacity"
         >
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-accent/60 bg-secondary/40 text-xs font-semibold text-accent shadow-[0_0_18px_hsl(var(--accent)_/_0.4)]">
-            TF
-          </span>
-          <span className="hidden flex-col sm:flex">
-            <span className="font-display text-sm font-bold tracking-tight">
-              <span className="text-accent">Torque</span><span className="text-primary">Foundry</span>
-            </span>
-            <span className="text-[0.65rem] font-medium text-foreground/90 tracking-wide">Digital · Supply Chain · Manufacturing · Finance</span>
-          </span>
+          <div className="relative flex h-8 w-8 items-center justify-center rounded-full border border-[#07B9D5]/60 bg-[#263040]/40 shadow-[0_0_15px_-3px_rgba(7,185,213,0.3)] backdrop-blur-sm">
+            <span className="font-mono text-sm font-bold tracking-tighter text-[#07B9D5]">TF</span>
+          </div>
+          <div className="flex flex-col justify-center">
+            <div className="font-mono text-lg font-bold uppercase tracking-[0.25em] leading-none">
+              <span className="text-[#07B9D5]">TORQUE</span>
+              <span className="text-[#F3671B]">FOUNDRY</span>
+            </div>
+            <div className="hidden lg:flex flex-col text-[0.6rem] font-mono font-medium text-slate-400 tracking-wider leading-tight mt-1">
+              <span>DIGITAL · SUPPLY CHAIN · MANUFACTURING · FINANCE</span>
+            </div>
+          </div>
         </a>
 
-        <nav className="flex items-center gap-4">
+        <nav className="flex items-center gap-2 lg:gap-6">
           <ul className="hidden items-center gap-6 text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground md:flex">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
@@ -55,6 +58,6 @@ export const SiteHeader = () => {
           </Button>
         </nav>
       </div>
-    </header>
+    </header >
   );
 };

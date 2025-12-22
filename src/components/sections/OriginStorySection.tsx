@@ -29,7 +29,7 @@ export const OriginStorySection = () => {
             <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
 
                 {/* 1. THE FOUNDER (Narrative + Signature V4) */}
-                <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20 mb-24">
+                <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20 mb-12">
 
                     {/* Founder Text (Left Column) */}
                     <div className="space-y-8 relative z-10">
@@ -64,7 +64,7 @@ export const OriginStorySection = () => {
                     </div>
 
                     {/* Right Column: Global Context (Map) */}
-                    <div className="relative hidden lg:block h-full min-h-[500px]">
+                    <div className="relative hidden lg:block h-full min-h-[350px]">
                         {/* The background map covers this area naturally, 
                              but we can add specific overlay nodes or highlights here if needed.
                              For now, keeping it clean to let the map breathe as requested. */}
