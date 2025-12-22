@@ -50,3 +50,15 @@ Pushes to `main` trigger the GitHub Actions workflow `.github/workflows/deploy_e
 2.  **Builds:** `npm run build` -> `dist/`.
 3.  **Deploys:** Atomic symlink swap on AWS EC2 (`/var/www/torquefoundry`).
 4.  **Verifies:** Checks `http://52.58.88.177/build-id.txt` matches commit SHA.
+
+## 🧭 Next Agent Notes (GitHub / Deployment)
+
+### What changed (safe)
+
+- Hardened `.gitignore` to also exclude additional private key formats:
+    - Added `*.pfx` and `*.p12` (in addition to existing `*.pem` / `*.key`).
+
+### Safe workflow
+
+- Avoid pushing directly to `main` unless you want to deploy to EC2.
+- Prefer a feature branch + PR for operational changes (e.g., `security-*`) so the deploy is controlled.

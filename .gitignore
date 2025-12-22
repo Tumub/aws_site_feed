@@ -22,6 +22,8 @@ docs/
 archive/
 *.pem
 *.key
+*.pfx
+*.p12
 *.docx
 *.pptx
 *.pdf
