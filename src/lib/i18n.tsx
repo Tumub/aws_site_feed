@@ -383,7 +383,7 @@ const translations: Record<Language, Translations> = {
             digital: {
                 title: "Digital Backbone",
                 subtitle: "The Torque: AI-driven transformation within organically grown environments.",
-                bullets: ["Data products on top of legacy stacks", "AI that respects process reality", "Secure, governed integration patterns"]
+                bullets: ["Data products on top of legacy stacks", "AI that respects process reality", "Secure, governed integration patterns", "Specialized diagnostics via VeriFix"]
             },
             finance: {
                 title: "Finance",
@@ -548,7 +548,8 @@ const translations: Record<Language, Translations> = {
             our_approach: "Our Approach",
             portfolio: "Portfolio",
             insights: "Insights",
-            signal_check_btn: "IDENTIFY BOTTLENECKS"
+            about: "About",
+            signal_check_btn: "SYSTEM CONTROL"
         },
         footer: {
             tagline: "Basel, Switzerland · Industrial Digital Transformation",
@@ -701,7 +702,7 @@ const translations: Record<Language, Translations> = {
             digital: {
                 title: "Dijital Omurga",
                 subtitle: "Tork: Organik büyümüş ortamlarda yapay zeka destekli dönüşüm.",
-                bullets: ["Eski yığınların üzerinde veri ürünleri", "Süreç gerçekliğine saygı duyan yapay zeka", "Güvenli, yönetilen entegrasyon desenleri"]
+                bullets: ["Eski yığınların üzerinde veri ürünleri", "Süreç gerçekliğine saygı duyan yapay zeka", "Güvenli, yönetilen entegrasyon desenleri", "VeriFix üzerinden özel teşhis hizmetleri"]
             },
             finance: {
                 title: "Finans",
@@ -866,7 +867,8 @@ const translations: Record<Language, Translations> = {
             our_approach: "Yaklaşımımız",
             portfolio: "Portföyümüz",
             insights: "İçgörüler",
-            signal_check_btn: "RUN DIAGNOSTIC"
+            about: "Hakkımızda",
+            signal_check_btn: "SİSTEM KONTROL"
         },
         footer: {
             tagline: "Basel, İsviçre · Endüstriyel Dijital Dönüşüm",

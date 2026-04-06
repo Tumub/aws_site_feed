@@ -9,9 +9,6 @@ import { EngagementSection } from "@/components/sections/EngagementSection";
 import { InsightsSection } from "@/components/sections/InsightsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
-
-import { OriginStorySection } from "@/components/sections/OriginStorySection";
-
 const Index = () => {
   return (
     <div className="relative z-10 min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -19,7 +16,6 @@ const Index = () => {
       <main className="mx-auto max-w-6xl px-4 pb-16 pt-10 lg:px-8 lg:pb-24 lg:pt-12">
         <HeroSection />
         <BrownfieldRealitySection />
-        <OriginStorySection />
         <PowerTrioSection />
         <VerticalIntegrationSection />
         <EmbeddedSection />

@@ -17,6 +17,7 @@ export const SiteHeader = () => {
     { label: t.nav.our_approach, href: "/#vertical-integration" },
     { label: t.nav.portfolio, href: "/portfolio" },
     { label: t.nav.insights, href: "/insights" },
+    { label: t.nav.about, href: "/about" },
   ];
 
   return (
