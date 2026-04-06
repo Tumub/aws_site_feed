@@ -43,9 +43,15 @@ jobs:
     - name: Preflight SSH Check
       timeout-minutes: 1
       run: |
-        echo "Testing TCP Connectivity to ${{ secrets.HOST_IP }}:22..."
+        # Trim any potential newlines or whitespace from the secret
+        HOST=$(echo "${{ secrets.HOST_IP }}" | xargs | tr -d '\n' | tr -d ' ')
+        echo "Testing TCP Connectivity to $HOST:22..."
+        if [ -z "$HOST" ]; then
+            echo "❌ Error: HOST_IP secret is empty."
+            exit 1
+        fi
         # Attempt to reach port 22. If this fails, Security Group is likely blocking GitHub.
-        if nc -z -v -w 5 ${{ secrets.HOST_IP }} 22; then
+        if nc -z -v -w 5 "$HOST" 22; then
             echo "✅ Connectivity Confirmed: Port 22 is OPEN."
         else
             echo "❌ Connectivity Error: Port 22 is BLOCKED or UNREACHABLE."
@@ -64,6 +70,16 @@ jobs:
       run: |
         npm ci
         npm run build
+        if [ ! -d "dist" ]; then
+          echo "❌ Build failed: dist directory not found."
+          exit 1
+        fi
+        if [ ! -f "dist/index.html" ]; then
+          echo "❌ Build failed: dist/index.html not found."
+          exit 1
+        fi
+        echo "✅ Build successful - dist directory exists and contains index.html"
+        ls -la dist/ | head -n 20
         
     - name: Generate Build Proof
       run: |
@@ -77,17 +93,19 @@ jobs:
 
     - name: Deploy to EC2
       env:
-        HOST: ${{ secrets.HOST_IP }}
-        USER: ${{ secrets.SSH_USER }}
-        LINK_PATH: /var/www/torquefoundry
         RELEASES_PATH: /var/www/releases
       run: |
         # Setup SSH
         set -euo pipefail
+        
+        # Robust Host Extraction
+        HOST=$(echo "${{ secrets.HOST_IP }}" | xargs | tr -d '\n' | tr -d ' ')
+        USER="${{ secrets.SSH_USER }}"
+        
         mkdir -p ~/.ssh
         chmod 700 ~/.ssh
 
-        if [ -z "${{ secrets.HOST_IP }}" ]; then
+        if [ -z "$HOST" ]; then
           echo "❌ HOST_IP secret is missing/empty"
           exit 1
         fi
@@ -95,30 +113,31 @@ jobs:
         echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
 
-        ssh-keyscan -H "${{ secrets.HOST_IP }}" >> ~/.ssh/known_hosts 2>/dev/null || true
+        ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
 
         # 1. Archive build (root dist)
         tar -czf build.tar.gz -C dist .
         
         # 2. Upload to temp
-        scp -i ~/.ssh/id_rsa build.tar.gz $USER@$HOST:/tmp/build.tar.gz
+        scp -i ~/.ssh/id_rsa build.tar.gz "${USER}@${HOST}:/tmp/build.tar.gz"
         
         # 3. Upload Helper Scripts
-        scp -i ~/.ssh/id_rsa scripts/find_root.py $USER@$HOST:/tmp/find_root.py
-        scp -i ~/.ssh/id_rsa scripts/ensure_spa_routing.py $USER@$HOST:/tmp/ensure_spa_routing.py
+        scp -i ~/.ssh/id_rsa scripts/find_root.py "${USER}@${HOST}:/tmp/find_root.py"
+        scp -i ~/.ssh/id_rsa scripts/ensure_spa_routing.py "${USER}@${HOST}:/tmp/ensure_spa_routing.py"
         
         # 4. Path Surgery & Deploy on Server
-        ssh -i ~/.ssh/id_rsa $USER@$HOST << EOF
+        ssh -i ~/.ssh/id_rsa "${USER}@${HOST}" << EOF
           # Stop on error & print commands
           set -ex
           
           # Variables
-          RELEASE_DIR=$RELEASES_PATH/release_\$(date +%s)
+          RELEASES_PATH=/var/www/releases
+          RELEASE_DIR=\$RELEASES_PATH/release_\$(date +%s)
           
           # Prepare Release Directory
-          sudo mkdir -p $RELEASES_PATH
+          sudo mkdir -p \$RELEASES_PATH
           sudo mkdir -p \$RELEASE_DIR
-          sudo chown $USER:$USER \$RELEASE_DIR
+          sudo chown \$USER:\$USER \$RELEASE_DIR
           
           # Extract
           tar -xzf /tmp/build.tar.gz -C \$RELEASE_DIR
@@ -167,6 +186,12 @@ jobs:
                  break; 
                fi
              done
+          fi
+
+          # Final Hardcoded Fallback
+          if [ -z "\$ROOT" ]; then
+             echo "⚠️ All detection failed. Falling back to hardcoded: /var/www/torquefoundry"
+             ROOT="/var/www/torquefoundry"
           fi
           
           echo "===== DETECTED_ROOT=\$ROOT ====="

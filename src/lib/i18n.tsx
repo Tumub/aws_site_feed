@@ -343,23 +343,23 @@ const translations: Record<Language, Translations> = {
             story_p2: "That’s why I built Torque Foundry Advisory—to close the gap between digital strategy and operational execution. We don't just consult. We embed. We work alongside your teams where it matters most: on the shop floor, in the systems, and across functions.",
             story_p3: "",
             story_p4: "",
-            founder_name: "UMUT",
+            founder_name: "UMUT BAKIN",
             founder_title: "Founder & Managing Partner",
             execution_core_title: "THE EXECUTION SPINE",
             leader: {
                 title: "EMRAH",
-                sub: "Head of Manufacturing",
+                sub: "Head of Production",
                 desc: "Tough, grounded, and focused on performance. Emrah’s strength lies in translating strategic plans into action on the line. Shaped by high-pressure production environments, he makes sure every initiative survives the heat, dust, and pace of manufacturing reality."
             },
             architect: {
                 title: "JOHAN",
-                sub: "Lead Systems Architect",
+                sub: "Chief Systems Architect",
                 desc: "Johan connects old systems with new intelligence. From legacy machinery integration to real-time performance dashboards, he builds the architecture that turns raw data into smarter decisions and stronger execution."
             },
             governance_title: "STRATEGIC GOVERNANCE",
             advisor: {
                 title: "ALPER PEKCAN",
-                sub: "Board Advisor – Corporate Finance",
+                sub: "Board Advisor — Corporate Finance",
                 desc: "Alper ensures financial alignment in operational transformation. As a seasoned strategist, he builds models that validate ROI and let us co-own risk with clients. He links the boardroom to the factory and long-term value to day-one impact."
             },
             closing: "This Is Industrial Execution Consulting, Rebuilt. Torque Foundry Advisory exists for one reason: to turn strategy into sustainable, scalable industrial results. Let’s turn strategy into motion."
@@ -383,7 +383,7 @@ const translations: Record<Language, Translations> = {
             digital: {
                 title: "Digital Backbone",
                 subtitle: "The Torque: AI-driven transformation within organically grown environments.",
-                bullets: ["Data products on top of legacy stacks", "AI that respects process reality", "Secure, governed integration patterns"]
+                bullets: ["Data products on top of legacy stacks", "AI that respects process reality", "Secure, governed integration patterns", "Specialized diagnostics via VeriFix"]
             },
             finance: {
                 title: "Finance",
@@ -548,11 +548,12 @@ const translations: Record<Language, Translations> = {
             our_approach: "Our Approach",
             portfolio: "Portfolio",
             insights: "Insights",
-            signal_check_btn: "IDENTIFY BOTTLENECKS"
+            about: "About",
+            signal_check_btn: "SYSTEM CONTROL"
         },
         footer: {
             tagline: "Basel, Switzerland · Industrial Digital Transformation",
-            copyright: "© 2025 TorqueFoundry Advisory. Basel, Switzerland."
+            copyright: "© 2026 TorqueFoundry Advisory, Basel, Switzerland."
         },
         not_found: {
             title: "404",
@@ -661,23 +662,23 @@ const translations: Record<Language, Translations> = {
             story_p2: "Bu yüzden Torque Foundry Advisory'i kurdum; dijital strateji ile operasyonel icraat arasındaki boşluğu kapatmak için. Sadece danışmanlık yapmıyoruz. Entegre oluyoruz. Ekiplerinizle omuz omuza, en önemli yerde çalışıyoruz: fabrika sahasında, sistemlerin içinde ve fonksiyonlar arasında.",
             story_p3: "",
             story_p4: "",
-            founder_name: "UMUT",
+            founder_name: "UMUT BAKIN",
             founder_title: "Kurucu & Yönetici Ortak",
             execution_core_title: "İCRAAT OMURGASI",
             leader: {
                 title: "EMRAH",
-                sub: "Üretim Lideri",
+                sub: "Üretim Başkanı",
                 desc: "Sert, yere basan ve performansa odaklı. Emrah'ın gücü, stratejik planları hattaki eyleme dönüştürmekte yatar. Yüksek baskılı üretim ortamlarında şekillenmiş olarak, her girişimin üretim gerçekliğinin sıcağına, tozuna ve hızına dayanmasını sağlar."
             },
             architect: {
                 title: "JOHAN",
-                sub: "Baş Sistem Mimarı",
+                sub: "Sistem Baş Mimarı",
                 desc: "Johan eski sistemleri yeni zeka ile birleştirir. Eski makine entegrasyonundan gerçek zamanlı performans panellerine kadar, ham veriyi daha akıllı kararlara ve daha güçlü icraata dönüştüren mimariyi inşa eder."
             },
             governance_title: "STRATEJİK YÖNETİŞİM",
             advisor: {
                 title: "ALPER PEKCAN",
-                sub: "Yönetim Kurulu Danışmanı",
+                sub: "Yönetim Kurulu Danışmanı — Kurumsal Finans",
                 desc: "Alper, operasyonel dönüşümde finansal hizalanmayı sağlar. Deneyimli bir stratejist olarak, ROI'yi doğrulayan ve riskleri müşterilerle ortaklaşa üstlenmemizi sağlayan modeller kurar. Yönetim kurulunu fabrikaya ve uzun vadeli değeri ilk günkü etkiye bağlar."
             },
             closing: "Bu, Yeniden İnşa Edilmiş Endüstriyel İcraat Danışmanlığıdır. Torque Foundry Advisory tek bir sebeple var: stratejiyi sürdürülebilir, ölçeklenebilir endüstriyel sonuçlara dönüştürmek için. Stratejiyi harekete geçirelim."
@@ -701,7 +702,7 @@ const translations: Record<Language, Translations> = {
             digital: {
                 title: "Dijital Omurga",
                 subtitle: "Tork: Organik büyümüş ortamlarda yapay zeka destekli dönüşüm.",
-                bullets: ["Eski yığınların üzerinde veri ürünleri", "Süreç gerçekliğine saygı duyan yapay zeka", "Güvenli, yönetilen entegrasyon desenleri"]
+                bullets: ["Eski yığınların üzerinde veri ürünleri", "Süreç gerçekliğine saygı duyan yapay zeka", "Güvenli, yönetilen entegrasyon desenleri", "VeriFix üzerinden özel teşhis hizmetleri"]
             },
             finance: {
                 title: "Finans",
@@ -866,11 +867,12 @@ const translations: Record<Language, Translations> = {
             our_approach: "Yaklaşımımız",
             portfolio: "Portföyümüz",
             insights: "İçgörüler",
-            signal_check_btn: "RUN DIAGNOSTIC"
+            about: "Hakkımızda",
+            signal_check_btn: "SİSTEM KONTROL"
         },
         footer: {
             tagline: "Basel, İsviçre · Endüstriyel Dijital Dönüşüm",
-            copyright: "© 2025 TorqueFoundry Advisory. Basel, İsviçre."
+            copyright: "© 2026 TorqueFoundry Advisory, Basel, İsviçre."
         },
         not_found: {
             title: "404",

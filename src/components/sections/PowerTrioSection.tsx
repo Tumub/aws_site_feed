@@ -138,7 +138,17 @@ export const PowerTrioSection = () => {
                   {card.bullets.map((item) => (
                     <li key={item} className="flex gap-2">
                       <span className="mt-[0.4rem] h-[1px] w-4 bg-accent/60" aria-hidden="true" />
-                      <span>{item}</span>
+                      {item.includes("VeriFix") ? (
+                        <span>
+                          {item.split("VeriFix")[0]}
+                          <a href="https://checkbeforefixing.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-semibold">
+                            VeriFix
+                          </a>
+                          {item.split("VeriFix")[1]}
+                        </span>
+                      ) : (
+                        <span>{item}</span>
+                      )}
                     </li>
                   ))}
                 </ul>

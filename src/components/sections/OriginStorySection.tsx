@@ -2,6 +2,7 @@ import { useLanguage } from "@/lib/i18n";
 import originMap from "@/assets/origin_strategy_map.png";
 import umutPhoto from "@/assets/umut_photo.jpg";
 import alperPhoto from "@/assets/alper_photo.jpg";
+import { Linkedin } from "lucide-react";
 
 export const OriginStorySection = () => {
     const { t } = useLanguage();
@@ -56,9 +57,19 @@ export const OriginStorySection = () => {
                                 <h3 className="font-display text-2xl uppercase text-white tracking-widest">
                                     {t.origin.founder_name}
                                 </h3>
-                                <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent mt-1">
-                                    {t.origin.founder_title}
-                                </p>
+                                <div className="flex items-center gap-3 mt-1">
+                                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+                                        {t.origin.founder_title}
+                                    </p>
+                                    <a
+                                        href="https://linkedin.com/in/umut-bakin"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-accent/60 hover:text-accent transition-colors"
+                                    >
+                                        <Linkedin className="h-3.5 w-3.5" />
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -88,9 +99,19 @@ export const OriginStorySection = () => {
                         {/* Manufacturing Leader - Stealth */}
                         <div className="group relative overflow-hidden rounded-sm border-l-2 border-cyan-500/30 bg-background/40 p-8 backdrop-blur-sm transition-colors hover:border-cyan-400 hover:bg-cyan-950/10">
                             <h4 className="font-display text-xl text-white">{t.origin.leader.title}</h4>
-                            <p className="mt-2 font-mono text-xs uppercase tracking-wider text-cyan-400">
-                                {t.origin.leader.sub}
-                            </p>
+                            <div className="flex items-center gap-3 mt-2">
+                                <p className="font-mono text-xs uppercase tracking-wider text-cyan-400">
+                                    {t.origin.leader.sub}
+                                </p>
+                                <a
+                                    href="#linkedin-emrah"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-cyan-400/60 hover:text-cyan-400 transition-colors"
+                                >
+                                    <Linkedin className="h-3.5 w-3.5" />
+                                </a>
+                            </div>
                             <p className="mt-4 text-sm leading-relaxed text-muted-foreground/80">
                                 {t.origin.leader.desc}
                             </p>
@@ -99,9 +120,19 @@ export const OriginStorySection = () => {
                         {/* Systems Architect - Stealth */}
                         <div className="group relative overflow-hidden rounded-sm border-l-2 border-cyan-500/30 bg-background/40 p-8 backdrop-blur-sm transition-colors hover:border-cyan-400 hover:bg-cyan-950/10">
                             <h4 className="font-display text-xl text-white">{t.origin.architect.title}</h4>
-                            <p className="mt-2 font-mono text-xs uppercase tracking-wider text-cyan-400">
-                                {t.origin.architect.sub}
-                            </p>
+                            <div className="flex items-center gap-3 mt-2">
+                                <p className="font-mono text-xs uppercase tracking-wider text-cyan-400">
+                                    {t.origin.architect.sub}
+                                </p>
+                                <a
+                                    href="#linkedin-johan"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-cyan-400/60 hover:text-cyan-400 transition-colors"
+                                >
+                                    <Linkedin className="h-3.5 w-3.5" />
+                                </a>
+                            </div>
                             <p className="mt-4 text-sm leading-relaxed text-muted-foreground/80">
                                 {t.origin.architect.desc}
                             </p>
@@ -134,9 +165,19 @@ export const OriginStorySection = () => {
                                     <h4 className="font-display text-xl text-white">
                                         {t.origin.advisor.title}
                                     </h4>
-                                    <p className="mt-2 font-mono text-xs uppercase tracking-wider text-orange-400">
-                                        {t.origin.advisor.sub}
-                                    </p>
+                                    <div className="flex items-center gap-3 mt-2">
+                                        <p className="font-mono text-xs uppercase tracking-wider text-orange-400">
+                                            {t.origin.advisor.sub}
+                                        </p>
+                                        <a
+                                            href="#linkedin-alper-pekcan"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-orange-400/60 hover:text-orange-400 transition-colors"
+                                        >
+                                            <Linkedin className="h-3.5 w-3.5" />
+                                        </a>
+                                    </div>
                                 </div>
                                 <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground/80">
                                     {t.origin.advisor.desc}

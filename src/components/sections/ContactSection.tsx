@@ -1,4 +1,4 @@
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/lib/i18n";
 
@@ -30,6 +30,18 @@ export const ContactSection = () => {
                                 <p className="text-xs uppercase tracking-widest text-muted-foreground">{t.contact.inquiries}</p>
                                 <a href="mailto:info@torquefoundryadvisory.com" className="text-foreground hover:text-accent transition-colors">
                                     info@torquefoundryadvisory.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div className="flex items-start gap-4">
+                            <div className="mt-1 flex h-8 w-8 items-center justify-center rounded bg-secondary/50 text-accent">
+                                <Phone className="h-4 w-4" />
+                            </div>
+                            <div>
+                                <p className="text-xs uppercase tracking-widest text-muted-foreground">Phone</p>
+                                <a href="tel:+41795052535" className="text-foreground hover:text-accent transition-colors">
+                                    +41 79 505 25 35
                                 </a>
                             </div>
                         </div>

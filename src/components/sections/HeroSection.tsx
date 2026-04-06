@@ -39,7 +39,7 @@ export const HeroSection = () => {
 
 
         <div className="space-y-5">
-          <h1 className="font-display text-4xl leading-[1.05] tracking-tight uppercase sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="font-display text-3xl leading-[1.05] tracking-tight uppercase sm:text-5xl md:text-6xl lg:text-7xl">
             {t.hero.headline}
           </h1>
           <p className="max-w-xl text-sm text-muted-foreground sm:text-base md:text-lg">
@@ -47,7 +47,7 @@ export const HeroSection = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
           <Button asChild className="font-mono text-[0.75rem] uppercase tracking-[0.25em]">
             <a href="#vertical-integration">{t.hero.cta_primary}</a>
           </Button>

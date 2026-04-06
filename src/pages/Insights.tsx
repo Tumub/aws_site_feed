@@ -37,9 +37,12 @@ const Insights = () => {
                                 {article.summary}
                             </p>
                             <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span className="text-xs font-mono text-accent uppercase tracking-wider underline cursor-pointer">
+                                <a 
+                                    href={`mailto:info@torquefoundryadvisory.com?subject=Requesting Full Report: ${article.title}`}
+                                    className="text-xs font-mono text-accent uppercase tracking-wider underline cursor-pointer"
+                                >
                                     {t.insights_page.generate_btn}
-                                </span>
+                                </a>
                             </div>
                         </article>
                     ))}
