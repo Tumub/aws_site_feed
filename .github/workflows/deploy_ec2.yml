@@ -168,6 +168,12 @@ jobs:
                fi
              done
           fi
+
+          # Final Hardcoded Fallback
+          if [ -z "\$ROOT" ]; then
+             echo "⚠️ All detection failed. Falling back to hardcoded: /var/www/torquefoundry"
+             ROOT="/var/www/torquefoundry"
+          fi
           
           echo "===== DETECTED_ROOT=\$ROOT ====="
           if [ -z "\$ROOT" ]; then
