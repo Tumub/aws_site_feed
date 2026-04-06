@@ -131,12 +131,13 @@ jobs:
           set -ex
           
           # Variables
-          RELEASE_DIR=$RELEASES_PATH/release_\$(date +%s)
+          RELEASES_PATH=/var/www/releases
+          RELEASE_DIR=\$RELEASES_PATH/release_\$(date +%s)
           
           # Prepare Release Directory
-          sudo mkdir -p $RELEASES_PATH
+          sudo mkdir -p \$RELEASES_PATH
           sudo mkdir -p \$RELEASE_DIR
-          sudo chown $USER:$USER \$RELEASE_DIR
+          sudo chown \$USER:\$USER \$RELEASE_DIR
           
           # Extract
           tar -xzf /tmp/build.tar.gz -C \$RELEASE_DIR
