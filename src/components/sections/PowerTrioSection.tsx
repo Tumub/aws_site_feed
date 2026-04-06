@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Cog, Truck, Cpu, LineChart } from "lucide-react";
+import { Cog, Truck, Cpu, LineChart, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
+import { Link } from "react-router-dom";
 
 export const PowerTrioSection = () => {
   const { t } = useLanguage();
@@ -16,6 +17,7 @@ export const PowerTrioSection = () => {
       icon: Cog,
       tone: "neutral" as const,
       bullets: t.trio.manufacturing.bullets,
+      path: "/expertise/physics",
     },
     {
       id: "supply-chain",
@@ -24,6 +26,7 @@ export const PowerTrioSection = () => {
       icon: Truck,
       tone: "amber" as const,
       bullets: t.trio.supply_chain.bullets,
+      path: "/expertise/flow",
     },
     {
       id: "digital-backbone",
@@ -32,14 +35,16 @@ export const PowerTrioSection = () => {
       icon: Cpu,
       tone: "cyan" as const,
       bullets: t.trio.digital.bullets,
+      path: "/expertise/digital",
     },
     {
       id: "finance",
       title: t.trio.finance.title,
       subtitle: t.trio.finance.subtitle,
       icon: LineChart,
-      tone: "emerald" as const, // Distinct tone for finance
+      tone: "emerald" as const,
       bullets: t.trio.finance.bullets,
+      path: "/expertise/finance",
     },
   ];
 
@@ -100,8 +105,9 @@ export const PowerTrioSection = () => {
             const isPulseNear = distance < 0.18;
 
             return (
-              <article
+              <Link
                 key={card.id}
+                to={card.path}
                 onMouseEnter={() => setHoveredId(card.id)}
                 onMouseLeave={() => setHoveredId(null)}
                 className={cn(
@@ -110,53 +116,55 @@ export const PowerTrioSection = () => {
                   isActive && "border-accent shadow-[0_0_34px_hsl(var(--accent)_/_0.55)]",
                 )}
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="space-y-2">
-                    <div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-secondary/50 px-3 py-1 text-[0.65rem] font-mono uppercase tracking-[0.25em] text-muted-foreground">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                      {card.title}
+                <div className="flex flex-col h-full">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="space-y-2">
+                      <div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-secondary/50 px-3 py-1 text-[0.65rem] font-mono uppercase tracking-[0.25em] text-muted-foreground">
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                        {card.title}
+                      </div>
+                      <h3 className="font-display text-lg uppercase tracking-tight text-foreground">
+                        {card.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">{card.subtitle}</p>
                     </div>
-                    <h3 className="font-display text-lg uppercase tracking-tight text-foreground">
-                      {card.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{card.subtitle}</p>
-                  </div>
-                  <div
-                    className={cn(
-                      "flex h-10 w-10 items-center justify-center rounded-xl border bg-secondary/60 text-accent shadow-[0_0_18px_hsl(var(--accent)_/_0.35)] transition-shadow duration-300",
-                      card.tone === "amber" && "text-primary border-primary/60 bg-primary/10",
-                      card.tone === "cyan" && "text-accent border-accent/60 bg-accent/10",
-                      card.tone === "emerald" && "text-emerald-500 border-emerald-500/60 bg-emerald-500/10", // Added emerald handling
-                      isPulseNear && "shadow-[0_0_28px_hsl(var(--accent)_/_0.95)]",
-                    )}
-                  >
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                </div>
-
-                <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
-                  {card.bullets.map((item) => (
-                    <li key={item} className="flex gap-2">
-                      <span className="mt-[0.4rem] h-[1px] w-4 bg-accent/60" aria-hidden="true" />
-                      {item.includes("VeriFix") ? (
-                        <span>
-                          {item.split("VeriFix")[0]}
-                          <a href="https://checkbeforefixing.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-semibold">
-                            VeriFix
-                          </a>
-                          {item.split("VeriFix")[1]}
-                        </span>
-                      ) : (
-                        <span>{item}</span>
+                    <div
+                      className={cn(
+                        "flex h-10 w-10 items-center justify-center rounded-xl border bg-secondary/60 text-accent shadow-[0_0_18px_hsl(var(--accent)_/_0.35)] transition-shadow duration-300",
+                        card.tone === "amber" && "text-primary border-primary/60 bg-primary/10",
+                        card.tone === "cyan" && "text-accent border-accent/60 bg-accent/10",
+                        card.tone === "emerald" && "text-emerald-500 border-emerald-500/60 bg-emerald-500/10",
+                        isPulseNear && "shadow-[0_0_28px_hsl(var(--accent)_/_0.95)]",
                       )}
-                    </li>
-                  ))}
-                </ul>
+                    >
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                  </div>
 
-                <div className="mt-6 flex items-center justify-between text-[0.7rem] font-mono uppercase tracking-[0.25em] text-muted-foreground/80">
-                  <span>Embedded · {card.title}</span>
+                  <ul className="mt-6 space-y-2 text-sm text-muted-foreground flex-grow">
+                    {card.bullets.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="mt-[0.4rem] h-[1px] w-4 bg-accent/60" aria-hidden="true" />
+                        {item.includes("VeriFix") ? (
+                          <span>
+                            {item.split("VeriFix")[0]}
+                            <span className="text-accent font-semibold">
+                              VeriFix
+                            </span>
+                            {item.split("VeriFix")[1]}
+                          </span>
+                        ) : (
+                          <span>{item}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-8 flex items-center justify-between text-[0.7rem] font-mono uppercase tracking-[0.3em] text-accent group-hover:text-foreground transition-colors">
+                    <span className="flex items-center gap-2">Explore <ArrowRight className="h-3 w-3" /></span>
+                  </div>
                 </div>
-              </article>
+              </Link>
             );
           })}
         </div>

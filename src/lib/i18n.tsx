@@ -234,11 +234,34 @@ type Translations = {
         tagline: string;
         copyright: string;
     };
+    expertise_pages: {
+        flow: ExpertisePageContent;
+        physics: ExpertisePageContent;
+        digital: ExpertisePageContent;
+        finance: ExpertisePageContent;
+    };
     not_found: {
         title: string;
         msg: string;
         home_btn: string;
     };
+};
+
+type ExpertisePageContent = {
+    hero_title: string;
+    hero_subtitle: string;
+    overview: string;
+    capabilities_title: string;
+    capabilities: string[];
+    case_studies_title: string;
+    case_studies: {
+        title: string;
+        challenge: string;
+        action: string;
+        outcome: string;
+    }[];
+    impact_metrics: string;
+    cta_text: string;
 };
 
 const translations: Record<Language, Translations> = {
@@ -559,6 +582,128 @@ const translations: Record<Language, Translations> = {
             title: "404",
             msg: "Oops! Page not found",
             home_btn: "Return to Home"
+        },
+        expertise_pages: {
+            flow: {
+                hero_title: "FLOW DYNAMICS: THE BACKBONE",
+                hero_subtitle: "Supply Chain Optimization",
+                overview: "In existing networks, visibility often ends where planning does. Carriers operate in isolation. Inventory is misplaced. Demand signals arrive late. We re-engineer how shipments flow, how capacity is allocated, and how working capital is utilized.",
+                capabilities_title: "Capabilities",
+                capabilities: ["Global freight sourcing and carrier optimization", "Control tower design and implementation (DCSA-compliant)", "Integrated business planning and predictive analytics"],
+                case_studies_title: "Embedded Case Studies",
+                case_studies: [
+                    {
+                        title: "Global Automotive OEM: Control Tower",
+                        challenge: "Fragmented visibility across 3 regions, 40,000+ intercontinental shipments/year",
+                        action: "Built intercontinental operations center with 34 FTEs, unified under single methodology",
+                        outcome: "Single global view replacing 3 regional silos, zero major delays during launch"
+                    },
+                    {
+                        title: "Large Retailer: Transportation Sourcing",
+                        challenge: "$790M transportation spend with fragmented carrier portfolio, reactive selection",
+                        action: "Led optimization using Coupa platform with 'Best Value' logic balancing cost and service",
+                        outcome: "Tens of millions in savings, 30% value improvement, sourcing cycle cut from 8 to 4 months"
+                    },
+                    {
+                        title: "Furniture Retailer: AI Track & Trace",
+                        challenge: "High goods-in-transit inventory, manual invoice verification",
+                        action: "Built DCSA-compliant data model with automated audit layer via Snowflake and APIs",
+                        outcome: "GIT reduced by $11M, manual verification effort cut by 70%, real-time visibility achieved"
+                    }
+                ],
+                impact_metrics: "$790M spend optimized | $11M working capital released | 40,000+ shipments unified | Sourcing cycle: 8→4 months",
+                cta_text: "START SYSTEM CONTROL DIAGNOSTIC"
+            },
+            physics: {
+                hero_title: "PRODUCTION PHYSICS: THE MUSCLE",
+                hero_subtitle: "Production Excellence",
+                overview: "In existing facilities, cycle times haven't changed, scrap rates remain 'acceptable,' and energy consumption is 'normal' — yet all conceal underlying inefficiencies. We integrate into your production lines to optimize physical processes and translate every improvement directly into P&L language.",
+                capabilities_title: "Capabilities",
+                capabilities: ["Cycle time optimization and line balancing", "Formula and process optimization (DOE, Six Sigma)", "New plant commissioning and OEE ramp-up"],
+                case_studies_title: "Embedded Case Studies",
+                case_studies: [
+                    {
+                        title: "Specialty Chemical Manufacturer: Formula Optimization",
+                        challenge: "Rising production costs, non-negotiable quality standards, couldn't reduce inputs without risking batch failures",
+                        action: "Embedded in production labs, performed complete formula optimization using DOE and Six Sigma",
+                        outcome: "$1.5M annual savings, zero quality loss, all specifications maintained"
+                    },
+                    {
+                        title: "High-Volume Manufacturer: Line Balancing",
+                        challenge: "Unbalanced 5-machine line causing bottlenecks, planning a 6th machine",
+                        action: "Line balancing diagnostics, workload re-sequencing, cycle time optimization",
+                        outcome: "Eliminated need for 5th machine, avoided 6th. €450K capex avoided, $1.0M capacity unlocked"
+                    },
+                    {
+                        title: "Industrial Manufacturer: Plant Commissioning",
+                        challenge: "Over €5M capital investment in 4 new coating and extrusion plants requiring flawless startup",
+                        action: "Led commissioning of 4 plants, managed equipment installation, process validation, OEE ramp-up",
+                        outcome: "All commissioned on time, within OEE targets, zero major delays, zero quality escapes"
+                    }
+                ],
+                impact_metrics: "$1.5M annual savings | €450K capex avoided | $1.0M capacity unlocked | 4 plants commissioned on time",
+                cta_text: "START SYSTEM CONTROL DIAGNOSTIC"
+            },
+            digital: {
+                hero_title: "DIGITAL ARCHITECTURE: THE BRAIN",
+                hero_subtitle: "Digital Backbone",
+                overview: "Your systems are old, entrenched, and critical. You can't shut them down for digital transformation. Instead, we enhance existing systems by adding intelligence layers to proven operational frameworks. We build AI agents, automation, and real-time decision-making that respect your legacy ERP, MES, and OT systems.",
+                capabilities_title: "Capabilities",
+                capabilities: ["AI-powered booking, validation, and logistics automation", "AI underwriting and decision engines", "AI governance, portfolio prioritization, and ROI frameworks"],
+                case_studies_title: "Embedded Case Studies",
+                case_studies: [
+                    {
+                        title: "Logistics Operator: AI-Powered Booking",
+                        challenge: "Manual booking and shipment validation across fragmented legacy systems, inconsistent OTIF",
+                        action: "Built AI automation replacing manual booking and carrier data validation",
+                        outcome: "OTIF stabilized, manual touchpoints eliminated, no staff increase despite 30%+ volume growth"
+                    },
+                    {
+                        title: "EU Insurance: AI Underwriting Engine",
+                        challenge: "Manual review bottleneck, slow underwriting, limited capacity",
+                        action: "Developed first multi-million € AI underwriting engine in EU insurance market",
+                        outcome: "Faster decisions, consistent risk assessment, full compliance maintained"
+                    },
+                    {
+                        title: "Diversified Business: AI Governance",
+                        challenge: "Disparate automation initiatives, no ROI visibility across fragmented AI projects",
+                        action: "Established AI Center of Excellence with ROI-driven prioritization and KPI reporting",
+                        outcome: "ROI visibility across 25+ initiatives, $2M saved by stopping underperforming ones"
+                    }
+                ],
+                impact_metrics: "OTIF stabilized | $2M saved from underperformers | 25+ AI initiatives governed | Zero staff increase despite 30% volume growth",
+                cta_text: "START SYSTEM CONTROL DIAGNOSTIC"
+            },
+            finance: {
+                hero_title: "STRATEGIC FINANCE: THE NERVES",
+                hero_subtitle: "Strategic Finance",
+                overview: "Capital, when disconnected from operations, becomes a drag. We align finance with the factory floor — integrating treasury logic, liquidity strategies, and ROI governance directly into operational decision-making.",
+                capabilities_title: "Capabilities",
+                capabilities: ["Treasury management integrated with logistics flow", "Capex planning linked to production metrics and ROI", "Corporate restructuring and holding optimization"],
+                case_studies_title: "Embedded Case Studies",
+                case_studies: [
+                    {
+                        title: "Global Retailer: Treasury Management",
+                        challenge: "Currency volatility and fragmented cross-regional liquidity",
+                        action: "Integrated treasury management into logistics flow, implemented hedging and dynamic cash management",
+                        outcome: "20% reduction in currency risk, $50M working capital unlocked, treasury forecasting synchronized with sourcing"
+                    },
+                    {
+                        title: "Industrial OEM: Embedded Finance",
+                        challenge: "Capex planning disconnected from operational metrics",
+                        action: "Built predictive model linking machine utilization to ROI, integrated investment rationale with production data",
+                        outcome: "30% reduction in inefficient capital, transparent ROI forecasting for CFO"
+                    },
+                    {
+                        title: "Industrial Supplier: Corporate Restructuring",
+                        challenge: "Rapidly growing supplier facing structural complexity and liquidity challenges",
+                        action: "Led holding optimization, global tax strategy, and capital flow restructuring",
+                        outcome: "$4M annual savings through structural tax efficiency, financial closing time reduced from 42 to 18 days"
+                    }
+                ],
+                impact_metrics: "$50M working capital unlocked | $4M annual tax savings | 20% currency risk reduction | Closing time: 42→18 days",
+                cta_text: "START SYSTEM CONTROL DIAGNOSTIC"
+            }
         }
     },
     tr: {
@@ -878,6 +1023,128 @@ const translations: Record<Language, Translations> = {
             title: "404",
             msg: "Eyvah! Sayfa bulunamadı",
             home_btn: "Ana Sayfaya Dön"
+        },
+        expertise_pages: {
+            flow: {
+                hero_title: "AKIŞ DİNAMİKLERİ: OMURGA",
+                hero_subtitle: "Tedarik Zinciri Optimizasyonu",
+                overview: "Mevcut ağlarda görünürlük genellikle planlamanın bittiği yerde sona erer. Taşıyıcılar yalıtılmış halde çalışır. Stoklar yanlış yerleştirilir. Talep sinyalleri geç ulaşır. Sevkiyatların akışını, kapasite tahsisini ve işletme sermayesinin kullanımını yeniden yapılandırıyoruz.",
+                capabilities_title: "Yetkinlikler",
+                capabilities: ["Küresel navlun tedariği ve taşıyıcı optimizasyonu", "Kontrol kulesi tasarımı ve uygulaması (DCSA uyumlu)", "Entegre iş planlaması ve öngörücü analitik"],
+                case_studies_title: "Gömülü Vaka Çalışmaları",
+                case_studies: [
+                    {
+                        title: "Küresel Otomotiv OEM: Kontrol Kulesi",
+                        challenge: "3 bölgede parçalı görünürlük, yıllık 40.000+ kıtalararası sevkiyat",
+                        action: "34 FTE ile kıtalararası operasyon merkezi kuruldu, tek metodoloji altında birleştirildi",
+                        outcome: "3 bölgesel silonun yerini alan tek küresel görünüm, lansman sırasında sıfır büyük gecikme"
+                    },
+                    {
+                        title: "Büyük Perakendeci: Nakliye Tedariği",
+                        challenge: "Parçalı taşıyıcı portföyü ve reaktif seçim ile 790M$ nakliye harcaması",
+                        action: "Coupa platformu kullanılarak maliyet ve hizmeti dengeleyen 'En İyi Değer' mantığıyla optimizasyon yönetildi",
+                        outcome: "On milyonlarca dolar tasarruf, %30 değer iyileştirmesi, tedarik döngüsü 8 aydan 4 aya indirildi"
+                    },
+                    {
+                        title: "Mobilya Perakendecisi: YZ İzleme ve Takip",
+                        challenge: "Yüksek yoldaki stok (GIT), manuel fatura doğrulama",
+                        action: "Snowflake ve API'ler üzerinden otomatik denetim katmanı ile DCSA uyumlu veri modeli oluşturuldu",
+                        outcome: "GIT 11 milyon $ azaltıldı, manuel doğrulama eforu %70 kesildi, gerçek zamanlı görünürlük sağlandı"
+                    }
+                ],
+                impact_metrics: "790M$ harcama optimize edildi | 11M$ işletme sermayesi serbest kaldı | 40.000+ sevkiyat birleştirildi | Tedarik döngüsü: 8→4 ay",
+                cta_text: "SİSTEM KONTROL TEŞHİSİNİ BAŞLAT"
+            },
+            physics: {
+                hero_title: "ÜRETİM FİZİĞİ: KAS",
+                hero_subtitle: "Üretim Mükemmelliği",
+                overview: "Mevcut tesislerde çevrim süreleri değişmemiş, fire oranları 'kabul edilebilir' kalmış ve enerji tüketimi 'normal' görünmektedir; ancak bunların tümü altta yatan verimsizlikleri gizler. Fiziksel süreçleri optimize etmek ve her iyileştirmeyi doğrudan P&L diline çevirmek için üretim hatlarınıza entegre oluyoruz.",
+                capabilities_title: "Yetkinlikler",
+                capabilities: ["Çevrim süresi optimizasyonu ve hat dengeleme", "Reçete ve süreç optimizasyonu (DOE, Altı Sigma)", "Yeni tesis devreye alma ve OEE ramp-up"],
+                case_studies_title: "Gömülü Vaka Çalışmaları",
+                case_studies: [
+                    {
+                        title: "Özel Kimya Üreticisi: Reçete Optimizasyonu",
+                        challenge: "Artan üretim maliyetleri, tavizsiz kalite standartları, parti başarısızlığı riski nedeniyle girdiler azaltılamıyordu",
+                        action: "Üretim laboratuvarlarına entegre olundu, DOE ve Altı Sigma kullanılarak tam reçete optimizasyonu yapıldı",
+                        outcome: "Yıllık 1.5M$ tasarruf, sıfır kalite kaybı, tüm spesifikasyonlar korundu"
+                    },
+                    {
+                        title: "Yüksek Hacimli Üretici: Hat Dengeleme",
+                        challenge: "Darboğazlara neden olan dengesiz 5 makineli hat, 6. makine planlanıyordu",
+                        action: "Hat dengeleme teşhisi, iş yükü yeniden sıralama, çevrim süresi optimizasyonu",
+                        outcome: "5. makine ihtiyacı ortadan kalktı, 6. makineden kaçınıldı. 450 bin € yatırım (capex) tasarrufu, 1.0M$ kapasite değeri açıldı"
+                    },
+                    {
+                        title: "Endüstriyel Üretici: Tesis Devreye Alma",
+                        challenge: "Kusursuz başlangıç gerektiren 4 yeni kaplama ve ekstrüzyon tesisinde 5 milyon € üzerinde sermaye yatırımı",
+                        action: "4 tesisin devreye alınması yönetildi, ekipman kurulumu, süreç doğrulaması, OEE ramp-up koordine edildi",
+                        outcome: "Tümü zamanında, OEE hedefleri dahilinde devreye alındı, sıfır büyük gecikme, sıfır kalite hatası"
+                    }
+                ],
+                impact_metrics: "Yıllık 1.5M$ tasarruf | 450 bin € yatırım tasarrufu | 1.0M$ kapasite açıldı | 4 tesis zamanında devreye alındı",
+                cta_text: "SİSTEM KONTROL TEŞHİSİNİ BAŞLAT"
+            },
+            digital: {
+                hero_title: "DİJİTAL MİMARİ: BEYİN",
+                hero_subtitle: "Dijital Omurga",
+                overview: "Sistemleriniz eski, yerleşik ve kritiktir. Dijital dönüşüm için onları kapatamazsınız. Bunun yerine, kanıtlanmış operasyonel çerçevelere zeka katmanları ekleyerek mevcut sistemleri geliştiriyoruz. Eski ERP, MES ve OT sistemlerinize saygı duyan YZ ajanları, otomasyon ve gerçek zamanlı karar verme mekanizmaları inşa ediyoruz.",
+                capabilities_title: "Yetkinlikler",
+                capabilities: ["YZ destekli rezervasyon, doğrulama ve lojistik otomasyonu", "YZ sigortalama ve karar motorları", "YZ yönetişimi, portföy önceliklendirme ve ROI çerçeveleri"],
+                case_studies_title: "Gömülü Vaka Çalışmaları",
+                case_studies: [
+                    {
+                        title: "Lojistik Operatörü: YZ Destekli Rezervasyon",
+                        challenge: "Parçalı eski sistemlerde manuel rezervasyon ve sevkiyat doğrulaması, tutarsız OTIF",
+                        action: "Manuel rezervasyon ve taşıyıcı veri doğrulamasının yerini alan YZ otomasyonu kuruldu",
+                        outcome: "OTIF stabilize edildi, manuel temas noktaları elendi, %30+ hacim artışına rağmen personel artışı gerekmedi"
+                    },
+                    {
+                        title: "AB Sigorta: YZ Sigortalama Motoru",
+                        challenge: "Manuel inceleme darboğazı, yavaş sigortalama, sınırlı kapasite",
+                        action: "AB sigorta pazarındaki ilk çok milyon €'luk YZ sigortalama motoru geliştirildi",
+                        outcome: "Daha hızlı kararlar, tutarlı risk değerlendirmesi, tam uyum korundu"
+                    },
+                    {
+                        title: "Çeşitlendirilmiş İşletme: YZ Yönetişimi",
+                        challenge: "Dağınık otomasyon girişimleri, parçalı YZ projelerinde ROI görünürlüğü yok",
+                        action: "ROI odaklı önceliklendirme ve KPI raporlaması ile YZ Mükemmeliyet Merkezi kuruldu",
+                        outcome: "25+ girişimde ROI görünürlüğü, performansı düşük olanların durdurulmasıyla 2 milyon $ tasarruf"
+                    }
+                ],
+                impact_metrics: "OTIF stabilize edildi | Düşük performanslılardan 2M$ tasarruf | 25+ YZ girişimi yönetiliyor | %30 hacim artışına rağmen sıfır personel artışı",
+                cta_text: "SİSTEM KONTROL TEŞHİSİNİ BAŞLAT"
+            },
+            finance: {
+                hero_title: "STRATEJİK FİNANS: SİNİRLER",
+                hero_subtitle: "Stratejik Finans",
+                overview: "Sermaye, operasyonlardan koptuğunda bir yüke dönüşür. Finansı fabrika sahasıyla hizalıyoruz; hazine mantığını, likidite stratejilerini ve ROI yönetişimini doğrudan operasyonel karar alma sürecine entegre ediyoruz.",
+                capabilities_title: "Yetkinlikler",
+                capabilities: ["Lojistik akışıyla entegre hazine yönetimi", "Üretim metriklerine ve ROI'ye bağlı yatırım (Capex) planlaması", "Kurumsal yeniden yapılandırma ve holding optimizasyonu"],
+                case_studies_title: "Gömülü Vaka Çalışmaları",
+                case_studies: [
+                    {
+                        title: "Küresel Perakendeci: Hazine Yönetimi",
+                        challenge: "Döviz dalgalanması ve parçalı bölgeler arası likidite",
+                        action: "Hazine yönetimi lojistik akışına entegre edildi, hedging ve dinamik nakit yönetimi uygulandı",
+                        outcome: "Döviz riskinde %20 azalma, 50 milyon $ işletme sermayesi açıldı, hazine öngörüleri tedarikle senkronize edildi"
+                    },
+                    {
+                        title: "Endüstriyel OEM: Gömülü Finans",
+                        challenge: "Operasyonel metriklerden kopuk yatırım planlaması",
+                        action: "Makine kullanımını ROI'ye bağlayan öngörücü model kuruldu, yatırım gerekçesi üretim verileriyle birleştirildi",
+                        outcome: "Verimsiz sermayede %30 azalma, CFO için şeffaf ROI öngörüsü"
+                    },
+                    {
+                        title: "Endüstriyel Tedarikçi: Kurumsal Yeniden Yapılandırma",
+                        challenge: "Yapısal karmaşıklık ve likidite zorluklarıyla karşılaşan hızlı büyüyen tedarikçi",
+                        action: "Holding optimizasyonu, küresel vergi stratejisi ve sermaye akışı yapılandırması yönetildi",
+                        outcome: "Yapısal vergi verimliliği ile yıllık 4 milyon $ tasarruf, finansal kapanış süresi 42 günden 18 güne indirildi"
+                    }
+                ],
+                impact_metrics: "50M$ işletme sermayesi açıldı | Yıllık 4M$ vergi tasarrufu | %20 döviz riski azalması | Kapanış süresi: 42→18 gün",
+                cta_text: "SİSTEM KONTROL TEŞHİSİNİ BAŞLAT"
+            }
         }
     }
 };

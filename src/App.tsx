@@ -8,6 +8,10 @@ import Index from "./pages/Index";
 import Portfolio from "./pages/Portfolio";
 import Insights from "./pages/Insights";
 import About from "./pages/About";
+import FlowExpertise from "./pages/expertise/Flow";
+import PhysicsExpertise from "./pages/expertise/Physics";
+import DigitalExpertise from "./pages/expertise/Digital";
+import FinanceExpertise from "./pages/expertise/Finance";
 import Application from "./pages/Application";
 import NotFound from "./pages/NotFound";
 
@@ -48,6 +52,10 @@ const App = () => {
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/insights" element={<Insights />} />
               <Route path="/about" element={<About />} />
+              <Route path="/expertise/flow" element={<FlowExpertise />} />
+              <Route path="/expertise/physics" element={<PhysicsExpertise />} />
+              <Route path="/expertise/digital" element={<DigitalExpertise />} />
+              <Route path="/expertise/finance" element={<FinanceExpertise />} />
               <Route path="/apply" element={<Application />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
