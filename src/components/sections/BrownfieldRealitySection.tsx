@@ -50,7 +50,7 @@ const ImageComparisonSlider = ({ leftLabel, rightLabel }: ImageComparisonSliderP
 
   return (
     <div
-      className="relative mx-auto aspect-[21/9] w-full max-w-[1200px] max-h-[60vh] md:max-h-[500px] overflow-hidden rounded-3xl border border-border/80 bg-background/80 shadow-[0_0_34px_hsl(var(--background)_/_0.95)] backdrop-blur-2xl"
+      className="relative mx-auto aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] w-full max-w-[1200px] max-h-[70vh] md:max-h-[500px] overflow-hidden rounded-3xl border border-border/80 bg-background/80 shadow-[0_0_34px_hsl(var(--background)_/_0.95)] backdrop-blur-2xl"
       onMouseDown={handlePointerDown}
       onMouseMove={handlePointerMove}
       onMouseUp={handlePointerUp}
@@ -73,12 +73,12 @@ const ImageComparisonSlider = ({ leftLabel, rightLabel }: ImageComparisonSliderP
             />
             <div className="pointer-events-none absolute inset-0">
               {/* Throughput graph HUD */}
-              <div className="absolute left-6 top-6 w-40 rounded-lg border border-border/70 bg-background/90 p-2 text-[0.6rem] text-muted-foreground shadow-[0_0_20px_hsl(var(--background)_/_0.9)] backdrop-blur-md">
+              <div className="absolute left-4 top-4 sm:left-6 sm:top-6 w-32 sm:w-40 rounded-lg border border-border/70 bg-background/90 p-2 text-[0.6rem] text-muted-foreground shadow-[0_0_20px_hsl(var(--background)_/_0.9)] backdrop-blur-md">
                 <div className="mb-1 flex items-center justify-between gap-2">
-                  <span className="font-mono uppercase tracking-[0.25em]">{t.brownfield.throughput}</span>
+                  <span className="font-mono uppercase tracking-[0.25em] text-[0.5rem] sm:text-[0.6rem]">{t.brownfield.throughput}</span>
                   <span className="font-semibold text-accent">+12%</span>
                 </div>
-                <div className="relative h-16 w-full">
+                <div className="relative h-12 sm:h-16 w-full">
                   <div className="absolute inset-x-0 bottom-2 h-px bg-muted" />
                   <svg viewBox="0 0 100 40" className="absolute inset-0 h-full w-full">
                     <polyline
@@ -100,21 +100,21 @@ const ImageComparisonSlider = ({ leftLabel, rightLabel }: ImageComparisonSliderP
               </div>
 
               {/* OEE status card */}
-              <div className="absolute left-1/2 top-1/2 w-44 -translate-x-1/2 -translate-y-1/2 rounded-lg border border-accent/60 bg-background/90 px-3 py-2 text-left shadow-[0_0_28px_hsl(var(--accent)_/_0.65)] backdrop-blur-md">
-                <p className="text-[0.55rem] font-mono uppercase tracking-[0.25em] text-muted-foreground">{t.brownfield.oee}</p>
-                <p className="text-xl font-semibold leading-tight text-accent">85%</p>
-                <p className="mt-0.5 text-[0.6rem] font-medium text-foreground">{t.brownfield.optimized_flow}</p>
+              <div className="absolute left-1/2 top-3/4 sm:top-1/2 w-36 sm:w-44 -translate-x-1/2 -translate-y-1/2 rounded-lg border border-accent/60 bg-background/90 px-3 py-2 text-left shadow-[0_0_28px_hsl(var(--accent)_/_0.65)] backdrop-blur-md">
+                <p className="text-[0.5rem] sm:text-[0.55rem] font-mono uppercase tracking-[0.25em] text-muted-foreground">{t.brownfield.oee}</p>
+                <p className="text-lg sm:text-xl font-semibold leading-tight text-accent">85%</p>
+                <p className="mt-0.5 text-[0.55rem] sm:text-[0.6rem] font-medium text-foreground">{t.brownfield.optimized_flow}</p>
               </div>
 
               {/* Maintenance alert tag */}
-              <div className="absolute right-10 top-1/3 inline-flex items-center gap-1.5 rounded-full border border-[hsl(var(--accent)_/_0.3)] bg-[hsl(var(--background)_/_0.8)] px-2.5 py-1 text-[0.6rem] font-mono uppercase tracking-[0.25em] text-accent shadow-[0_0_22px_hsl(var(--accent)_/_0.6)] backdrop-blur-md">
+              <div className="absolute right-4 top-4 sm:right-10 sm:top-1/3 inline-flex items-center gap-1.5 rounded-full border border-[hsl(var(--accent)_/_0.3)] bg-[hsl(var(--background)_/_0.8)] px-2 py-0.5 sm:px-2.5 sm:py-1 text-[0.5rem] sm:text-[0.6rem] font-mono uppercase tracking-[0.25em] text-accent shadow-[0_0_22px_hsl(var(--accent)_/_0.6)] backdrop-blur-md">
                 <AlertTriangle className="h-3 w-3" aria-hidden="true" />
-                <span>{t.brownfield.maintenance}</span>
+                <span className="hidden xs:inline">{t.brownfield.maintenance}</span>
               </div>
 
               {/* Digital twin label */}
-              <div className="absolute right-6 bottom-6 z-10 inline-flex items-center gap-2 rounded-full border border-[hsl(var(--accent)_/_0.3)] bg-[hsl(var(--background)_/_0.8)] px-3 py-1 text-[0.7rem] font-mono uppercase tracking-[0.25em] text-accent backdrop-blur-md shadow-[0_0_20px_hsl(var(--accent)_/_0.4)]">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <div className="absolute right-4 bottom-4 sm:right-6 sm:bottom-6 z-10 inline-flex items-center gap-2 rounded-full border border-[hsl(var(--accent)_/_0.3)] bg-[hsl(var(--background)_/_0.8)] px-3 py-1 text-[0.6rem] sm:text-[0.7rem] font-mono uppercase tracking-[0.25em] text-accent backdrop-blur-md shadow-[0_0_20px_hsl(var(--accent)_/_0.4)]">
+                <span className="h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full bg-accent" />
                 <span>{rightLabel}</span>
               </div>
             </div>

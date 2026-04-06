@@ -14,9 +14,9 @@ import { OriginStorySection } from "@/components/sections/OriginStorySection";
 
 const Index = () => {
   return (
-    <div className="relative z-10 min-h-screen bg-background text-foreground">
+    <div className="relative z-10 min-h-screen bg-background text-foreground overflow-x-hidden">
       <SiteHeader />
-      <main className="mx-auto max-w-6xl px-4 pb-16 pt-10 lg:px-0 lg:pb-24 lg:pt-12">
+      <main className="mx-auto max-w-6xl px-4 pb-16 pt-10 lg:px-8 lg:pb-24 lg:pt-12">
         <HeroSection />
         <BrownfieldRealitySection />
         <OriginStorySection />

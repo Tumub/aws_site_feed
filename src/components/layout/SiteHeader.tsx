@@ -2,6 +2,12 @@ import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
+import { Menu } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 export const SiteHeader = () => {
   const { t } = useLanguage();
@@ -29,7 +35,7 @@ export const SiteHeader = () => {
               <span className="text-[#F3671B]">FOUNDRY</span>
             </div>
             <div className="hidden lg:flex flex-col text-[0.6rem] font-mono font-medium text-slate-400 tracking-wider leading-tight mt-1">
-              <span>DIGITAL · SUPPLY CHAIN · MANUFACTURING · FINANCE</span>
+              <span>Industrial Execution Advisory</span>
             </div>
           </div>
         </a>
@@ -45,17 +51,56 @@ export const SiteHeader = () => {
             ))}
           </ul>
 
-          <LanguageSwitcher />
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
 
-          <Button
-            size="sm"
-            asChild
-            className="font-mono text-[0.7rem] uppercase tracking-[0.25em]"
-          >
-            <a href="/apply">
-              {t.nav.signal_check_btn}
-            </a>
-          </Button>
+            <Button
+              size="sm"
+              asChild
+              className="hidden sm:inline-flex font-mono text-[0.7rem] uppercase tracking-[0.25em]"
+            >
+              <a href="/apply">
+                {t.nav.signal_check_btn}
+              </a>
+            </Button>
+
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Toggle menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] bg-background/95 backdrop-blur-xl border-l border-border/50">
+                <div className="flex flex-col gap-8 mt-10">
+                  <div className="flex flex-col gap-4">
+                    <p className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground/60 border-b border-border/50 pb-2">Navigation</p>
+                    <ul className="flex flex-col gap-4 text-sm font-mono uppercase tracking-[0.15em]">
+                      {NAV_ITEMS.map((item) => (
+                        <li key={item.href}>
+                          <a href={item.href} className="transition-colors hover:text-accent py-2 block">
+                            {item.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="flex flex-col gap-4">
+                    <p className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground/60 border-b border-border/50 pb-2">Action</p>
+                    <Button
+                      asChild
+                      className="w-full font-mono text-[0.7rem] uppercase tracking-[0.25em] h-12"
+                    >
+                      <a href="/apply">
+                        {t.nav.signal_check_btn}
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </nav>
       </div>
     </header >
