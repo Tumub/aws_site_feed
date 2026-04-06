@@ -47,7 +47,17 @@ def find_root():
             # verify it's accurate server_name directive
             if re.search(r'server_name\s+.*' + re.escape(target_domain), block):
                 # Found the block. Find root.
-                root_match = re.search(r'^\s*root\s+(.*?);', block, re.MULTILINE)
+                # Try to find root directive in the block. 
+                # We prioritize the one in the location / block if it exists, otherwise the one in server block.
+                
+                # Look for root in 'location /' block first
+                loc_root_match = re.search(r'location\s+/\s+\{[^{}]*?root\s+(.*?);', block, re.DOTALL)
+                if loc_root_match:
+                    print(loc_root_match.group(1).strip())
+                    return
+                
+                # Fallback to any root in the block
+                root_match = re.search(r'\broot\s+(.*?);', block)
                 if root_match:
                     print(root_match.group(1).strip())
                     return
