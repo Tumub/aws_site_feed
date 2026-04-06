@@ -1,0 +1,5 @@
+# Existing content before lines 143-147
+
+# Updated lines 143-147
+scp "${USER}@${HOST}:destination"
+ssh "${USER}@${HOST}"
