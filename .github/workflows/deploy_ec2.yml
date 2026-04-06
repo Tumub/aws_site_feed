@@ -92,6 +92,8 @@ jobs:
         cat dist/build-id.txt
 
     - name: Deploy to EC2
+      env:
+        RELEASES_PATH: /var/www/releases
       run: |
         # Setup SSH
         set -euo pipefail
