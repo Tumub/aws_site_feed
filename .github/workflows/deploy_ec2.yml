@@ -43,7 +43,8 @@ jobs:
     - name: Preflight SSH Check
       timeout-minutes: 1
       run: |
-        HOST="${{ secrets.HOST_IP }}"
+        # Trim any potential newlines or whitespace from the secret
+        HOST=$(echo "${{ secrets.HOST_IP }}" | xargs)
         echo "Testing TCP Connectivity to $HOST:22..."
         if [ -z "$HOST" ]; then
             echo "❌ Error: HOST_IP secret is empty."
