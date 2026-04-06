@@ -12,7 +12,6 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # Working directory is implicitly repo root (./)
     
     steps:
     - name: Checkout
@@ -26,7 +25,6 @@ jobs:
     - name: Debug Connectivity (Safe)
       run: |
         echo "Validating Configuration..."
-        # Assign to variables first to avoid bad substitution errors
         HOST="${{ secrets.HOST_IP }}"
         USER="${{ secrets.SSH_USER }}"
         KEY="${{ secrets.SSH_KEY }}"
@@ -43,20 +41,16 @@ jobs:
     - name: Preflight SSH Check
       timeout-minutes: 1
       run: |
-        # Trim any potential newlines or whitespace from the secret
         HOST=$(echo "${{ secrets.HOST_IP }}" | xargs)
         echo "Testing TCP Connectivity to $HOST:22..."
         if [ -z "$HOST" ]; then
             echo "❌ Error: HOST_IP secret is empty."
             exit 1
         fi
-        # Attempt to reach port 22. If this fails, Security Group is likely blocking GitHub.
         if nc -z -v -w 5 "$HOST" 22; then
             echo "✅ Connectivity Confirmed: Port 22 is OPEN."
         else
             echo "❌ Connectivity Error: Port 22 is BLOCKED or UNREACHABLE."
-            echo "   Action Required: Check AWS Security Group inbound rules."
-            echo "   Allow TCP 22 from 0.0.0.0/0 (temporary) or confirm IP allowlist."
             exit 1
         fi
 
@@ -64,22 +58,44 @@ jobs:
       run: |
         chmod +x scripts/forbidden-check.sh
         bash scripts/forbidden-check.sh
-        # Also make sure find_root.py is readable? default is fine.
 
     - name: Install and Build (Root)
       run: |
+        echo "📦 Starting build process..."
         npm ci
-        npm run build
-        if [ ! -d "dist" ]; then
-          echo "❌ Build failed: dist directory not found."
+        echo "✅ Dependencies installed"
+        
+        npm run build 2>&1 | tee build.log
+        BUILD_EXIT_CODE=${PIPESTATUS[0]}
+        
+        if [ $BUILD_EXIT_CODE -ne 0 ]; then
+          echo "❌ Build failed with exit code $BUILD_EXIT_CODE"
+          cat build.log
           exit 1
         fi
+        
+        echo "✅ Build completed, checking outputs..."
+        
+        echo "===== DIAG: Current directory ====="
+        pwd
+        
+        echo "===== DIAG: dist/ contents ====="
+        if [ ! -d "dist" ]; then
+          echo "❌ ERROR: dist/ directory not found!"
+          exit 1
+        fi
+        
+        ls -lah dist/ | head -30
+        DIST_SIZE=$(du -sh dist/ | cut -f1)
+        FILE_COUNT=$(find dist -type f | wc -l)
+        echo "Total size: $DIST_SIZE, File count: $FILE_COUNT"
+        
         if [ ! -f "dist/index.html" ]; then
           echo "❌ Build failed: dist/index.html not found."
           exit 1
         fi
-        echo "✅ Build successful - dist directory exists and contains index.html"
-        ls -la dist/ | head -n 20
+        
+        echo "✅ Build successful"
         
     - name: Generate Build Proof
       run: |
@@ -98,7 +114,6 @@ jobs:
         LINK_PATH: /var/www/torquefoundry
         RELEASES_PATH: /var/www/releases
       run: |
-        # Setup SSH
         set -euo pipefail
         mkdir -p ~/.ssh
         chmod 700 ~/.ssh
@@ -113,112 +128,66 @@ jobs:
 
         ssh-keyscan -H "${{ secrets.HOST_IP }}" >> ~/.ssh/known_hosts 2>/dev/null || true
 
-        # 1. Archive build (root dist)
-        tar -czf build.tar.gz -C dist .
+        echo "🔧 Creating archive from dist/..."
+        tar -czf build.tar.gz -C dist . 2>&1
         
-        # 2. Upload to temp
+        if [ ! -f "build.tar.gz" ]; then
+          echo "❌ CRITICAL: build.tar.gz was not created!"
+          ls -la | grep -E "\.tar|dist|build"
+          exit 1
+        fi
+        
+        TAR_SIZE=$(ls -lh build.tar.gz | awk '{print $5}')
+        echo "✅ Archive created: $TAR_SIZE"
+        
         scp -i ~/.ssh/id_rsa build.tar.gz $USER@$HOST:/tmp/build.tar.gz
-        
-        # 3. Upload Helper Scripts
         scp -i ~/.ssh/id_rsa scripts/find_root.py $USER@$HOST:/tmp/find_root.py
         scp -i ~/.ssh/id_rsa scripts/ensure_spa_routing.py $USER@$HOST:/tmp/ensure_spa_routing.py
         
-        # 4. Path Surgery & Deploy on Server
         ssh -i ~/.ssh/id_rsa $USER@$HOST << EOF
-          # Stop on error & print commands
           set -ex
-          
-          # Variables
           RELEASE_DIR=$RELEASES_PATH/release_\$(date +%s)
-          
-          # Prepare Release Directory
           sudo mkdir -p $RELEASES_PATH
           sudo mkdir -p \$RELEASE_DIR
           sudo chown $USER:$USER \$RELEASE_DIR
-          
-          # Extract
           tar -xzf /tmp/build.tar.gz -C \$RELEASE_DIR
           rm /tmp/build.tar.gz
-          
-          # ---------------------------------------------------------
-          # DIAG: find nginx site config for torquefoundryadvisory.com
-          # ---------------------------------------------------------
           echo "===== DIAG: find nginx site config for torquefoundryadvisory.com ====="
           CONF=\$(sudo grep -Rsl "server_name .*torquefoundryadvisory.com" /etc/nginx/sites-enabled /etc/nginx/conf.d 2>/dev/null | head -n 1 || true)
           echo "CONF=\$CONF"
           if [ -n "\$CONF" ]; then
             echo "----- CONF SNIPPET -----"
             sudo nl -ba "\$CONF" | sed -n '1,220p'
-            
-            # ---------------------------------------------------------
-            # FIX: Ensure SPA Routing
-            # ---------------------------------------------------------
             echo "🔧 Checking/Fixing SPA Routing in \$CONF..."
             sudo python3 /tmp/ensure_spa_routing.py "\$CONF" || echo "⚠️ SPA Fix script failed (non-critical if already correct)."
           else
             echo "⚠️ Could not locate config file for SPA patching."
           fi
-
-          echo "===== DIAG: nginx -T root/server_name lines (first 200 matches) ====="
-          sudo nginx -T 2>/dev/null | grep -nE "server_name|root |listen|try_files|location" | head -n 200 || true
-          
-          # ---------------------------------------------------------
-          # AUTO-DETECT ROOT (PYTHON PARSER)
-          # ---------------------------------------------------------
-          echo "🐍 Parsing Nginx Config with Python (Robust)..."
-          
-          # Dump full config to file
           sudo nginx -T > /tmp/nginx_dump.conf 2>/dev/null
-          
-          # Execute uploaded script
           ROOT=\$(python3 /tmp/find_root.py)
-          
-          # Fallback mechanism
           if [ -z "\$ROOT" ]; then
-             echo "⚠️ Parsing failed or no root found. Trying fallback candidates..."
              for p in /var/www/torquefoundry/dist /var/www/torquefoundry /usr/share/nginx/html /var/www/html; do
                if [ -f "\$p/index.html" ]; then 
                  ROOT="\$p"
-                 echo "Using fallback root: \$ROOT"
                  break; 
                fi
              done
           fi
-
-          # Final Hardcoded Fallback
           if [ -z "\$ROOT" ]; then
-             echo "⚠️ All detection failed. Falling back to hardcoded: /var/www/torquefoundry"
              ROOT="/var/www/torquefoundry"
           fi
-          
           echo "===== DETECTED_ROOT=\$ROOT ====="
-          if [ -z "\$ROOT" ]; then
-            echo "❌ Could not detect nginx root. Aborting surgical deploy."
-            exit 1
-          fi
-          
-          # ---------------------------------------------------------
-          # DEPLOY TO ROOT (RSYNC)
-          # ---------------------------------------------------------
           echo "🚀 Deploying to DETECTED ROOT: \$ROOT"
           sudo mkdir -p "\$ROOT"
           sudo rsync -a --delete "\$RELEASE_DIR"/ "\$ROOT"/
-          
-          # Permissions
           sudo chown -R www-data:www-data "\$ROOT"
           sudo chmod -R 755 "\$ROOT"
-          
-          # Reload Nginx
           sudo systemctl reload nginx
-          
           echo "===== DIAG: served root listing ====="
           ls -la "\$ROOT" | head -n 50
           echo "===== DIAG: server build-id ====="
           cat "\$ROOT/build-id.txt" || (echo "❌ build-id missing in served root" && exit 1)
-          
-          # Cleanup Scripts
           rm /tmp/find_root.py /tmp/ensure_spa_routing.py
-          
         EOF
         
         rm ~/.ssh/id_rsa
@@ -242,9 +211,6 @@ jobs:
         
         if [ "$code" -ne 200 ]; then
           echo "❌ FAILED: Status code $code (Expected 200)"
-          # Print diagnostics if available
-          echo "Diagnostics:"
-          head -n 20 live.txt
           exit 1
         fi
         
