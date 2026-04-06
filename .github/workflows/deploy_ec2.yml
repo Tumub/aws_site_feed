@@ -43,9 +43,14 @@ jobs:
     - name: Preflight SSH Check
       timeout-minutes: 1
       run: |
-        echo "Testing TCP Connectivity to ${{ secrets.HOST_IP }}:22..."
+        HOST="${{ secrets.HOST_IP }}"
+        echo "Testing TCP Connectivity to $HOST:22..."
+        if [ -z "$HOST" ]; then
+            echo "❌ Error: HOST_IP secret is empty."
+            exit 1
+        fi
         # Attempt to reach port 22. If this fails, Security Group is likely blocking GitHub.
-        if nc -z -v -w 5 ${{ secrets.HOST_IP }} 22; then
+        if nc -z -v -w 5 "$HOST" 22; then
             echo "✅ Connectivity Confirmed: Port 22 is OPEN."
         else
             echo "❌ Connectivity Error: Port 22 is BLOCKED or UNREACHABLE."
