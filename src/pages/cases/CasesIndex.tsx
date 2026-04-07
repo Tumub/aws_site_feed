@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { SEO } from "@/components/SEO";
 
 const CasesIndex = () => {
   const { t } = useLanguage();
@@ -23,6 +24,10 @@ const CasesIndex = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEO 
+        title="Operations Log"
+        description="Case studies from TorqueFoundry Advisory. Real operational impact across supply chain, production, digital architecture, and strategic finance."
+      />
       <SiteHeader />
       <main className="mx-auto max-w-7xl px-4 pb-24 pt-32 lg:px-8">
         <div className="mb-16 space-y-4">

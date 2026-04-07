@@ -89,7 +89,7 @@ export const HeroSection = () => {
             </div>
 
             <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-border/80 bg-background/80">
-              <img className="absolute inset-0 h-full w-full object-cover opacity-60" src={factoryBg} alt="Factory telemetry feed" />
+              <img className="absolute inset-0 h-full w-full object-cover opacity-60" src={factoryBg} alt="Real-time industrial telemetry feed showing factory automation and robotic arm performance metrics" />
               <div className="absolute inset-0 bg-[linear-gradient(to_bottom,_transparent,_hsl(var(--background)))]" />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,_hsl(var(--border))_1px,transparent_1px),linear-gradient(180deg,_hsl(var(--border))_1px,transparent_1px)] bg-[length:24px_24px] opacity-30" />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_hsl(var(--foreground)_/_0.16)_0,_transparent_55%)] opacity-25 mix-blend-soft-light" />

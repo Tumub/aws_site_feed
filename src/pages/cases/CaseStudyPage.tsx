@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { useLanguage } from "@/lib/i18n";
 import { CaseStudyTemplate } from "@/components/layout/CaseStudyTemplate";
+import { SEO } from "@/components/SEO";
 
 const CaseStudyPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -12,6 +13,25 @@ const CaseStudyPage = () => {
   }
 
   const content = t.case_study_pages[slug];
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": content.title,
+    "description": content.subtitle,
+    "author": {
+      "@type": "Organization",
+      "name": "TorqueFoundry Advisory"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TorqueFoundry Advisory",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://torquefoundryadvisory.com/logo.png"
+      }
+    }
+  };
 
   // Logic for related cases (simplistic: others in the same pillar or just others)
   const allCases = Object.entries(t.case_study_pages).map(([k, v]) => ({
@@ -25,16 +45,23 @@ const CaseStudyPage = () => {
     .slice(0, 3);
 
   return (
-    <CaseStudyTemplate
-      title={content.title}
-      subtitle={content.subtitle}
-      pillar={content.pillar}
-      challenge={content.challenge}
-      action={content.action}
-      outcomes={content.outcomes}
-      impactMetrics={content.impactMetrics}
-      relatedCases={relatedCases}
-    />
+    <>
+      <SEO 
+        title={content.title}
+        description={content.subtitle}
+        jsonLd={articleSchema}
+      />
+      <CaseStudyTemplate
+        title={content.title}
+        subtitle={content.subtitle}
+        pillar={content.pillar}
+        challenge={content.challenge}
+        action={content.action}
+        outcomes={content.outcomes}
+        impactMetrics={content.impactMetrics}
+        relatedCases={relatedCases}
+      />
+    </>
   );
 };
 

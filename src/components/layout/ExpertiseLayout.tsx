@@ -5,6 +5,7 @@ import { LucideIcon, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
+import { SEO } from "@/components/SEO";
 
 interface ExpertiseLayoutProps {
   pillar: "flow" | "physics" | "digital" | "finance";
@@ -15,6 +16,13 @@ interface ExpertiseLayoutProps {
 export const ExpertiseLayout = ({ pillar, icon: Icon, accentColor = "orange" }: ExpertiseLayoutProps) => {
   const { t } = useLanguage();
   const content = t.expertise_pages[pillar];
+
+  const descriptions = {
+    flow: "Supply chain optimization consulting. Control towers, freight sourcing, capacity planning, and crisis resilience. TorqueFoundry Advisory.",
+    physics: "Production optimization consulting. Cycle time reduction, scrap optimization, line balancing, and capex avoidance. TorqueFoundry Advisory.",
+    digital: "Industrial digital transformation. AI automation, legacy system integration, and real-time decision-making layered onto existing operations. TorqueFoundry Advisory.",
+    finance: "Operations-aligned finance advisory. Treasury optimization, capex management, and ROI governance connecting the boardroom to the factory floor. TorqueFoundry Advisory."
+  };
 
   const colorClasses = {
     orange: "text-orange-500 border-orange-500/30 bg-orange-500/10",
@@ -32,6 +40,10 @@ export const ExpertiseLayout = ({ pillar, icon: Icon, accentColor = "orange" }: 
 
   return (
     <div className="relative z-10 min-h-screen bg-background text-foreground overflow-x-hidden">
+      <SEO 
+        title={content.hero_subtitle}
+        description={descriptions[pillar]}
+      />
       <SiteHeader />
       <main className="mx-auto max-w-6xl px-4 pb-24 pt-20 lg:px-8">
         

@@ -67,7 +67,7 @@ const ImageComparisonSlider = ({ leftLabel, rightLabel }: ImageComparisonSliderP
           <div className="relative flex-1">
             <img
               src="/images/brownfield-evolution-wireframe.png"
-              alt="Cyan wireframe digital twin of an industrial factory floor"
+              alt="Cyan wireframe digital twin of an industrial factory floor showing optimized layout and real-time data overlays"
               loading="lazy"
               className="h-full w-full object-cover object-center"
             />

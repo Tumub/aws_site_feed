@@ -1,6 +1,7 @@
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { useLanguage } from "@/lib/i18n";
+import { SEO } from "@/components/SEO";
 
 const Insights = () => {
     const { t } = useLanguage();
@@ -8,6 +9,10 @@ const Insights = () => {
 
     return (
         <div className="relative z-10 min-h-screen bg-background text-foreground">
+            <SEO 
+                title="Insights"
+                description="Industrial intelligence from TorqueFoundry Advisory. Deep dives into supply chain resilience, manufacturing physics, and digital transformation strategy."
+            />
             <SiteHeader />
             <main className="mx-auto max-w-4xl px-4 py-16 lg:px-0">
                 <div className="mb-12 space-y-4">

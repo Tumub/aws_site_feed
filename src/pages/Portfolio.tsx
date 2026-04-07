@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
+import { SEO } from "@/components/SEO";
 
 /* -------------------------------------------------------------------------- */
 /*                                    TYPES                                   */
@@ -148,6 +149,10 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEO 
+        title="Portfolio"
+        description="Experience TorqueFoundry Advisory's track record in manufacturing, supply chain, and digital transformation. Authorized access for detailed case evidence."
+      />
       <SecurityModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
