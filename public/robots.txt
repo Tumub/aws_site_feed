@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://torquefoundryadvisory.com/sitemap.xml
