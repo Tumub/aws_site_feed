@@ -112,6 +112,16 @@ export const ExpertiseLayout = ({ pillar, icon: Icon, accentColor = "orange" }: 
                       <p className="text-sm font-medium text-foreground leading-relaxed">{study.outcome}</p>
                     </div>
                   </div>
+                  {study.slug && (
+                    <div className="pt-4 mt-4 border-t border-border/10">
+                      <Link 
+                        to={`/cases/${study.slug}`} 
+                        className="inline-flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-widest text-accent hover:underline"
+                      >
+                        VIEW FULL OPERATIONS LOG <ArrowRight className="h-3 w-3" />
+                      </Link>
+                    </div>
+                  )}
                 </article>
               ))}
             </div>

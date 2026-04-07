@@ -240,11 +240,22 @@ type Translations = {
         digital: ExpertisePageContent;
         finance: ExpertisePageContent;
     };
+    case_study_pages: Record<string, CaseStudyContent>;
     not_found: {
         title: string;
         msg: string;
         home_btn: string;
     };
+};
+
+type CaseStudyContent = {
+    title: string;
+    subtitle: string;
+    pillar: "Flow" | "Physics" | "Code" | "Capital";
+    challenge: string;
+    action: string;
+    outcomes: string[];
+    impactMetrics: { value: string; label: string }[];
 };
 
 type ExpertisePageContent = {
@@ -259,6 +270,7 @@ type ExpertisePageContent = {
         challenge: string;
         action: string;
         outcome: string;
+        slug?: string;
     }[];
     impact_metrics: string;
     cta_text: string;
@@ -596,7 +608,8 @@ const translations: Record<Language, Translations> = {
                         title: "Global Automotive OEM: Control Tower",
                         challenge: "Fragmented visibility across 3 regions, 40,000+ intercontinental shipments/year",
                         action: "Built intercontinental operations center with 34 FTEs, unified under single methodology",
-                        outcome: "Single global view replacing 3 regional silos, zero major delays during launch"
+                        outcome: "Single global view replacing 3 regional silos, zero major delays during launch",
+                        slug: "global-control-tower"
                     },
                     {
                         title: "Large Retailer: Transportation Sourcing",
@@ -626,7 +639,8 @@ const translations: Record<Language, Translations> = {
                         title: "Specialty Chemical Manufacturer: Formula Optimization",
                         challenge: "Rising production costs, non-negotiable quality standards, couldn't reduce inputs without risking batch failures",
                         action: "Embedded in production labs, performed complete formula optimization using DOE and Six Sigma",
-                        outcome: "$1.5M annual savings, zero quality loss, all specifications maintained"
+                        outcome: "$1.5M annual savings, zero quality loss, all specifications maintained",
+                        slug: "formula-optimization"
                     },
                     {
                         title: "High-Volume Manufacturer: Line Balancing",
@@ -656,7 +670,8 @@ const translations: Record<Language, Translations> = {
                         title: "Logistics Operator: AI-Powered Booking",
                         challenge: "Manual booking and shipment validation across fragmented legacy systems, inconsistent OTIF",
                         action: "Built AI automation replacing manual booking and carrier data validation",
-                        outcome: "OTIF stabilized, manual touchpoints eliminated, no staff increase despite 30%+ volume growth"
+                        outcome: "OTIF stabilized, manual touchpoints eliminated, no staff increase despite 30%+ volume growth",
+                        slug: "ai-underwriting"
                     },
                     {
                         title: "EU Insurance: AI Underwriting Engine",
@@ -704,7 +719,66 @@ const translations: Record<Language, Translations> = {
                 impact_metrics: "$50M working capital unlocked | $4M annual tax savings | 20% currency risk reduction | Closing time: 42→18 days",
                 cta_text: "START SYSTEM CONTROL DIAGNOSTIC"
             }
-        }
+        },
+        case_study_pages: {
+            "global-control-tower": {
+                title: "Global Automotive OEM: Control Tower",
+                subtitle: "How we unified 40,000+ intercontinental shipments across 3 regions under a single DCSA-compliant methodology.",
+                pillar: "Flow",
+                challenge: "The client faced fragmented visibility with regional silos managing logistics independently. This led to inconsistent data, reactive decision-making, and significant delays in high-stakes intercontinental launches.",
+                action: "We designed and implemented an Intercontinental Operations Center, hiring and training 34 FTEs. We established a unified methodology and deployed a custom digital overlay on top of existing legacy systems to provide real-time visibility and predictive alerts.",
+                outcomes: [
+                    "Achieved a single global view for all shipments",
+                    "Eliminated regional data silos",
+                    "Ensured zero major delays during critical launch periods",
+                    "Established standardized DCSA-compliant reporting across all regions"
+                ],
+                impactMetrics: [
+                    { value: "40k+", label: "Shipments/Year" },
+                    { value: "34", label: "FTEs Managed" },
+                    { value: "0", label: "Critical Delays" },
+                    { value: "100%", label: "Visibility" }
+                ]
+            },
+            "formula-optimization": {
+                title: "Chemical Manufacturer: Formula Optimization",
+                subtitle: "Reducing production costs by $1.5M annually through Six Sigma and Design of Experiments without quality loss.",
+                pillar: "Physics",
+                challenge: "The manufacturer was facing rising input costs but could not reduce ingredients without risking batch failures and non-compliance with strict German quality standards.",
+                action: "Our team embedded directly into the production labs. We utilized Design of Experiments (DOE) and Six Sigma methodologies to perform a complete formula optimization, identifying non-critical variables that could be adjusted for cost savings.",
+                outcomes: [
+                    "Identified $1.5M in recurring annual savings",
+                    "Maintained 100% of quality specifications",
+                    "Upskilled the internal lab team in DOE methodologies",
+                    "Reduced batch variance by 12%"
+                ],
+                impactMetrics: [
+                    { value: "$1.5M", label: "Annual Savings" },
+                    { value: "0", label: "Quality Loss" },
+                    { value: "12%", label: "Variance Reduction" },
+                    { value: "6 Sigma", label: "Methodology" }
+                ]
+            },
+            "ai-underwriting": {
+                title: "EU Insurance: AI Underwriting Engine",
+                subtitle: "Deploying the first multi-million Euro AI underwriting engine to eliminate bottlenecks and stabilize OTIF.",
+                pillar: "Code",
+                challenge: "Manual review of complex insurance documents was creating a massive bottleneck, limiting growth capacity and leading to inconsistent risk assessments across different teams.",
+                action: "We developed and deployed a custom AI underwriting engine. Unlike generic LLMs, this was a specialized architecture designed for high-stakes financial compliance, integrating directly into the legacy core insurance platform.",
+                outcomes: [
+                    "Significantly faster decision cycles",
+                    "Achieved 100% consistency in risk assessment protocols",
+                    "Increased underwriting capacity without additional headcount",
+                    "Fully compliant with EU insurance regulations"
+                ],
+                impactMetrics: [
+                    { value: "OTIF", label: "Stabilized" },
+                    { value: "100%", label: "Consistency" },
+                    { value: "0", label: "Staff Increase" },
+                    { value: "EU", label: "Compliant" }
+                ]
+            }
+        },
     },
     tr: {
         hero: {
@@ -1037,7 +1111,8 @@ const translations: Record<Language, Translations> = {
                         title: "Küresel Otomotiv OEM: Kontrol Kulesi",
                         challenge: "3 bölgede parçalı görünürlük, yıllık 40.000+ kıtalararası sevkiyat",
                         action: "34 FTE ile kıtalararası operasyon merkezi kuruldu, tek metodoloji altında birleştirildi",
-                        outcome: "3 bölgesel silonun yerini alan tek küresel görünüm, lansman sırasında sıfır büyük gecikme"
+                        outcome: "3 bölgesel silonun yerini alan tek küresel görünüm, lansman sırasında sıfır büyük gecikme",
+                        slug: "global-control-tower"
                     },
                     {
                         title: "Büyük Perakendeci: Nakliye Tedariği",
@@ -1067,7 +1142,8 @@ const translations: Record<Language, Translations> = {
                         title: "Özel Kimya Üreticisi: Reçete Optimizasyonu",
                         challenge: "Artan üretim maliyetleri, tavizsiz kalite standartları, parti başarısızlığı riski nedeniyle girdiler azaltılamıyordu",
                         action: "Üretim laboratuvarlarına entegre olundu, DOE ve Altı Sigma kullanılarak tam reçete optimizasyonu yapıldı",
-                        outcome: "Yıllık 1.5M$ tasarruf, sıfır kalite kaybı, tüm spesifikasyonlar korundu"
+                        outcome: "Yıllık 1.5M$ tasarruf, sıfır kalite kaybı, tüm spesifikasyonlar korundu",
+                        slug: "formula-optimization"
                     },
                     {
                         title: "Yüksek Hacimli Üretici: Hat Dengeleme",
@@ -1144,9 +1220,69 @@ const translations: Record<Language, Translations> = {
                 ],
                 impact_metrics: "50M$ işletme sermayesi açıldı | Yıllık 4M$ vergi tasarrufu | %20 döviz riski azalması | Kapanış süresi: 42→18 gün",
                 cta_text: "SİSTEM KONTROL TEŞHİSİNİ BAŞLAT"
-            }
-        }
-    }
+                }
+                },
+                case_study_pages: {
+                "global-control-tower": {
+                title: "Küresel Otomotiv OEM: Kontrol Kulesi",
+                subtitle: "3 bölgedeki 40.000'den fazla kıtalararası sevkiyatı DCSA uyumlu tek bir metodoloji altında nasıl birleştirdik.",
+                pillar: "Flow",
+                challenge: "Müşteri, lojistiği bağımsız olarak yöneten bölgesel silolar nedeniyle parçalı bir görünürlükle karşı karşıyaydı. Bu durum tutarsız verilere, reaktif karar alma süreçlerine ve yüksek riskli kıtalararası lansmanlarda önemli gecikmelere yol açıyordu.",
+                action: "34 tam zamanlı personelin (FTE) işe alındığı ve eğitildiği bir Kıtalararası Operasyon Merkezi tasarladık ve kurduk. Birleşik bir metodoloji oluşturduk ve gerçek zamanlı görünürlük ile öngörücü uyarılar sağlamak için mevcut eski sistemlerin üzerine özel bir dijital katman yerleştirdik.",
+                outcomes: [
+                    "Tüm sevkiyatlar için tek bir küresel görünüm elde edildi",
+                    "Bölgesel veri siloları ortadan kaldırıldı",
+                    "Kritik lansman dönemlerinde sıfır büyük gecikme sağlandı",
+                    "Tüm bölgelerde standartlaştırılmış DCSA uyumlu raporlama oluşturuldu"
+                ],
+                impactMetrics: [
+                    { value: "40k+", label: "Sevkiyat/Yıl" },
+                    { value: "34", label: "Yönetilen Personel" },
+                    { value: "0", label: "Kritik Gecikme" },
+                    { value: "100%", label: "Görünürlük" }
+                ]
+                },
+                "formula-optimization": {
+                title: "Kimya Üreticisi: Reçete Optimizasyonu",
+                subtitle: "Altı Sigma ve Deney Tasarımı (DOE) ile kaliteden ödün vermeden yıllık 1,5 milyon dolar maliyet tasarrufu.",
+                pillar: "Physics",
+                challenge: "Üretici, artan girdi maliyetleriyle karşı karşıyaydı ancak katı Alman kalite standartlarına uyum ve parti başarısızlığı riski nedeniyle içerikleri kaliteden ödün vermeden azaltamıyordu.",
+                action: "Ekibimiz doğrudan üretim laboratuvarlarına entegre oldu. Maliyet tasarrufu için ayarlanabilecek kritik olmayan değişkenleri belirlemek amacıyla Deney Tasarımı (DOE) ve Altı Sigma metodolojilerini kullanarak tam bir reçete optimizasyonu gerçekleştirdik.",
+                outcomes: [
+                    "Yıllık 1,5 milyon dolar tutarında tekrarlanan tasarruf belirlendi",
+                    "Kalite spesifikasyonlarının %100'ü korundu",
+                    "Dahili laboratuvar ekibi DOE metodolojileri konusunda geliştirildi",
+                    "Parti varyansı %12 oranında azaltıldı"
+                ],
+                impactMetrics: [
+                    { value: "1.5M$", label: "Yıllık Tasarruf" },
+                    { value: "0", label: "Kalite Kaybı" },
+                    { value: "%12", label: "Varyans Azaltma" },
+                    { value: "6 Sigma", label: "Metodoloji" }
+                ]
+                },
+                "ai-underwriting": {
+                title: "AB Sigorta: YZ Sigortalama Motoru",
+                subtitle: "Darboğazları gidermek ve OTIF'i stabilize etmek için ilk çok milyon Euro'luk yapay zeka sigortalama motorunun devreye alınması.",
+                pillar: "Code",
+                challenge: "Karmaşık sigorta belgelerinin manuel olarak incelenmesi devasa bir darboğaz yaratıyor, büyüme kapasitesini sınırlıyor ve farklı ekipler arasında tutarsız risk değerlendirmelerine yol açıyordu.",
+                action: "Özel bir yapay zeka (YZ) sigortalama motoru geliştirdik ve devreye aldık. Genel amaçlı büyük dil modellerinden (LLM) farklı olarak bu, yüksek riskli finansal uyumluluk için tasarlanmış ve doğrudan eski çekirdek sigorta platformuna entegre edilmiş özel bir mimariydi.",
+                outcomes: [
+                    "Karar döngüleri önemli ölçüde hızlandı",
+                    "Risk değerlendirme protokollerinde %100 tutarlılık sağlandı",
+                    "Ek personel almadan sigortalama kapasitesi artırıldı",
+                    "AB sigorta düzenlemeleriyle tam uyum sağlandı"
+                ],
+                impactMetrics: [
+                    { value: "OTIF", label: "Stabilize Edildi" },
+                    { value: "%100", label: "Tutarlılık" },
+                    { value: "0", label: "Personel Artışı" },
+                    { value: "AB", label: "Uyumlu" }
+                ]
+                }
+                },
+                },
+
 };
 
 interface LanguageContextType {
