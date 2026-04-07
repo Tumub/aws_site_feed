@@ -615,10 +615,11 @@ const translations: Record<Language, Translations> = {
                         slug: "control-tower"
                     },
                     {
-                        title: "Large Retailer: Transportation Sourcing",
-                        challenge: "$790M transportation spend with fragmented carrier portfolio, reactive selection",
-                        action: "Led optimization using Coupa platform with 'Best Value' logic balancing cost and service",
-                        outcome: "Tens of millions in savings, 30% value improvement, sourcing cycle cut from 8 to 4 months"
+                        title: "Global Retailer: Transportation Sourcing Optimization",
+                        challenge: "A global retailer operating with escalating transportation costs and a fragmented carrier portfolio. Carriers were selected reactively rather than strategically. Sourcing cycles were slow and inefficient.",
+                        action: "Led strategic optimization of a major global transportation spend portfolio using advanced sourcing platforms and Best Value logic - balancing cost and service quality, not just lowest rate. Consolidated carrier relationships and negotiated performance-based contracts.",
+                        outcome: "Hundreds of millions in shipping spend optimized, significant value improvement balancing cost and service, sourcing cycle time cut in half, carriers aligned with strategic performance metrics",
+                        slug: "freight-sourcing"
                     },
                     {
                         title: "Furniture Retailer: AI Track & Trace",
@@ -798,6 +799,24 @@ const translations: Record<Language, Translations> = {
                     { value: "$50M", label: "Working capital unlocked" },
                     { value: "20%", label: "Currency risk reduced" },
                     { value: "Synced", label: "Treasury and sourcing aligned" }
+                ]
+            },
+            "freight-sourcing": {
+                title: "Global Retailer: Transportation Sourcing Optimization",
+                subtitle: "Hundreds of Millions in Shipping Spend Optimized",
+                pillar: "Flow",
+                challenge: "A global retailer operating with escalating transportation costs and a fragmented carrier portfolio. Carriers were selected reactively rather than strategically. Sourcing cycles were slow and inefficient.",
+                action: "Led strategic optimization of a major global transportation spend portfolio using advanced sourcing platforms and Best Value logic - balancing cost and service quality, not just lowest rate. Consolidated carrier relationships and negotiated performance-based contracts.",
+                outcomes: [
+                    "Hundreds of millions in shipping spend optimized",
+                    "Significant value improvement balancing cost and service",
+                    "Sourcing cycle time cut in half",
+                    "Carriers aligned with strategic performance metrics"
+                ],
+                impactMetrics: [
+                    { value: "9-figure", label: "Spend optimized" },
+                    { value: "50%", label: "Faster sourcing cycles" },
+                    { value: "30%", label: "Value improvement" }
                 ]
             }
         },
@@ -1138,10 +1157,11 @@ const translations: Record<Language, Translations> = {
                         slug: "control-tower"
                     },
                     {
-                        title: "Büyük Perakendeci: Nakliye Tedariği",
-                        challenge: "Parçalı taşıyıcı portföyü ve reaktif seçim ile 790M$ nakliye harcaması",
-                        action: "Coupa platformu kullanılarak maliyet ve hizmeti dengeleyen 'En İyi Değer' mantığıyla optimizasyon yönetildi",
-                        outcome: "On milyonlarca dolar tasarruf, %30 değer iyileştirmesi, tedarik döngüsü 8 aydan 4 aya indirildi"
+                        title: "Büyük Perakendeci: Nakliye Tedariği Optimizasyonu",
+                        challenge: "Artan nakliye maliyetleri ve parçalı bir taşıyıcı portföyü ile faaliyet gösteren küresel bir perakendeci. Taşıyıcılar stratejik olmaktan ziyade reaktif olarak seçiliyordu. Tedarik döngüleri yavaş ve verimsizdi.",
+                        action: "Gelişmiş tedarik platformlarını ve sadece en düşük oranı değil, maliyet ve hizmet kalitesini dengeleyen 'En İyi Değer' mantığını kullanarak büyük bir küresel nakliye harcama portföyünün stratejik optimizasyonuna liderlik edildi. Taşıyıcı ilişkileri konsolide edildi ve performansa dayalı sözleşmeler müzakere edildi.",
+                        outcome: "Yüz milyonlarca dolarlık nakliye harcaması optimize edildi, maliyet ve hizmeti dengeleyen önemli değer iyileştirmesi sağlandı, tedarik döngü süresi yarıya indirildi, taşıyıcılar stratejik performans metrikleriyle hizalandı",
+                        slug: "freight-sourcing"
                     },
                     {
                         title: "Mobilya Perakendecisi: YZ İzleme ve Takip",
@@ -1321,6 +1341,24 @@ const translations: Record<Language, Translations> = {
                     { value: "50M$", label: "Sermaye açıldı" },
                     { value: "%20", label: "Döviz riski azaldı" },
                     { value: "Senkron", label: "Hazine ve tedarik hizalandı" }
+                ]
+            },
+            "freight-sourcing": {
+                title: "Büyük Perakendeci: Nakliye Tedariği Optimizasyonu",
+                subtitle: "Yüz Milyonlarca Dolarlık Nakliye Harcaması Optimize Edildi",
+                pillar: "Flow",
+                challenge: "Artan nakliye maliyetleri ve parçalı bir taşıyıcı portföyü ile faaliyet gösteren küresel bir perakendeci. Taşıyıcılar stratejik olmaktan ziyade reaktif olarak seçiliyordu. Tedarik döngüleri yavaş ve verimsizdi.",
+                action: "Gelişmiş tedarik platformlarını ve sadece en düşük oranı değil, maliyet ve hizmet kalitesini dengeleyen 'En İyi Değer' mantığını kullanarak büyük bir küresel nakliye harcama portföyünün stratejik optimizasyonuna liderlik edildi. Taşıyıcı ilişkileri konsolide edildi ve performansa dayalı sözleşmeler müzakere edildi.",
+                outcomes: [
+                    "Yüz milyonlarca dolarlık nakliye harcaması optimize edildi",
+                    "Maliyet ve hizmeti dengeleyen önemli değer iyileştirmesi sağlandı",
+                    "Tedarik döngü süresi yarıya indirildi",
+                    "Taşıyıcılar stratejik performans metrikleriyle hizalandı"
+                ],
+                impactMetrics: [
+                    { value: "9-basamak", label: "Harcama optimize edildi" },
+                    { value: "%50", label: "Daha hızlı tedarik" },
+                    { value: "%30", label: "Değer iyileştirmesi" }
                 ]
             }
         },
