@@ -9,11 +9,12 @@ import Portfolio from "./pages/Portfolio";
 import Insights from "./pages/Insights";
 import About from "./pages/About";
 import FlowExpertise from "./pages/expertise/Flow";
-import PhysicsExpertise from \"./pages/expertise/Physics\";
-import DigitalExpertise from \"./pages/expertise/Digital\";
-import FinanceExpertise from \"./pages/expertise/Finance\";
-import CaseStudyPage from \"./pages/cases/CaseStudyPage\";
-import Application from \"./pages/Application\";
+import PhysicsExpertise from "./pages/expertise/Physics";
+import DigitalExpertise from "./pages/expertise/Digital";
+import FinanceExpertise from "./pages/expertise/Finance";
+import CaseStudyPage from "./pages/cases/CaseStudyPage";
+import CasesIndex from "./pages/cases/CasesIndex";
+import Application from "./pages/Application";
 
 import NotFound from "./pages/NotFound";
 
@@ -56,10 +57,11 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/expertise/flow" element={<FlowExpertise />} />
               <Route path="/expertise/physics" element={<PhysicsExpertise />} />
-              <Route path=\"/expertise/digital\" element={<DigitalExpertise />} />
-              <Route path=\"/expertise/finance\" element={<FinanceExpertise />} />
-              <Route path=\"/cases/:slug\" element={<CaseStudyPage />} />
-              <Route path=\"/apply\" element={<Application />} />
+              <Route path="/expertise/digital" element={<DigitalExpertise />} />
+              <Route path="/expertise/finance" element={<FinanceExpertise />} />
+              <Route path="/cases" element={<CasesIndex />} />
+              <Route path="/cases/:slug" element={<CaseStudyPage />} />
+              <Route path="/apply" element={<Application />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>

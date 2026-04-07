@@ -228,6 +228,8 @@ type Translations = {
         our_approach: string;
         portfolio: string;
         insights: string;
+        about: string;
+        operations: string;
         signal_check_btn: string;
     };
     footer: {
@@ -375,7 +377,7 @@ const translations: Record<Language, Translations> = {
         origin: {
             headline: "We Don't Advise. We Embed.",
             story_p1: "Across every plant, process, and project, one truth stood out: transformation doesn't fail because of bad strategy. It fails because strategy can't survive the real world. I've spent my career deep inside global manufacturing and industrial operations where Sweden's planning precision meets Turkey's execution speed and Switzerland's systems logic.",
-            story_p2: "That’s why I built Torque Foundry Advisory—to close the gap between digital strategy and operational execution. We don't just consult. We embed. We work alongside your teams where it matters most: on the shop floor, in the systems, and across functions.",
+            story_p2: "That’s why I built Torque Foundry Advisory-to close the gap between digital strategy and operational execution. We don't just consult. We embed. We work alongside your teams where it matters most: on the shop floor, in the systems, and across functions.",
             story_p3: "",
             story_p4: "",
             founder_name: "UMUT BAKIN",
@@ -394,7 +396,7 @@ const translations: Record<Language, Translations> = {
             governance_title: "STRATEGIC GOVERNANCE",
             advisor: {
                 title: "ALPER PEKCAN",
-                sub: "Board Advisor — Corporate Finance",
+                sub: "Board Advisor - Corporate Finance",
                 desc: "Alper ensures financial alignment in operational transformation. As a seasoned strategist, he builds models that validate ROI and let us co-own risk with clients. He links the boardroom to the factory and long-term value to day-one impact."
             },
             closing: "This Is Industrial Execution Consulting, Rebuilt. Torque Foundry Advisory exists for one reason: to turn strategy into sustainable, scalable industrial results. Let’s turn strategy into motion."
@@ -404,7 +406,7 @@ const translations: Record<Language, Translations> = {
         },
         trio: {
             headline: "How We Make Strategy Real",
-            description: "Digital transformation in manufacturing isn’t about tech for tech’s sake. It’s about impact—faster throughput, better decision-making, and less friction between business units. That only happens when Digital, Supply Chain, Operations, and Finance move together.",
+            description: "Digital transformation in manufacturing isn’t about tech for tech’s sake. It’s about impact-faster throughput, better decision-making, and less friction between business units. That only happens when Digital, Supply Chain, Operations, and Finance move together.",
             manufacturing: {
                 title: "Manufacturing",
                 subtitle: "The Foundry: Optimization based on decades of floor experience.",
@@ -563,7 +565,7 @@ const translations: Record<Language, Translations> = {
                 "Shared upside / Gain-share mechanisms",
                 "Embedded capability transfer"
             ],
-            context_text: "This isn't a free workshop. It's a structured 'Gate-0' assessment where we put skin in the game. If the upside isn't there, you walk away with clarity—and zero sunk costs in consulting fees.",
+            context_text: "This isn't a free workshop. It's a structured 'Gate-0' assessment where we put skin in the game. If the upside isn't there, you walk away with clarity-and zero sunk costs in consulting fees.",
             apply_btn: "START VALIDATION"
         },
         contact: {
@@ -584,6 +586,7 @@ const translations: Record<Language, Translations> = {
             portfolio: "Portfolio",
             insights: "Insights",
             about: "About",
+            operations: "Operations",
             signal_check_btn: "SYSTEM CONTROL"
         },
         footer: {
@@ -609,7 +612,7 @@ const translations: Record<Language, Translations> = {
                         challenge: "Fragmented visibility across 3 regions, 40,000+ intercontinental shipments/year",
                         action: "Built intercontinental operations center with 34 FTEs, unified under single methodology",
                         outcome: "Single global view replacing 3 regional silos, zero major delays during launch",
-                        slug: "global-control-tower"
+                        slug: "control-tower"
                     },
                     {
                         title: "Large Retailer: Transportation Sourcing",
@@ -630,7 +633,7 @@ const translations: Record<Language, Translations> = {
             physics: {
                 hero_title: "PRODUCTION PHYSICS: THE MUSCLE",
                 hero_subtitle: "Production Excellence",
-                overview: "In existing facilities, cycle times haven't changed, scrap rates remain 'acceptable,' and energy consumption is 'normal' — yet all conceal underlying inefficiencies. We integrate into your production lines to optimize physical processes and translate every improvement directly into P&L language.",
+                overview: "In existing facilities, cycle times haven't changed, scrap rates remain 'acceptable,' and energy consumption is 'normal' - yet all conceal underlying inefficiencies. We integrate into your production lines to optimize physical processes and translate every improvement directly into P&L language.",
                 capabilities_title: "Capabilities",
                 capabilities: ["Cycle time optimization and line balancing", "Formula and process optimization (DOE, Six Sigma)", "New plant commissioning and OEE ramp-up"],
                 case_studies_title: "Embedded Case Studies",
@@ -671,7 +674,7 @@ const translations: Record<Language, Translations> = {
                         challenge: "Manual booking and shipment validation across fragmented legacy systems, inconsistent OTIF",
                         action: "Built AI automation replacing manual booking and carrier data validation",
                         outcome: "OTIF stabilized, manual touchpoints eliminated, no staff increase despite 30%+ volume growth",
-                        slug: "ai-underwriting"
+                        slug: "eu-insurance-ai"
                     },
                     {
                         title: "EU Insurance: AI Underwriting Engine",
@@ -686,13 +689,13 @@ const translations: Record<Language, Translations> = {
                         outcome: "ROI visibility across 25+ initiatives, $2M saved by stopping underperforming ones"
                     }
                 ],
-                impact_metrics: "OTIF stabilized | $2M saved from underperformers | 25+ AI initiatives governed | Zero staff increase despite 30% volume growth",
+                impact_metrics: "OTIF stabilized | $2M saved from underperformers | 25+ YZ girişimi yönetiliyor | %30 hacim artışına rağmen personel artışı gerekmedi",
                 cta_text: "START SYSTEM CONTROL DIAGNOSTIC"
             },
             finance: {
                 hero_title: "STRATEGIC FINANCE: THE NERVES",
                 hero_subtitle: "Strategic Finance",
-                overview: "Capital, when disconnected from operations, becomes a drag. We align finance with the factory floor — integrating treasury logic, liquidity strategies, and ROI governance directly into operational decision-making.",
+                overview: "Capital, when disconnected from operations, becomes a drag. We align finance with the factory floor - integrating treasury logic, liquidity strategies, and ROI governance directly into operational decision-making.",
                 capabilities_title: "Capabilities",
                 capabilities: ["Treasury management integrated with logistics flow", "Capex planning linked to production metrics and ROI", "Corporate restructuring and holding optimization"],
                 case_studies_title: "Embedded Case Studies",
@@ -701,7 +704,8 @@ const translations: Record<Language, Translations> = {
                         title: "Global Retailer: Treasury Management",
                         challenge: "Currency volatility and fragmented cross-regional liquidity",
                         action: "Integrated treasury management into logistics flow, implemented hedging and dynamic cash management",
-                        outcome: "20% reduction in currency risk, $50M working capital unlocked, treasury forecasting synchronized with sourcing"
+                        outcome: "20% reduction in currency risk, $50M working capital unlocked, treasury forecasting synchronized with sourcing",
+                        slug: "treasury-optimization"
                     },
                     {
                         title: "Industrial OEM: Embedded Finance",
@@ -721,7 +725,7 @@ const translations: Record<Language, Translations> = {
             }
         },
         case_study_pages: {
-            "global-control-tower": {
+            "control-tower": {
                 title: "Global Automotive OEM: Control Tower",
                 subtitle: "How we unified 40,000+ intercontinental shipments across 3 regions under a single DCSA-compliant methodology.",
                 pillar: "Flow",
@@ -759,7 +763,7 @@ const translations: Record<Language, Translations> = {
                     { value: "6 Sigma", label: "Methodology" }
                 ]
             },
-            "ai-underwriting": {
+            "eu-insurance-ai": {
                 title: "EU Insurance: AI Underwriting Engine",
                 subtitle: "Deploying the first multi-million Euro AI underwriting engine to eliminate bottlenecks and stabilize OTIF.",
                 pillar: "Code",
@@ -776,6 +780,24 @@ const translations: Record<Language, Translations> = {
                     { value: "100%", label: "Consistency" },
                     { value: "0", label: "Staff Increase" },
                     { value: "EU", label: "Compliant" }
+                ]
+            },
+            "treasury-optimization": {
+                title: "Global Retail Logistics: Strategic Treasury Management",
+                subtitle: "$50M Working Capital Unlocked",
+                pillar: "Capital",
+                challenge: "A global retailer faced currency volatility and fragmented cross-regional liquidity scaling. Treasury operations were disconnected from logistics flow, creating blind spots in cash management across sourcing regions.",
+                action: "Integrated treasury management directly into the logistics flow. Implemented currency risk hedging strategies and dynamic cash management synchronized with sourcing cycles and shipment timing.",
+                outcomes: [
+                    "20% reduction in currency risk exposure",
+                    "$50M in working capital unlocked",
+                    "Treasury forecasting synchronized with sourcing operations",
+                    "Cross-regional liquidity management unified"
+                ],
+                impactMetrics: [
+                    { value: "$50M", label: "Working capital unlocked" },
+                    { value: "20%", label: "Currency risk reduced" },
+                    { value: "Synced", label: "Treasury and sourcing aligned" }
                 ]
             }
         },
@@ -897,8 +919,8 @@ const translations: Record<Language, Translations> = {
             governance_title: "STRATEJİK YÖNETİŞİM",
             advisor: {
                 title: "ALPER PEKCAN",
-                sub: "Yönetim Kurulu Danışmanı — Kurumsal Finans",
-                desc: "Alper, operasyonel dönüşümde finansal hizalanmayı sağlar. Deneyimli bir stratejist olarak, ROI'yi doğrulayan ve riskleri müşterilerle ortaklaşa üstlenmemizi sağlayan modeller kurar. Yönetim kurulunu fabrikaya ve uzun vadeli değeri ilk günkü etkiye bağlar."
+                sub: "Yönetim Kurulu Danışmanı - Kurumsal Finans",
+                desc: "Alper ensures financial alignment in operational transformation. As a seasoned strategist, he builds models that validate ROI and let us co-own risk with clients. He links the boardroom to the factory and long-term value to day-one impact."
             },
             closing: "Bu, Yeniden İnşa Edilmiş Endüstriyel İcraat Danışmanlığıdır. Torque Foundry Advisory tek bir sebeple var: stratejiyi sürdürülebilir, ölçeklenebilir endüstriyel sonuçlara dönüştürmek için. Stratejiyi harekete geçirelim."
         },
@@ -907,7 +929,7 @@ const translations: Record<Language, Translations> = {
         },
         trio: {
             headline: "Stratejiyi Nasıl Gerçeğe Dönüştürüyoruz",
-            description: "Üretimde dijital dönüşüm, teknoloji için teknoloji demek değildir. Etki demektir—daha hızlı çıktı, daha iyi karar alma ve iş birimleri arasında daha az sürtünme. Bu ancak Dijital, Tedarik Zinciri, Operasyonlar ve Finans birlikte hareket ettiğinde gerçekleşir.",
+            description: "Üretimde dijital dönüşüm, teknoloji için teknoloji demek değildir. Etki demektir-daha hızlı çıktı, daha iyi karar alma ve iş birimleri arasında daha az sürtünme. Bu ancak Dijital, Tedarik Zinciri, Operasyonlar ve Finans birlikte hareket ettiğinde gerçekleşir.",
             manufacturing: {
                 title: "Üretim",
                 subtitle: "Dökümhane: Onlarca yıllık saha deneyimine dayalı optimizasyon.",
@@ -1087,6 +1109,7 @@ const translations: Record<Language, Translations> = {
             portfolio: "Portföyümüz",
             insights: "İçgörüler",
             about: "Hakkımızda",
+            operations: "Operasyonlar",
             signal_check_btn: "SİSTEM KONTROL"
         },
         footer: {
@@ -1111,8 +1134,8 @@ const translations: Record<Language, Translations> = {
                         title: "Küresel Otomotiv OEM: Kontrol Kulesi",
                         challenge: "3 bölgede parçalı görünürlük, yıllık 40.000+ kıtalararası sevkiyat",
                         action: "34 FTE ile kıtalararası operasyon merkezi kuruldu, tek metodoloji altında birleştirildi",
-                        outcome: "3 bölgesel silonun yerini alan tek küresel görünüm, lansman sırasında sıfır büyük gecikme",
-                        slug: "global-control-tower"
+                        outcome: "3 bölgesel silonun yer alan tek küresel görünüm, lansman sırasında sıfır büyük gecikme",
+                        slug: "control-tower"
                     },
                     {
                         title: "Büyük Perakendeci: Nakliye Tedariği",
@@ -1173,7 +1196,8 @@ const translations: Record<Language, Translations> = {
                         title: "Lojistik Operatörü: YZ Destekli Rezervasyon",
                         challenge: "Parçalı eski sistemlerde manuel rezervasyon ve sevkiyat doğrulaması, tutarsız OTIF",
                         action: "Manuel rezervasyon ve taşıyıcı veri doğrulamasının yerini alan YZ otomasyonu kuruldu",
-                        outcome: "OTIF stabilize edildi, manuel temas noktaları elendi, %30+ hacim artışına rağmen personel artışı gerekmedi"
+                        outcome: "OTIF stabilize edildi, manuel temas noktaları elendi, %30+ hacim artışına rağmen personel artışı gerekmedi",
+                        slug: "eu-insurance-ai"
                     },
                     {
                         title: "AB Sigorta: YZ Sigortalama Motoru",
@@ -1203,7 +1227,8 @@ const translations: Record<Language, Translations> = {
                         title: "Küresel Perakendeci: Hazine Yönetimi",
                         challenge: "Döviz dalgalanması ve parçalı bölgeler arası likidite",
                         action: "Hazine yönetimi lojistik akışına entegre edildi, hedging ve dinamik nakit yönetimi uygulandı",
-                        outcome: "Döviz riskinde %20 azalma, 50 milyon $ işletme sermayesi açıldı, hazine öngörüleri tedarikle senkronize edildi"
+                        outcome: "Döviz riskinde %20 azalma, 50 milyon $ işletme sermayesi açıldı, hazine öngörüleri tedarikle senkronize edildi",
+                        slug: "treasury-optimization"
                     },
                     {
                         title: "Endüstriyel OEM: Gömülü Finans",
@@ -1220,10 +1245,10 @@ const translations: Record<Language, Translations> = {
                 ],
                 impact_metrics: "50M$ işletme sermayesi açıldı | Yıllık 4M$ vergi tasarrufu | %20 döviz riski azalması | Kapanış süresi: 42→18 gün",
                 cta_text: "SİSTEM KONTROL TEŞHİSİNİ BAŞLAT"
-                }
-                },
-                case_study_pages: {
-                "global-control-tower": {
+            }
+        },
+        case_study_pages: {
+            "control-tower": {
                 title: "Küresel Otomotiv OEM: Kontrol Kulesi",
                 subtitle: "3 bölgedeki 40.000'den fazla kıtalararası sevkiyatı DCSA uyumlu tek bir metodoloji altında nasıl birleştirdik.",
                 pillar: "Flow",
@@ -1241,8 +1266,8 @@ const translations: Record<Language, Translations> = {
                     { value: "0", label: "Kritik Gecikme" },
                     { value: "100%", label: "Görünürlük" }
                 ]
-                },
-                "formula-optimization": {
+            },
+            "formula-optimization": {
                 title: "Kimya Üreticisi: Reçete Optimizasyonu",
                 subtitle: "Altı Sigma ve Deney Tasarımı (DOE) ile kaliteden ödün vermeden yıllık 1,5 milyon dolar maliyet tasarrufu.",
                 pillar: "Physics",
@@ -1260,8 +1285,8 @@ const translations: Record<Language, Translations> = {
                     { value: "%12", label: "Varyans Azaltma" },
                     { value: "6 Sigma", label: "Metodoloji" }
                 ]
-                },
-                "ai-underwriting": {
+            },
+            "eu-insurance-ai": {
                 title: "AB Sigorta: YZ Sigortalama Motoru",
                 subtitle: "Darboğazları gidermek ve OTIF'i stabilize etmek için ilk çok milyon Euro'luk yapay zeka sigortalama motorunun devreye alınması.",
                 pillar: "Code",
@@ -1279,10 +1304,27 @@ const translations: Record<Language, Translations> = {
                     { value: "0", label: "Personel Artışı" },
                     { value: "AB", label: "Uyumlu" }
                 ]
-                }
-                },
-                },
-
+            },
+            "treasury-optimization": {
+                title: "Küresel Perakende Lojistiği: Stratejik Hazine Yönetimi",
+                subtitle: "50 Milyon Dolarlık İşletme Sermayesi Serbest Bırakıldı",
+                pillar: "Capital",
+                challenge: "Küresel bir perakendeci, döviz dalgalanmaları ve parçalı bölgeler arası likidite ölçeklendirmesi ile karşı karşıyaydı. Hazine operasyonlarının lojistik akışından kopuk olması, tedarik bölgeleri genelinde nakit yönetiminde kör noktalar yaratıyordu.",
+                action: "Hazine yönetimi doğrudan lojistik akışına entegre edildi. Tedarik döngüleri ve sevkiyat zamanlamasıyla senkronize edilmiş döviz riski hedging stratejileri ve dinamik nakit yönetimi uygulandı.",
+                outcomes: [
+                    "Döviz riski maruziyetinde %20 azalma",
+                    "50 Milyon dolarlık işletme sermayesi açığa çıktı",
+                    "Hazine öngörüleri tedarik operasyonlarıyla senkronize edildi",
+                    "Bölgeler arası likidite yönetimi birleştirildi"
+                ],
+                impactMetrics: [
+                    { value: "50M$", label: "Sermaye açıldı" },
+                    { value: "%20", label: "Döviz riski azaldı" },
+                    { value: "Senkron", label: "Hazine ve tedarik hizalandı" }
+                ]
+            }
+        },
+    },
 };
 
 interface LanguageContextType {

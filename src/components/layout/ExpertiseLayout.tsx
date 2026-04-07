@@ -132,7 +132,7 @@ export const ExpertiseLayout = ({ pillar, icon: Icon, accentColor = "orange" }: 
         {pillar === "digital" && (
            <div className="mt-24 rounded-xl border border-cyan-400/20 bg-cyan-950/5 p-8 text-center backdrop-blur-sm">
               <p className="text-muted-foreground mb-4">
-                Our digital tools and training programs are deployed through <span className="text-accent font-semibold">VeriFix Logistics</span> — our dedicated logistics intelligence platform.
+                Our digital tools and training programs are deployed through <span className="text-accent font-semibold">VeriFix Logistics</span> - our dedicated logistics intelligence platform.
               </p>
               <a 
                 href="https://checkbeforefixing.com" 

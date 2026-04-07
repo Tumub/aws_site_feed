@@ -94,7 +94,7 @@ export const CaseStudyTemplate = ({
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {impactMetrics.map((metric, i) => (
               <div key={i} className="text-center md:text-left">
-                <div className="font-display text-3xl md:text-5xl text-orange-500 mb-2">{metric.value}</div>
+                <div className={`font-display text-3xl md:text-5xl ${accentTextClass} mb-2`}>{metric.value}</div>
                 <div className="font-mono text-[0.65rem] uppercase tracking-widest text-muted-foreground">{metric.label}</div>
               </div>
             ))}

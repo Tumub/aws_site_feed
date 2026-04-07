@@ -15,6 +15,7 @@ export const SiteHeader = () => {
   const NAV_ITEMS = [
     { label: t.nav.core_expertise, href: "/#power-trio" },
     { label: t.nav.our_approach, href: "/#vertical-integration" },
+    { label: t.nav.operations, href: "/cases" },
     { label: t.nav.portfolio, href: "/portfolio" },
     { label: t.nav.insights, href: "/insights" },
     { label: t.nav.about, href: "/about" },
