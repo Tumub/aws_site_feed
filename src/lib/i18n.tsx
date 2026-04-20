@@ -690,7 +690,7 @@ const translations: Record<Language, Translations> = {
                         outcome: "ROI visibility across 25+ initiatives, $2M saved by stopping underperforming ones"
                     }
                 ],
-                impact_metrics: "OTIF stabilized | $2M saved from underperformers | 25+ YZ girişimi yönetiliyor | %30 hacim artışına rağmen personel artışı gerekmedi",
+                impact_metrics: "OTIF stabilized | $2M saved from underperformers | 25+ AI initiatives managed | 30% volume growth, zero headcount increase",
                 cta_text: "START SYSTEM CONTROL DIAGNOSTIC"
             },
             finance: {
